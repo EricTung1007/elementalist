@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Drop
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - mockup
+  - Water
+  - UI
+  - drops
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3430958939
+    locked: 0
+  - name: ref
+    uniqueID: 2765997497
+    locked: 0
+  - name: player
+    uniqueID: 677130239
+    locked: 0
+  - name: drops
+    uniqueID: 121205659
+    locked: 0
+  - name: UI
+    uniqueID: 2952577881
+    locked: 0

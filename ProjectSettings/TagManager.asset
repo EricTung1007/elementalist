@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - drops
-  - 
+  - screensoverlay
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2952577881
+    locked: 0
+  - name: screenoverlay
+    uniqueID: 162857535
     locked: 0

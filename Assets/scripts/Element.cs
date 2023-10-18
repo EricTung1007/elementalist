@@ -5,61 +5,49 @@ using UnityEngine;
 public class Element : MonoBehaviour
 {
     public GameObject controller;
-    // position
-    private int xGrid = -1;
-    private int yGrid = -1;
+    //public GameObject element;
 
-    private int counter = 0;
-
-    // referneces for all the sprites that the element can be
+    public int xGrid, yGrid;
+    public Type type;
     public Sprite fire, water, grass;
+    
 
     public void Activate()
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
-
-        // take the instantiated location and adjust the transform
-        SetCoordinate();
-
-        switch (this.name)
+        Element e = this.GetComponent<Element>();
+        switch(e.type)
         {
-            case "fire": this.GetComponent<SpriteRenderer>().sprite = fire; break;
-            case "water": this.GetComponent<SpriteRenderer>().sprite = water; break;
-            case "grass": this.GetComponent<SpriteRenderer>().sprite = grass; break;
+            case Type.fire:
+                this.name = "fire";
+                this.GetComponent<SpriteRenderer>().sprite = fire; break;
+            case Type.water:
+                this.name = "water";
+                this.GetComponent<SpriteRenderer>().sprite = water; break;
+            case Type.grass:
+                this.name = "grass";
+                this.GetComponent<SpriteRenderer>().sprite = grass; break;
         }
+        SetWorldCoordinate();
     }
 
-    public void SetCoordinate()
+    public void SetWorldCoordinate()
     {
-        float x = xGrid;
-        float y = yGrid;
-
-        x += -4.0f;
-        y += -0.8f;
-
-        this.transform.position = new Vector3 (x, y, -1.0f);
+        float x = xGrid, y = yGrid;
+        this.transform.position = new Vector3(x - 4.0f, y - 0.7f, -1.0f);
     }
 
-    public int GetXGrid()
-    {
-        return xGrid;
-    }
-
-    public int GetYGrid()
-    {
-        return yGrid;
-    }
-
-    public void SetXGrid(int x)
-    {
-        xGrid = x;
-    }
-    public void SetYGrid(int y)
-    {
-        yGrid = y;
-    }
     public void OnMouseDown()
     {
         Destroy(this.gameObject);
+    }
+    public void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            int x = xGrid;
+            int y = yGrid;
+            controller.GetComponent<Controller>().TryMagic(x, y);
+        }
     }
 }

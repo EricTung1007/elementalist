@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int position = -1;
 
-    // Update is called once per frame
-    void Update()
+    public void SetWorldCoordinate()
     {
-        
+        float x = position;
+
+        this.transform.position = new Vector3(2.5f * x, 2.5f, 0);
     }
 }

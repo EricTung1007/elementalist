@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 312835232}
   - component: {fileID: 312835231}
   m_Layer: 7
-  m_Name: menu screen
+  m_Name: StartMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,12 +290,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1135017877}
-  - {fileID: 601521790}
   m_Father: {fileID: 1473036359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.700012, y: 0}
+  m_AnchoredPosition: {x: -16.699951, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312835231
@@ -394,7 +393,7 @@ GameObject:
   - component: {fileID: 346043806}
   - component: {fileID: 346043805}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,7 +484,7 @@ GameObject:
   - component: {fileID: 553921933}
   - component: {fileID: 553921934}
   m_Layer: 0
-  m_Name: loadScene
+  m_Name: LoadScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,7 +531,7 @@ GameObject:
   - component: {fileID: 601521790}
   - component: {fileID: 601521791}
   m_Layer: 5
-  m_Name: cover
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,11 +546,11 @@ Transform:
   m_GameObject: {fileID: 601521789}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 6, z: 0}
-  m_LocalScale: {x: 124.300804, y: 133.46713, z: 39}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.4, y: 3.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 312835230}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &601521791
 SpriteRenderer:
@@ -621,7 +620,7 @@ GameObject:
   - component: {fileID: 1135017878}
   - component: {fileID: 1135017883}
   m_Layer: 7
-  m_Name: startButton
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,7 +739,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: Level0
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1135017881
@@ -839,7 +838,7 @@ GameObject:
   - component: {fileID: 1473036357}
   - component: {fileID: 1473036356}
   m_Layer: 5
-  m_Name: screenOverlay
+  m_Name: ScreenOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,7 +883,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1473036358
 Canvas:
   m_ObjectHideFlags: 0
@@ -894,7 +893,7 @@ Canvas:
   m_GameObject: {fileID: 1473036355}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 346043806}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -916,8 +915,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473036355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.023923445, y: 0.023923445, z: 0.023923445}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 312835230}
@@ -926,8 +925,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 668.99994, y: 418}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1686335000
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7b5ef0bd54fae4fbeeb8b8c52f076d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
 --- !u!114 &1686335002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,5 +1014,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 346043807}
+  - {fileID: 601521790}
   - {fileID: 1473036359}
   - {fileID: 1686335004}

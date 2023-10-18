@@ -6,6 +6,7 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
     public Type type;
+    //public List<Status> status = new List<Status>();
 
     public bool isDead = false;
 
@@ -62,4 +63,5 @@ public class Unit : MonoBehaviour
         this.currentHP -= System.Convert.ToInt32(realDamageAmount);
     }
     //void GetStatus(Status status)
+    public bool muddy;
 }

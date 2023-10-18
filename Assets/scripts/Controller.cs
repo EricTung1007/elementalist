@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -132,18 +133,36 @@ public class Controller : MonoBehaviour
 
     public void fireArrow()
     {
-        enemies[0].GetComponent<Unit>().TakeDamage(8, Type.fire);
+        enemies[0].GetComponent<Unit>().TakeDamage(2, Type.fire);
     }
-    public void acidBall() { }
+    public void acidBall()
+    {
+        enemies[0].GetComponent<Unit>().TakeDamage(5, Type.grass);
+    }
     public void steamExplosion()
     {
-        enemies[0].GetComponent<Unit>().TakeDamage(5, Type.none);
+        enemies[0].GetComponent<Unit>().TakeDamage(8, Type.none);
     }
-    public void vinePull() { }
-    public void transformMud() { }
-    public void burningShield() { }
-    public void heal() { }
-    public void elementSurge() { }
+    public void vinePull() 
+    {
+        MoveEnemy(enemies.Length - 1, 0);
+    }
+    public void transformMud()
+    {
+        enemies[0].GetComponent<Unit>().TakeDamage(7, Type.water);
+    }
+    public void burningShield()
+    {
+        enemies[0].GetComponent<Unit>().TakeDamage(7, Type.fire);
+    }
+    public void heal()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Unit>().heal(5);
+    }
+    public void elementSurge()
+    {
+        generateElementInterval = 50;
+    }
 
     private void Update()
     {
@@ -164,6 +183,39 @@ public class Controller : MonoBehaviour
                 enemies[i].GetComponent<Enemy>().SetWorldCoordinate();
             }
         }
+    }/*
+    public void GiveStatus(GameObject target, string id, int level, int duration)
+    {
+        target.GetComponent<Unit>().status.Add(new Status(id, level, duration));
+
+        Debug.Log($"{target.name} {target.GetComponent<Unit>().status.Count}");
+    }*/
+
+    public void MoveEnemy(int start, int end)
+    {
+        GameObject tmp = enemies[start];
+        if (start < end)
+        {
+            for(int i = start; i < end; i++)
+            {
+                enemies[i] = enemies[i + 1];
+                enemies[i].GetComponent<Enemy>().position = i;
+                enemies[i].GetComponent<Enemy>().SetWorldCoordinate();
+            }
+        }
+        else
+        {
+            for(int i = start; i > end; i--)
+            {
+
+                enemies[i] = enemies[i - 1];
+                enemies[i].GetComponent<Enemy>().position = i;
+                enemies[i].GetComponent<Enemy>().SetWorldCoordinate();
+            }
+        }
+        enemies[end] = tmp;
+        enemies[end].GetComponent<Enemy>().position = end;
+        enemies[end].GetComponent<Enemy>().SetWorldCoordinate();
     }
 
     private void FixedUpdate()
@@ -201,9 +253,18 @@ public class Controller : MonoBehaviour
             }
         }
 
-        // Apply status effects.
-
-        // Enemy skill count down
+        if (fixedUpdateCount % enemyUpdateInterval == 0)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<Enemy>().attackCountDown--;
+                if (enemy.GetComponent<Enemy>().attackCountDown <= 0)
+                {
+                    enemy.GetComponent<Enemy>().attackCountDown = enemy.GetComponent<Enemy>().attackCountDownOriginal;
+                    enemy.GetComponent<Enemy>().Attack(enemy.GetComponent<Enemy>().atk);
+                }
+            }
+        }
 
         // Enemy skill perform
     }

@@ -13,7 +13,7 @@ public class Magic : MonoBehaviour
     public GameObject controller;
 
     public Sprite fireArrow, acidBall, steamExplosion, vinePull, transformMud, burningShield, heal, elementSurge;
-
+    public string tmp;
     public void Activate()
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
@@ -27,6 +27,7 @@ public class Magic : MonoBehaviour
                     { Type.fire }, 
                     { Type.fire }
                 };
+                tmp = "fire 2";
                 this.GetComponent<SpriteRenderer>().sprite = fireArrow; break;
             case "acidBall":
                 xSize = 2; ySize = 2;
@@ -34,6 +35,7 @@ public class Magic : MonoBehaviour
                     { Type.none, Type.water },
                     { Type.water, Type.grass }
                 };
+                tmp = "grass 6";
                 this.GetComponent<SpriteRenderer>().sprite = acidBall; break;
             case "steamExplosion":
                 xSize = 2; ySize = 2;
@@ -41,6 +43,7 @@ public class Magic : MonoBehaviour
                     { Type.fire, Type.water },
                     { Type.water, Type.fire }
                 };
+                tmp = "none 10";
                 this.GetComponent<SpriteRenderer>().sprite = steamExplosion; break;
             case "vinePull":
                 xSize = 3; ySize = 2;
@@ -57,6 +60,7 @@ public class Magic : MonoBehaviour
                     { Type.water},
                     { Type.water}
                 };
+                tmp = "water 10";
                 this.GetComponent<SpriteRenderer>().sprite = transformMud; break;
             case "burningShield":
                 this.GetComponent<Transform>().localScale = new Vector3(0.12f, 0.12f, 0.12f);
@@ -66,6 +70,7 @@ public class Magic : MonoBehaviour
                     { Type.grass, Type.grass },
                     { Type.fire, Type.fire }
                 };
+                tmp = "fire 10";
                 this.GetComponent<SpriteRenderer>().sprite = burningShield; break;
             case "heal":
                 xSize = 4; ySize = 1;
@@ -85,6 +90,7 @@ public class Magic : MonoBehaviour
                     { Type.water},
                     { Type.fire}
                 };
+                tmp = "forever";
                 this.GetComponent<SpriteRenderer>().sprite = elementSurge; break;
         }
         SetWorldCoordinate();

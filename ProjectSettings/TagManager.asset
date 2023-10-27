@@ -3,17 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Drop
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
-  - drops
-  - screensoverlay
+  - 
+  - 
   - 
   - 
   - 
@@ -41,22 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: background
-    uniqueID: 3430958939
-    locked: 0
-  - name: ref
-    uniqueID: 2765997497
-    locked: 0
-  - name: player
-    uniqueID: 677130239
-    locked: 0
-  - name: drops
-    uniqueID: 121205659
-    locked: 0
-  - name: UI
-    uniqueID: 2952577881
-    locked: 0
-  - name: screenoverlay
-    uniqueID: 162857535
     locked: 0

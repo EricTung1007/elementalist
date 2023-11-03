@@ -14,7 +14,15 @@ enum Type
 // Magic ID
 enum Magic
 {
-
+    none,
+    fireArrow,
+    acidBall,
+    steamExplosion,
+    vinePull,
+    transformMud,
+    burningShield,
+    heal,
+    elementSurge
 }
 
 // Status ID

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28625205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -214,6 +214,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 1
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &28625210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51032119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -349,6 +394,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 8
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &51032124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +514,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1588573918}
+  - {fileID: 1447614854}
+  - {fileID: 554203484}
   m_Father: {fileID: 1013423628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -515,7 +607,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87563043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -560,6 +652,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 5
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &87563048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +752,8 @@ GameObject:
   - component: {fileID: 232878374}
   - component: {fileID: 232878376}
   - component: {fileID: 232878375}
+  - component: {fileID: 232878378}
+  - component: {fileID: 232878377}
   m_Layer: 5
   m_Name: Skill4
   m_TagString: Untagged
@@ -679,6 +818,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232878373}
   m_CullTransparentMesh: 1
+--- !u!114 &232878377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232878373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 4
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &232878378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232878373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 232878375}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &251069822
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +936,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251069822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -770,6 +981,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 3
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &251069827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +1116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471361518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -905,6 +1161,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 2
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471361523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,6 +1261,8 @@ GameObject:
   - component: {fileID: 483852338}
   - component: {fileID: 483852340}
   - component: {fileID: 483852339}
+  - component: {fileID: 483852342}
+  - component: {fileID: 483852341}
   m_Layer: 5
   m_Name: Skill6
   m_TagString: Untagged
@@ -1024,6 +1327,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483852337}
   m_CullTransparentMesh: 1
+--- !u!114 &483852341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483852337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 6
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &483852342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483852337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 483852339}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &554203483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554203484}
+  m_Layer: 5
+  m_Name: Elements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &554203484
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554203483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1626704681}
+  m_Father: {fileID: 68689353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 240}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &557497554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557497554}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1115,6 +1526,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 7
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &557497559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,42 +1752,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &690183764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 690183765}
-  m_Layer: 5
-  m_Name: SkillPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &690183765
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690183764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1073703032}
-  m_Father: {fileID: 1013423628}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &700354420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1763,8 @@ GameObject:
   - component: {fileID: 700354421}
   - component: {fileID: 700354423}
   - component: {fileID: 700354422}
+  - component: {fileID: 700354425}
+  - component: {fileID: 700354424}
   m_Layer: 5
   m_Name: Skill9
   m_TagString: Untagged
@@ -1407,6 +1829,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700354420}
   m_CullTransparentMesh: 1
+--- !u!114 &700354424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700354420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 9
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &700354425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700354420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 700354422}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &720526822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1947,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720526822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1498,6 +1992,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 1
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &720526827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +2127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972225856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1633,6 +2172,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 0
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &972225861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,7 +2289,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013423622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1811,9 +2395,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 690183765}
+  - {fileID: 1073703032}
   - {fileID: 68689353}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2028096594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1866,7 +2450,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015284896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1911,6 +2495,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 8
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1015284901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2630,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023876433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2046,6 +2675,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 6
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1023876438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2102,7 +2776,7 @@ GameObject:
   - component: {fileID: 1073703034}
   - component: {fileID: 1073703033}
   m_Layer: 5
-  m_Name: SkillButtons
+  m_Name: SkillPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2129,11 +2803,11 @@ RectTransform:
   - {fileID: 1483059369}
   - {fileID: 1483899407}
   - {fileID: 700354421}
-  m_Father: {fileID: 690183765}
+  m_Father: {fileID: 1013423628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -910, y: -540}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 720, y: 540}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1073703033
@@ -2185,6 +2859,8 @@ GameObject:
   - component: {fileID: 1095760369}
   - component: {fileID: 1095760371}
   - component: {fileID: 1095760370}
+  - component: {fileID: 1095760373}
+  - component: {fileID: 1095760372}
   m_Layer: 5
   m_Name: Skill5
   m_TagString: Untagged
@@ -2249,6 +2925,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095760368}
   m_CullTransparentMesh: 1
+--- !u!114 &1095760372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095760368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 5
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1095760373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095760368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1095760370}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1108764008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +3111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215169033}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2408,6 +3156,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 2
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215169038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2498,7 +3291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272180260}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2543,6 +3336,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 4
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1272180265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,7 +3471,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330916117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2678,6 +3516,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 7
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1330916122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2722,6 +3605,81 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1447614853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447614854}
+  - component: {fileID: 1447614856}
+  - component: {fileID: 1447614855}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1447614854
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447614853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 68689353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1120, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1447614855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447614853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a64f31df7fc40ab4382fd7579a145915, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1447614856
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447614853}
+  m_CullTransparentMesh: 1
 --- !u!1 &1483059368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2733,6 +3691,8 @@ GameObject:
   - component: {fileID: 1483059369}
   - component: {fileID: 1483059371}
   - component: {fileID: 1483059370}
+  - component: {fileID: 1483059373}
+  - component: {fileID: 1483059372}
   m_Layer: 5
   m_Name: Skill7
   m_TagString: Untagged
@@ -2797,6 +3757,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483059368}
   m_CullTransparentMesh: 1
+--- !u!114 &1483059372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483059368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 7
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1483059373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483059368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1483059370}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1483899406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +3840,8 @@ GameObject:
   - component: {fileID: 1483899407}
   - component: {fileID: 1483899409}
   - component: {fileID: 1483899408}
+  - component: {fileID: 1483899411}
+  - component: {fileID: 1483899410}
   m_Layer: 5
   m_Name: Skill8
   m_TagString: Untagged
@@ -2872,6 +3906,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483899406}
   m_CullTransparentMesh: 1
+--- !u!114 &1483899410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483899406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 8
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1483899411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483899406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1483899408}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1543905638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,6 +3989,8 @@ GameObject:
   - component: {fileID: 1543905639}
   - component: {fileID: 1543905641}
   - component: {fileID: 1543905640}
+  - component: {fileID: 1543905643}
+  - component: {fileID: 1543905642}
   m_Layer: 5
   m_Name: Skill2
   m_TagString: Untagged
@@ -2947,6 +4055,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543905638}
   m_CullTransparentMesh: 1
+--- !u!114 &1543905642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543905638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1543905643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543905638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1543905640}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1588573917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,7 +4137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1588573918}
   m_Layer: 5
-  m_Name: Grid
+  m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3000,6 +4180,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1080, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &1626704681 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+  m_PrefabInstance: {fileID: 3329911704113806216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647887215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,6 +4196,8 @@ GameObject:
   - component: {fileID: 1647887216}
   - component: {fileID: 1647887218}
   - component: {fileID: 1647887217}
+  - component: {fileID: 1647887220}
+  - component: {fileID: 1647887219}
   m_Layer: 5
   m_Name: Skill1
   m_TagString: Untagged
@@ -3075,6 +4262,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647887215}
   m_CullTransparentMesh: 1
+--- !u!114 &1647887219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647887215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1647887220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647887215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1647887217}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1720371847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3121,7 +4392,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720371847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3210,6 +4481,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 0
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1809484238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +4572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809484238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3301,6 +4617,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 6
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1809484243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,7 +4752,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896934266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3436,6 +4797,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 5
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1896934271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3526,7 +4932,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954057628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3571,6 +4977,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 4
   yGrid: 1
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1954057633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3661,7 +5112,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026530017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3706,6 +5157,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xGrid: 3
   yGrid: 0
+  _leftClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: LeftClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _rightClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: RightClickingElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _entered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: EnteringElementTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2026530022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3759,8 +5255,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2028096594}
+  - component: {fileID: 2028096595}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: BattleGUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3778,9 +5275,22 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1013423628}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028096595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028096593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab8be5dc7b6a7a42829c76148e52a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029281473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,6 +5302,8 @@ GameObject:
   - component: {fileID: 2029281474}
   - component: {fileID: 2029281476}
   - component: {fileID: 2029281475}
+  - component: {fileID: 2029281478}
+  - component: {fileID: 2029281477}
   m_Layer: 5
   m_Name: Skill3
   m_TagString: Untagged
@@ -3856,11 +5368,199 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029281473}
   m_CullTransparentMesh: 1
+--- !u!114 &2029281477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029281473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 3
+  _selected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096595}
+        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
+        m_MethodName: SelectingSkillTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2029281478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029281473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2029281475}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1001 &3329911704113806216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 554203484}
+    m_Modifications:
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413021579839115603, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977160907621450816, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Name
+      value: Element
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755843072892210654, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 52eeb23eb4b36104e96a31704cb2ffed, type: 3}
+    - target: {fileID: 7755843072892210654, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755843072892210654, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755843072892210654, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755843072892210654, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 603048943}
-  - {fileID: 2028096594}
   - {fileID: 1108764011}
-  - {fileID: 1013423628}
+  - {fileID: 2028096594}

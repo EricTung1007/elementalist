@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class SkillTile : MonoBehaviour, IPointerDownHandler
+public class MagicTile : MonoBehaviour, IPointerDownHandler
 {
     public int number;
 

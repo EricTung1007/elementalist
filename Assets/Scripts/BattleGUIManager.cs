@@ -1,7 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class BattleGUIManager : MonoBehaviour
 {
@@ -9,9 +13,9 @@ public class BattleGUIManager : MonoBehaviour
     private int fixedUpdateCount = 0;
 
     // Storing the magic information
-    Magic[] magics = new Magic[9 + 1]; // Using only index 1 to 9
+    GameObject[] magicGrid = new GameObject[9 + 1]; // Using only index 1 to 9
 
-    [SerializeField] Magic selectedMagic;
+    [SerializeField] MagicID selectedMagic;
 
     // Setting the parameter for element moving speed and element generation speed
     private int elementMovingInterval = 1;
@@ -22,9 +26,22 @@ public class BattleGUIManager : MonoBehaviour
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
 
+
+    GameObject selectedMagicTile;
+    GameObject[,] elementTile = new GameObject[9, 2];
+    [SerializeField] Sprite highlight;
+
+    public GameObject elementPrefab;
+    public GameObject elementHolder;
+
+    [SerializeField] private UnityEvent<MagicID> _performMagic;
+
     private void Start()
     {
-        SetDefaultMagics();
+        //CaptureMagicTile();
+        //CaptureElementTile();
+
+        //SetDefaultMagics();
         GenerateStartingElement();
     }
 
@@ -55,43 +72,51 @@ public class BattleGUIManager : MonoBehaviour
 
     public void LeftClickingElementTile(int xGrid, int yGrid)
     {
-        Debug.Log($"Left clicked tile {xGrid} {yGrid}.");
         TryRemovingElement(xGrid, yGrid);
     }
     public void RightClickingElementTile(int xGrid, int yGrid)
     {
         Debug.Log($"Right clicked tile {xGrid} {yGrid}.");
     }
+
+    private int xGridHovering, yGridHovering;
     public void EnteringElementTile(int xGrid, int yGrid)
     {
-        Debug.Log($"Entered tile {xGrid} {yGrid}.");
+        xGridHovering = xGrid; yGridHovering = yGrid;
+    }
+    public void ExitingElementTile(int xGrid, int yGrid)
+    {
+        xGridHovering = -1; yGridHovering = -1;
     }
     public void SelectingSkillTile(int number)
     {
-        selectedMagic = magics[number];
-        Debug.Log($"Left clicked skill tile {magics[number]}.");
+        selectedMagicTile = magicGrid[number];
+        selectedMagic = magicGrid[number].GetComponent<Magic>().id;
     }
+
     private void SetDefaultMagics()
     {
-        magics = new Magic[9 + 1]
-        {
-            Magic.none,
-            Magic.fireArrow,
-            Magic.acidBall,
-            Magic.steamExplosion,
-            Magic.vinePull,
-            Magic.transformMud,
-            Magic.burningShield,
-            Magic.heal,
-            Magic.elementSurge,
-            Magic.none
+        MagicID[] magics = new MagicID[9 + 1]{
+            MagicID.none,
+            MagicID.fireArrow,
+            MagicID.acidBall,
+            MagicID.steamExplosion,
+            MagicID.vinePull,
+            MagicID.transformMud,
+            MagicID.burningShield,
+            MagicID.heal,
+            MagicID.elementSurge,
+            MagicID.none
         };
 
-        selectedMagic = magics[5];
+        for(int i = 1; i < 9 + 1; i++)
+        {
+            magicGrid[i].GetComponent<Magic>().id = magics[i];
+        }
+
+        selectedMagicTile = magicGrid[5];
     }
 
-    public GameObject elementPrefab;
-    public GameObject elementHolder;
     private void GenerateStartingElement()
     {
         for(int i = 0; i < gridWidth; i++)
@@ -102,7 +127,6 @@ public class BattleGUIManager : MonoBehaviour
             }
         }
     }
-
     private void TryMovingElement(int x, int y)
     {
         if ((elementGrid[x - 1, y] == null) && (elementGrid[x, y] != null))
@@ -114,7 +138,6 @@ public class BattleGUIManager : MonoBehaviour
             elementGrid[x, y] = null;
         }
     }
-
     private void TryGeneratingElement(int x, int y)
     {
         if (elementGrid[x, y] == null)
@@ -127,9 +150,51 @@ public class BattleGUIManager : MonoBehaviour
     {
         Destroy(elementGrid[x, y]);
     }
-
-    private void TryShowingMagicCost()
+    private void CaptureElementTile()
     {
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                elementTile[i, j] = GameObject.Find($"Tile {i} {j}");
+                DeHighlightElementTile(elementTile[i, j]);
+            }
+        }
+    }
+    private void CaptureMagicTile()
+    {
+        for (int i = 1; i < 9 + 1; i++)
+        {
+            magicGrid[i] = GameObject.Find($"Magic{i}");
+        }
+    }
+    private void DisplayMagicCost(int x, int y)
+    {
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                DeHighlightElementTile(elementTile[i, j]);
+            }
+        }
+        if ((xGridHovering == -1) || (yGridHovering == -1)) return;
+
+        // Try matching magic cost at the current tile selection
+        // if cost cannot fit into the grid: skip
+        HighlightElementTile(elementTile[xGridHovering, yGridHovering]);
+    }
+
+    private void HighlightElementTile(GameObject tile)
+    {
+        Image image = tile.GetComponent<Image>();
+        image.sprite = highlight;
+        image.color = Color.yellow;
+    }
+    private void DeHighlightElementTile(GameObject tile)
+    {
+        Image image = tile.GetComponent<Image>();
+        image.sprite = highlight;
+        image.color = Color.clear;
     }
 
     private GameObject GenerateElement(int x, int y)

@@ -12,7 +12,7 @@ enum Type
 }
 
 // Magic ID
-enum Magic
+public enum MagicID
 {
     none,
     fireArrow,

@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ElementTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
+public class ElementTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public int xGrid, yGrid;
 
     [SerializeField] private UnityEvent<int, int> _leftClicked;
     [SerializeField] private UnityEvent<int, int> _rightClicked;
     [SerializeField] private UnityEvent<int, int> _entered;
+    [SerializeField] private UnityEvent<int, int> _exited;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -27,5 +28,9 @@ public class ElementTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         _entered.Invoke(xGrid, yGrid);
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _exited.Invoke(xGrid, yGrid);
     }
 }

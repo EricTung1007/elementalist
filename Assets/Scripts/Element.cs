@@ -36,4 +36,14 @@ public class Element : MonoBehaviour
         float y = 60.0f + yGrid * 120.0f;
         this.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y, 0);
     }
+
+    // Default selection of element generation
+    Type[] generationPool = new Type[3] {Type.fire, Type.water, Type.grass};
+
+    // Constructor; Generate a new random element
+    public void GenerateRandom()
+    {
+        var random = new System.Random();
+        this.type = generationPool[random.Next(3)];
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Element type ID for entities and skills
-enum Type
+public enum Type
 {
     none,
     fire,
@@ -11,12 +11,12 @@ enum Type
     grass
 }
 
-// Magic ID
-public enum MagicID
+// Spell ID
+public enum SpellId
 {
     none,
     fireArrow,
-    acidBall,
+    acidBomb,
     steamExplosion,
     vinePull,
     transformMud,
@@ -25,8 +25,15 @@ public enum MagicID
     elementSurge
 }
 
-// Status ID
-enum Status
+// Sustained Effect ID
+public enum EffectId
 {
-
+    burn,
+    poison,
+    basicDamage,
+    dizziness,
+    physicalAttackImmunity,
+    shield,
+    burnThorns,
+    regenerate,
 }

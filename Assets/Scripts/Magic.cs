@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Magic : MonoBehaviour
 {
-    public MagicID id;
+    public SpellId id;
     private Type[,] cost;
 
     public void Activate()
@@ -12,45 +12,45 @@ public class Magic : MonoBehaviour
         // Set the element cost to perform this magic
         switch (id)
         {
-            case MagicID.fireArrow:
+            case SpellId.fireArrow:
                 cost = new Type[2, 1]
                 {
                     {Type.none},
                     {Type.fire}
                 }; break;
-            case MagicID.acidBall:
+            case SpellId.acidBomb:
                 cost = new Type[2, 2]
                 {
                     {Type.none, Type.grass},
                     {Type.grass, Type.water}
                 }; break;
-            case MagicID.steamExplosion:
+            case SpellId.steamExplosion:
                 cost = new Type[2, 2]
                 {
                     {Type.fire, Type.water},
                     {Type.water, Type.fire}
                 }; break;
-            case MagicID.vinePull:
+            case SpellId.vinePull:
                 cost = new Type[3, 2]
                 {
                     {Type.none, Type.grass},
                     {Type.grass, Type.none},
                     {Type.none, Type.grass},
                 }; break;
-            case MagicID.transformMud:
+            case SpellId.transformMud:
                 cost = new Type[3, 1]
                 {
                     {Type.water},
                     {Type.water},
                     {Type.water}
                 }; break;
-            case MagicID.burningShield:
+            case SpellId.burningShield:
                 cost = new Type[2, 2]
                 {
                     {Type.grass, Type.grass},
                     {Type.fire, Type.fire}
                 }; break;
-            case MagicID.heal:
+            case SpellId.heal:
                 cost = new Type[4, 1]
                 {
                     {Type.water},
@@ -58,7 +58,7 @@ public class Magic : MonoBehaviour
                     {Type.grass},
                     {Type.water}
                 }; break;
-            case MagicID.elementSurge:
+            case SpellId.elementSurge:
                 cost = new Type[5, 1]
                 {
                     {Type.fire},

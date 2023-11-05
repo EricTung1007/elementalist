@@ -15,7 +15,7 @@ public class BattleGUIManager : MonoBehaviour
     // Storing the magic information
     GameObject[] magicGrid = new GameObject[9 + 1]; // Using only index 1 to 9
 
-    [SerializeField] MagicID selectedMagic;
+    [SerializeField] SpellId selectedMagic;
 
     // Setting the parameter for element moving speed and element generation speed
     private int elementMovingInterval = 1;
@@ -34,7 +34,7 @@ public class BattleGUIManager : MonoBehaviour
     public GameObject elementPrefab;
     public GameObject elementHolder;
 
-    [SerializeField] private UnityEvent<MagicID> _performMagic;
+    [SerializeField] private UnityEvent<SpellId> _performMagic;
 
     private void Start()
     {
@@ -96,17 +96,17 @@ public class BattleGUIManager : MonoBehaviour
 
     private void SetDefaultMagics()
     {
-        MagicID[] magics = new MagicID[9 + 1]{
-            MagicID.none,
-            MagicID.fireArrow,
-            MagicID.acidBall,
-            MagicID.steamExplosion,
-            MagicID.vinePull,
-            MagicID.transformMud,
-            MagicID.burningShield,
-            MagicID.heal,
-            MagicID.elementSurge,
-            MagicID.none
+        SpellId[] magics = new SpellId[9 + 1]{
+            SpellId.none,
+            SpellId.fireArrow,
+            SpellId.acidBomb,
+            SpellId.steamExplosion,
+            SpellId.vinePull,
+            SpellId.transformMud,
+            SpellId.burningShield,
+            SpellId.heal,
+            SpellId.elementSurge,
+            SpellId.none
         };
 
         for(int i = 1; i < 9 + 1; i++)

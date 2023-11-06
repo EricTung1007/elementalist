@@ -12,28 +12,55 @@ public class SpellGridManager : MonoBehaviour
     private SpellCost[] spellcost;
     [SerializeField] private ElementGridManager elementGridManager;
 
-    private void Start()
+    private void Awake()
     {
-        // Set spell tile
+        spellTile = new GameObject[9 + 1];
+        selectedSpellTileNumber = 1;
+        CaptureSpellTiles();
     }
 
-    private void SelectSpellTile(int tilenumber)
+    private void CaptureSpellTiles()
+    {
+        SpellId[] defaultSpell = new SpellId[9 + 1]{
+            SpellId.none,
+            SpellId.fireArrow,
+            SpellId.acidBomb,
+            SpellId.steamExplosion,
+            SpellId.vinePull,
+            SpellId.transformMud,
+            SpellId.burningShield,
+            SpellId.heal,
+            SpellId.elementSurge,
+            SpellId.none
+        };
+        for (int i = 1; i < 9 + 1; i++)
+        {
+            spellTile[i] = GameObject.Find($"SpellTile {i}");
+            spellTile[i].GetComponent<SpellCost>().spellId = defaultSpell[i];
+        }
+    }
+    public void SelectSpellTile(int tilenumber)
     {
         selectedSpellTileNumber = tilenumber;
         selectedSpell = spellTile[tilenumber].GetComponent<SpellCost>().spellId;
+
     }
 
     [SerializeField] private UnityEvent<SpellId> PerformSpell;
 
     public void TryPerformSpell(int x, int y)
     {
+        // Don't perform spell null
+        if (spellTile[selectedSpellTileNumber].GetComponent<SpellCost>().spellId == SpellId.none) return;
+
         // ask if able to perform selected spell
         Type[,] cost = spellTile[selectedSpellTileNumber].GetComponent<SpellCost>().cost;
-        bool CanPerform = elementGridManager.MatchSpellCost(cost, x, y);
 
+        bool CanPerform = elementGridManager.MatchSpellCost(cost, x, y);
         if (CanPerform)
         {
             PerformSpell?.Invoke(selectedSpell);
+            elementGridManager.RemoveUsedElements(cost, x, y);
         }
     }
 }

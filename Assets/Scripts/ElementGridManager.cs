@@ -8,7 +8,7 @@ public class ElementGridManager : MonoBehaviour
     // Counting the current tick number (fixed updates)
     private int fixedUpdateCount = 0;
     // Setting the parameter for element moving speed and element generation speed
-    private int elementMovingInterval = 1;
+    private int elementMovingInterval = 5;
     private int elementGenerationInterval = 100;
 
     public GameObject elementHolder;
@@ -114,6 +114,7 @@ public class ElementGridManager : MonoBehaviour
         {
             for (int j = 0; j < yCost; j++)
             {
+                if (cost[i, j] == Type.none) continue;
                 if (elementGrid[x + i, y + j].GetComponent<Element>().type != cost[i, j])
                 {
                     matechedSpellCost = false;
@@ -123,5 +124,21 @@ public class ElementGridManager : MonoBehaviour
         }
 
         return matechedSpellCost;
+    }
+    public void RemoveUsedElements(Type[, ] cost, int x, int y)
+    {
+        int xCost = cost.GetUpperBound(0) + 1;
+        int yCost = cost.GetUpperBound(1) + 1;
+
+        for (int i = 0; i < xCost; i++)
+        {
+            for (int j = 0; j < yCost; j++)
+            {
+                if (cost[i, j] != Type.none)
+                {
+                    RemoveElement(elementGrid[x + i, y + j]);
+                }
+            }
+        }
     }
 }

@@ -75,10 +75,13 @@ public class BattleController : MonoBehaviour
     private List<Player> players = new List<Player>();
     private List<Spell> queuedSpells = new List<Spell>();
 
+    private int fixedUpdateCount = 0;
+    private int battleInterval = 100;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        InitBattle();
     }
 
     // Update is called once per frame
@@ -87,7 +90,23 @@ public class BattleController : MonoBehaviour
 
     }
 
-    void ReleaseSpell(Spell spell)
+    private void FixedUpdate()
+    {
+        if ((fixedUpdateCount % battleInterval == 0))
+        {
+            BattleRound();
+        }
+
+        fixedUpdateCount++;
+    }
+
+
+    public void ReleaseSpellId(SpellId spell)
+    {
+        UnityEngine.Debug.Log("Spell released");
+    }
+
+    public void ReleaseSpell(Spell spell)
     {
         queuedSpells.Add(spell);
     }

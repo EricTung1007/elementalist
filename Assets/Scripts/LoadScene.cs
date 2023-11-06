@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField] private string name;
     // Start is called before the first frame update
     void Start()
     {

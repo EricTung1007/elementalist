@@ -232,9 +232,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -415,9 +415,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -810,9 +810,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1420,6 +1420,7 @@ GameObject:
   - component: {fileID: 232878375}
   - component: {fileID: 232878378}
   - component: {fileID: 232878377}
+  - component: {fileID: 232878379}
   m_Layer: 5
   m_Name: SpellTile 4
   m_TagString: Untagged
@@ -1499,7 +1500,19 @@ MonoBehaviour:
   tileNumber: 4
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &232878378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,6 +1557,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &232878379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232878373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &241929514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,9 +1816,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2226,9 +2268,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2434,6 +2476,7 @@ GameObject:
   - component: {fileID: 483852339}
   - component: {fileID: 483852342}
   - component: {fileID: 483852341}
+  - component: {fileID: 483852343}
   m_Layer: 5
   m_Name: SpellTile 6
   m_TagString: Untagged
@@ -2513,7 +2556,19 @@ MonoBehaviour:
   tileNumber: 6
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &483852342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2558,6 +2613,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &483852343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483852337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &528494028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,9 +2963,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3178,6 +3262,7 @@ GameObject:
   - component: {fileID: 700354422}
   - component: {fileID: 700354425}
   - component: {fileID: 700354424}
+  - component: {fileID: 700354426}
   m_Layer: 5
   m_Name: SpellTile 9
   m_TagString: Untagged
@@ -3257,7 +3342,19 @@ MonoBehaviour:
   tileNumber: 9
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &700354425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,6 +3399,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &700354426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700354420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &720526822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,9 +3537,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3972,9 +4098,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4553,9 +4679,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4736,9 +4862,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5027,6 +5153,7 @@ GameObject:
   - component: {fileID: 1095760370}
   - component: {fileID: 1095760373}
   - component: {fileID: 1095760372}
+  - component: {fileID: 1095760374}
   m_Layer: 5
   m_Name: SpellTile 5
   m_TagString: Untagged
@@ -5106,7 +5233,19 @@ MonoBehaviour:
   tileNumber: 5
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1095760373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5151,6 +5290,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1095760374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095760368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &1108764008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,9 +5496,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5511,9 +5679,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5694,9 +5862,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6135,6 +6303,7 @@ GameObject:
   - component: {fileID: 1483059370}
   - component: {fileID: 1483059373}
   - component: {fileID: 1483059372}
+  - component: {fileID: 1483059374}
   m_Layer: 5
   m_Name: SpellTile 7
   m_TagString: Untagged
@@ -6214,7 +6383,19 @@ MonoBehaviour:
   tileNumber: 7
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1483059373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6259,6 +6440,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1483059374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483059368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &1483899406
 GameObject:
   m_ObjectHideFlags: 0
@@ -6272,6 +6482,7 @@ GameObject:
   - component: {fileID: 1483899408}
   - component: {fileID: 1483899411}
   - component: {fileID: 1483899410}
+  - component: {fileID: 1483899412}
   m_Layer: 5
   m_Name: SpellTile 8
   m_TagString: Untagged
@@ -6351,7 +6562,19 @@ MonoBehaviour:
   tileNumber: 8
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1483899411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6396,6 +6619,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1483899412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483899406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &1488588828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6715,6 +6967,7 @@ GameObject:
   - component: {fileID: 1543905640}
   - component: {fileID: 1543905643}
   - component: {fileID: 1543905642}
+  - component: {fileID: 1543905644}
   m_Layer: 5
   m_Name: SpellTile 2
   m_TagString: Untagged
@@ -6794,7 +7047,19 @@ MonoBehaviour:
   tileNumber: 2
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1543905643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6839,6 +7104,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1543905644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543905638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &1588573917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6983,6 +7277,7 @@ GameObject:
   - component: {fileID: 1647887217}
   - component: {fileID: 1647887220}
   - component: {fileID: 1647887219}
+  - component: {fileID: 1647887221}
   m_Layer: 5
   m_Name: SpellTile 1
   m_TagString: Untagged
@@ -7064,7 +7359,19 @@ MonoBehaviour:
   tileNumber: 1
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1647887220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7121,6 +7428,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1647887221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647887215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1 &1705357958
 GameObject:
   m_ObjectHideFlags: 0
@@ -7408,9 +7744,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7756,9 +8092,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8015,9 +8351,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8453,9 +8789,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8786,9 +9122,9 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: RightClickingElementTile
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: TryPerformSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8925,7 +9261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487ff395288d0074a81596ef6db03b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementGridManager: {fileID: 0}
+  elementGridManager: {fileID: 2028096596}
   PerformSpell:
     m_PersistentCalls:
       m_Calls: []
@@ -8942,6 +9278,7 @@ GameObject:
   - component: {fileID: 2029281475}
   - component: {fileID: 2029281478}
   - component: {fileID: 2029281477}
+  - component: {fileID: 2029281479}
   m_Layer: 5
   m_Name: SpellTile 3
   m_TagString: Untagged
@@ -9021,7 +9358,19 @@ MonoBehaviour:
   tileNumber: 3
   Select:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2028096597}
+        m_TargetAssemblyTypeName: SpellGridManager, Assembly-CSharp
+        m_MethodName: SelectSpellTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2029281478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9066,6 +9415,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2029281479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029281473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c07c51f25061e4981315d81bd54c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  fireArrowIcon: {fileID: 0}
+  acidBombIcon: {fileID: 0}
+  steamExplosionIcon: {fileID: 0}
+  vinePullIcon: {fileID: 0}
+  transformMudIcon: {fileID: 0}
+  burningShieldIcon: {fileID: 0}
+  healIcon: {fileID: 0}
+  elementSurgeIcon: {fileID: 0}
+  fireArrowCostSprite: {fileID: 0}
+  acidBombCostSprite: {fileID: 0}
+  steamExplosionCostSprite: {fileID: 0}
+  vinePullCostSprite: {fileID: 0}
+  transformMudCostSprite: {fileID: 0}
+  burningShieldCostSprite: {fileID: 0}
+  healCostSprite: {fileID: 0}
+  elementSurgeCostSprite: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

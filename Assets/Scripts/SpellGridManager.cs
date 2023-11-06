@@ -15,8 +15,13 @@ public class SpellGridManager : MonoBehaviour
     private void Awake()
     {
         spellTile = new GameObject[9 + 1];
-        selectedSpellTileNumber = 1;
         CaptureSpellTiles();
+    }
+
+    private void Start()
+    {
+        // Default spell selection
+        SelectSpellTile(1);
     }
 
     private void CaptureSpellTiles()
@@ -41,9 +46,9 @@ public class SpellGridManager : MonoBehaviour
     }
     public void SelectSpellTile(int tilenumber)
     {
+        Debug.Log($"Selecting spell tile {tilenumber}.");
         selectedSpellTileNumber = tilenumber;
         selectedSpell = spellTile[tilenumber].GetComponent<SpellCost>().spellId;
-
     }
 
     [SerializeField] private UnityEvent<SpellId> PerformSpell;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpellCost : MonoBehaviour
 {
@@ -16,17 +17,18 @@ public class SpellCost : MonoBehaviour
         switch (spellId)
         {
             case SpellId.fireArrow:
-                cost = new Type[2, 2]
+                cost = new Type[2, 1]
                 {
-                    {Type.none, Type.fire},
-                    {Type.fire, Type.fire}
-                }; 
+                    {Type.fire},
+                    {Type.fire, }
+                };
+
                 break;
             case SpellId.acidBomb:
                 cost = new Type[2, 2]
                 {
-                    {Type.none, Type.grass},
-                    {Type.grass, Type.water}
+                    {Type.none, Type.water},
+                    {Type.water, Type.water}
                 }; 
                 break;
             case SpellId.steamExplosion:
@@ -71,7 +73,7 @@ public class SpellCost : MonoBehaviour
             case SpellId.elementSurge:
                 cost = new Type[5, 1]
                 {
-                    {Type.fire},
+                    {Type.grass},
                     {Type.water},
                     {Type.grass},
                     {Type.water},

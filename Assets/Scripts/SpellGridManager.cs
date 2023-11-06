@@ -6,27 +6,18 @@ using UnityEngine.Events;
 
 public class SpellGridManager : MonoBehaviour
 {
+    private const int spellAmount = 9;
     private int selectedSpellTileNumber;
     private SpellId selectedSpell;
     private GameObject[] spellTile;
-    private SpellCost[] spellcost;
     [SerializeField] private ElementGridManager elementGridManager;
 
     private void Awake()
     {
-        spellTile = new GameObject[9 + 1];
+        spellTile = new GameObject[spellAmount + 1];
         CaptureSpellTiles();
-    }
 
-    private void Start()
-    {
-        // Default spell selection
-        SelectSpellTile(1);
-    }
-
-    private void CaptureSpellTiles()
-    {
-        SpellId[] defaultSpell = new SpellId[9 + 1]{
+        SpellId[] defaultSpell = new SpellId[spellAmount + 1]{
             SpellId.none,
             SpellId.fireArrow,
             SpellId.acidBomb,
@@ -38,9 +29,28 @@ public class SpellGridManager : MonoBehaviour
             SpellId.elementSurge,
             SpellId.none
         };
-        for (int i = 1; i < 9 + 1; i++)
+        AssignSpellTiles(spellTile, defaultSpell);
+    }
+
+    private void Start()
+    {
+        // Default spell selection
+        SelectSpellTile(1);
+    }
+
+    private void CaptureSpellTiles()
+    {
+        
+        for (int i = 1; i < spellAmount + 1; i++)
         {
             spellTile[i] = GameObject.Find($"SpellTile {i}");
+        }
+    }
+
+    private void AssignSpellTiles(GameObject[] spellTile, SpellId[] defaultSpell)
+    {
+        for (int i = 1; i < spellAmount + 1; i++)
+        {
             spellTile[i].GetComponent<SpellCost>().spellId = defaultSpell[i];
         }
     }
@@ -64,6 +74,7 @@ public class SpellGridManager : MonoBehaviour
         bool CanPerform = elementGridManager.MatchSpellCost(cost, x, y);
         if (CanPerform)
         {
+            Debug.Log($"Performing spell {selectedSpell.ToString()}...");
             PerformSpell?.Invoke(selectedSpell);
             elementGridManager.RemoveUsedElements(cost, x, y);
         }

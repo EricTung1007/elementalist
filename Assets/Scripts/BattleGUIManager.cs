@@ -6,25 +6,31 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEditor;
 
 public class BattleGUIManager : MonoBehaviour
 {
+    // Main status of the battle GUI manager
+
     // Counting the current tick number (fixed updates)
     private int fixedUpdateCount = 0;
+    // Setting the parameter for element moving speed and element generation speed
+    private int elementMovingInterval = 1;
+    private int elementGenerationInterval = 100;
+    [SerializeField] SpellId selectedMagic;
+
+    // The spell panel
 
     // Storing the magic information
     GameObject[] magicGrid = new GameObject[9 + 1]; // Using only index 1 to 9
 
-    [SerializeField] SpellId selectedMagic;
-
-    // Setting the parameter for element moving speed and element generation speed
-    private int elementMovingInterval = 1;
-    private int elementGenerationInterval = 100;
 
     private int gridWidth = 9;
     private int gridHeight = 2;
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
+
+    private int xGridHovering, yGridHovering;
 
 
     GameObject selectedMagicTile;
@@ -38,7 +44,7 @@ public class BattleGUIManager : MonoBehaviour
 
     private void Start()
     {
-        //CaptureMagicTile();
+        CaptureMagicTile();
         //CaptureElementTile();
 
         //SetDefaultMagics();
@@ -70,6 +76,11 @@ public class BattleGUIManager : MonoBehaviour
         fixedUpdateCount++;
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void LeftClickingElementTile(int xGrid, int yGrid)
     {
         TryRemovingElement(xGrid, yGrid);
@@ -78,8 +89,6 @@ public class BattleGUIManager : MonoBehaviour
     {
         Debug.Log($"Right clicked tile {xGrid} {yGrid}.");
     }
-
-    private int xGridHovering, yGridHovering;
     public void EnteringElementTile(int xGrid, int yGrid)
     {
         xGridHovering = xGrid; yGridHovering = yGrid;
@@ -90,6 +99,7 @@ public class BattleGUIManager : MonoBehaviour
     }
     public void SelectingSkillTile(int number)
     {
+        Debug.Log($"Selecting spell tile {number}.");
         selectedMagicTile = magicGrid[number];
         selectedMagic = magicGrid[number].GetComponent<Magic>().id;
     }
@@ -108,7 +118,7 @@ public class BattleGUIManager : MonoBehaviour
             SpellId.elementSurge,
             SpellId.none
         };
-
+        
         for(int i = 1; i < 9 + 1; i++)
         {
             magicGrid[i].GetComponent<Magic>().id = magics[i];
@@ -166,6 +176,10 @@ public class BattleGUIManager : MonoBehaviour
         for (int i = 1; i < 9 + 1; i++)
         {
             magicGrid[i] = GameObject.Find($"Magic{i}");
+            if (magicGrid[i] == null)
+            {
+                Debug.Log($"spell grid {i} is null!");
+            }
         }
     }
     private void DisplayMagicCost(int x, int y)
@@ -204,12 +218,38 @@ public class BattleGUIManager : MonoBehaviour
         Element element = newElement.GetComponent<Element>();
 
         // Assign a random element type to it
-        element.GenerateRandom();
+        element.Generate();
         element.xGrid = x; element.yGrid = y;
 
         element.Activate();
         elementGrid[x, y] = newElement;
 
         return newElement;
+    }
+
+    private bool MatchSpellCost(Type[, ] cost, int x, int y)
+    {
+        bool matechedSpellCost = true;
+        int xCost = cost.GetUpperBound(0) + 1;
+        int yCost = cost.GetUpperBound(1) + 1;
+
+        if ((x + xCost > gridWidth) || (y + yCost > gridHeight))
+        {
+            matechedSpellCost = false;
+            return matechedSpellCost;
+        }
+        for (int i = 0; i < xCost; i++)
+        {
+            for(int j = 0; j < yCost; j++)
+            {
+                if (elementGrid[x + i, y + j].GetComponent<Element>().type != cost[i, j]) 
+                {
+                    matechedSpellCost = false;
+                    return matechedSpellCost;
+                }
+            }
+        }
+
+        return matechedSpellCost;
     }
 }

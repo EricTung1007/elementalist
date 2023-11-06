@@ -217,9 +217,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -400,9 +400,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -415,7 +415,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -661,9 +661,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -676,7 +676,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -691,7 +691,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 232878378}
   - component: {fileID: 232878377}
   m_Layer: 5
-  m_Name: Magic4
+  m_Name: SpellTile 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,22 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 4
-  _selected:
+  tileNumber: 4
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &232878378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,9 +981,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1008,7 +996,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -1023,7 +1011,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -1082,6 +1070,41 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &323148952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323148953}
+  m_Layer: 5
+  m_Name: Cost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &323148953
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323148952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647887216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30, y: 0}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &471361518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,9 +1199,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1191,7 +1214,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -1206,7 +1229,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -1279,7 +1302,7 @@ GameObject:
   - component: {fileID: 483852342}
   - component: {fileID: 483852341}
   m_Layer: 5
-  m_Name: Magic6
+  m_Name: SpellTile 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,22 +1377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 6
-  _selected:
+  tileNumber: 6
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &483852342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,9 +1554,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1558,7 +1569,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -1573,7 +1584,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -1783,7 +1794,7 @@ GameObject:
   - component: {fileID: 700354425}
   - component: {fileID: 700354424}
   m_Layer: 5
-  m_Name: Magic9
+  m_Name: SpellTile 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1858,22 +1869,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 9
-  _selected:
+  tileNumber: 9
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &700354425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,9 +2011,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2027,7 +2026,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -2042,7 +2041,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -2195,9 +2194,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2210,7 +2209,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -2225,7 +2224,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -2520,9 +2519,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2535,7 +2534,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -2550,7 +2549,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -2703,9 +2702,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2718,7 +2717,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -2733,7 +2732,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -2804,7 +2803,7 @@ GameObject:
   - component: {fileID: 1073703034}
   - component: {fileID: 1073703033}
   m_Layer: 5
-  m_Name: MagicPanel
+  m_Name: SpellPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2890,7 +2889,7 @@ GameObject:
   - component: {fileID: 1095760373}
   - component: {fileID: 1095760372}
   m_Layer: 5
-  m_Name: Magic5
+  m_Name: SpellTile 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2965,22 +2964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 5
-  _selected:
+  tileNumber: 5
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1095760373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3187,9 +3174,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3202,7 +3189,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -3217,7 +3204,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -3370,9 +3357,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3385,7 +3372,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -3400,7 +3387,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -3553,9 +3540,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3568,7 +3555,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -3583,7 +3570,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -3654,7 +3641,7 @@ GameObject:
   - component: {fileID: 1447614856}
   - component: {fileID: 1447614855}
   m_Layer: 5
-  m_Name: Background
+  m_Name: ElementGridBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3731,7 +3718,7 @@ GameObject:
   - component: {fileID: 1483059373}
   - component: {fileID: 1483059372}
   m_Layer: 5
-  m_Name: Magic7
+  m_Name: SpellTile 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3806,22 +3793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 7
-  _selected:
+  tileNumber: 7
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1483059373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3880,7 +3855,7 @@ GameObject:
   - component: {fileID: 1483899411}
   - component: {fileID: 1483899410}
   m_Layer: 5
-  m_Name: Magic8
+  m_Name: SpellTile 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3955,22 +3930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 8
-  _selected:
+  tileNumber: 8
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1483899411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,7 +3992,7 @@ GameObject:
   - component: {fileID: 1543905643}
   - component: {fileID: 1543905642}
   m_Layer: 5
-  m_Name: Magic2
+  m_Name: SpellTile 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4104,22 +4067,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 2
-  _selected:
+  tileNumber: 2
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1543905643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4231,7 +4182,7 @@ GameObject:
   - component: {fileID: 1647887220}
   - component: {fileID: 1647887219}
   m_Layer: 5
-  m_Name: Magic1
+  m_Name: SpellTile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4248,7 +4199,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1721806064}
+  - {fileID: 323148953}
   m_Father: {fileID: 1073703032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4269,14 +4222,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6266439, g: 0.24973297, b: 0.8679245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 521e58b1214cb8f4ba305f1b37783a06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4306,22 +4259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 1
-  _selected:
+  tileNumber: 1
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1647887220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4516,9 +4457,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4531,7 +4472,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -4546,7 +4487,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -4561,6 +4502,41 @@ MonoBehaviour:
   _exited:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1721806063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721806064}
+  m_Layer: 5
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1721806064
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721806063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647887216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -30}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1809484238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,9 +4631,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4670,7 +4646,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -4685,7 +4661,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -4838,9 +4814,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4853,7 +4829,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -4868,7 +4844,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -5021,9 +4997,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5036,7 +5012,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -5051,7 +5027,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -5204,9 +5180,9 @@ MonoBehaviour:
   _leftClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: LeftClickingElementTile
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ReleaseElement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5219,7 +5195,7 @@ MonoBehaviour:
   _rightClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: RightClickingElementTile
         m_Mode: 0
@@ -5234,7 +5210,7 @@ MonoBehaviour:
   _entered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028096595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
         m_MethodName: EnteringElementTile
         m_Mode: 0
@@ -5302,7 +5278,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2028096594}
-  - component: {fileID: 2028096595}
+  - component: {fileID: 2028096596}
+  - component: {fileID: 2028096597}
   m_Layer: 0
   m_Name: BattleGUIManager
   m_TagString: Untagged
@@ -5331,7 +5308,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2028096595
+--- !u!114 &2028096596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5340,16 +5317,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028096593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab8be5dc7b6a7a42829c76148e52a53, type: 3}
+  m_Script: {fileID: 11500000, guid: 680a6ee1d1a43d84890fcea8d109ed6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMagic: 0
-  highlight: {fileID: 0}
-  elementPrefab: {fileID: 4977160907621450816, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
   elementHolder: {fileID: 554203483}
-  _performMagic:
-    m_PersistentCalls:
-      m_Calls: []
+  elementPrefab: {fileID: 4977160907621450816, guid: 23ba7c84eac87454186801949d2b673f, type: 3}
+--- !u!114 &2028096597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028096593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487ff395288d0074a81596ef6db03b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029281473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5348,7 @@ GameObject:
   - component: {fileID: 2029281478}
   - component: {fileID: 2029281477}
   m_Layer: 5
-  m_Name: Magic3
+  m_Name: SpellTile 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5439,22 +5423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4bf0a2568a7d84d8aa6814474eda4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 3
-  _selected:
+  tileNumber: 3
+  Select:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2028096595}
-        m_TargetAssemblyTypeName: BattleGUIManager, Assembly-CSharp
-        m_MethodName: SelectingSkillTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2029281478
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,17 +5,12 @@ using UnityEngine.UI;
 
 public class Element : MonoBehaviour
 {
-    [SerializeField] Type type;
+    [SerializeField] public Type type;
     public int xGrid, yGrid;
 
     public Sprite spriteFire, spriteWater, spriteGrass;
 
 
-    // Remove this later!
-    private void Update()
-    {
-        Activate();
-    }
     public void Activate()
     {
         SetPosition();
@@ -41,7 +36,7 @@ public class Element : MonoBehaviour
     Type[] generationPool = new Type[3] {Type.fire, Type.water, Type.grass};
 
     // Constructor; Generate a new random element
-    public void GenerateRandom()
+    public void Generate()
     {
         var random = new System.Random();
         this.type = generationPool[random.Next(3)];

@@ -3777,6 +3777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 534560263}
+  - component: {fileID: 534560264}
   m_Layer: 5
   m_Name: EnemyHolder
   m_TagString: Untagged
@@ -3806,6 +3807,21 @@ RectTransform:
   m_AnchoredPosition: {x: 480, y: 0}
   m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!111 &534560264
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534560262}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &534586042
 GameObject:
   m_ObjectHideFlags: 0
@@ -12709,7 +12725,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ca1e3c8deb446643bd2bf3b1209bb04, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -13225,6 +13241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487ff395288d0074a81596ef6db03b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedSpellTileNumber: 0
+  spellTile: []
   elementGridManager: {fileID: 2028096596}
   PerformSpell:
     m_PersistentCalls:

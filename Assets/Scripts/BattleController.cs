@@ -15,7 +15,7 @@ public class Effect
     public int duration;
     public int hp;
 
-    public Effect(EffectId effectId, int duration, int hp)
+    public Effect(EffectId effectId, int hp, int duration)
     {
         this.effectId = effectId;
         this.duration = duration;
@@ -48,8 +48,8 @@ public class Player
     public int maxhp;
     public Type type;
     public int chi;
-    public int intention; // intentionId = skill[intention].spellId
-    public int releaseIn; // cooldown remaining seconds, total cooldown is skill[intention].cooldown
+    public int intention = -1; // intentionId = skill[intention].spellId
+    public int releaseIn = 999; // cooldown remaining seconds, total cooldown is skill[intention].cooldown
 
     public List<Effect> sustainedEffect;
     public List<Spell> skill;
@@ -78,16 +78,16 @@ public class Player
     public void Damage(int damage)
     {
         UnityEngine.Debug.Log("DAMAGE!\n");
-        //if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
-        //    return;
-        //Effect effect;
-        //while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
-        //{
-        //    int block = Math.Min(damage, effect.hp);
-        //    damage -= block; // reduce damage
-        //    effect.hp -= block;
-        //    if (effect.hp == 0) { sustainedEffect.Remove(effect); }
-        //}
+        if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
+            return;
+        Effect effect;
+        while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
+        {
+           int block = Math.Min(damage, effect.hp);
+            damage -= block; // reduce damage
+            effect.hp -= block;
+            if (effect.hp == 0) { sustainedEffect.Remove(effect); }
+        }
         hp -= damage;
     }
 
@@ -168,7 +168,7 @@ public class BattleController : MonoBehaviour
                     break;
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, spell.duration, spell.hp));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 2, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 10));
                 break;
             case SpellId.acidBomb:
                 if (targetedPlayer.type == Type.grass)
@@ -178,7 +178,8 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
                 break;
             case SpellId.steamExplosion:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
+                targetedPlayer.Damage(2);
+                //targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.dizziness, 0, 3));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
@@ -219,9 +220,10 @@ public class BattleController : MonoBehaviour
             case SpellId.miniHeal:
                 if (releasedBy.GetHP() / releasedBy.maxhp <= 1.0 / 3.0)
                 {
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 3, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 1, 3));
                     // can only release once
                     releasedBy.skill.RemoveAll(spell => spell.spellId == SpellId.miniHeal);
+                    return false;
                 }
                 break;
             case SpellId.jichi:
@@ -249,7 +251,7 @@ public class BattleController : MonoBehaviour
     {
         UnityEngine.Debug.Log("INIT");
 
-        players.Add(new Player("player", 15, Type.none, 0));
+        players.Add(new Player("player", 50, Type.none, 0));
         players.Last().skill.Add(new Spell(SpellId.fireArrow, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.acidBomb, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.steamExplosion, 2, 3, 0));
@@ -308,28 +310,44 @@ public class BattleController : MonoBehaviour
 
         foreach (Player player in players)
         {
-            foreach (Spell spell in player.skill)
+            if (player == players[0])
             {
-                if (spell.cooldown > 0 && spell.cdRemain == 0)
+
+            }
+            else
+            {
+                if (player.position < 0) continue;
+                if (player.intention >= 0)
                 {
-                    if (player == players[0])
+                    player.releaseIn--;
+
+                    if (player.releaseIn <= 0)
                     {
-                        bool performed = PerformSpell(spell, players[0], players[1]);
-                        if (!performed) continue;
+                        bool performed = PerformSpell(player.skill[player.intention], player, players[0]);
+                        if (performed)
+                        {
+                            player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                            player.releaseIn = player.skill[player.intention].cooldown;
+                        }
+                        else
+                        {
+                            player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                            player.releaseIn = player.skill[player.intention].cooldown;
+                            //player.releaseIn++;
+                        }
                     }
-                    else
-                    {
-                        bool performed = PerformSpell(spell, player, players[0]);
-                        if (!performed) continue;
-                    }
-                    spell.cdRemain = spell.cooldown;
+                }
+                else
+                {
+                    player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                    player.releaseIn = player.skill[player.intention].cooldown;
                 }
 
-                spell.cdRemain--;
             }
+        }
 
-
-
+        foreach (Player player in players)
+        {
             if (player.GetHP() <= 0 && player.position >= 0)
             {
                 if (player == players[0])

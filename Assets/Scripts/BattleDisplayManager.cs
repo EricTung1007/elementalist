@@ -54,7 +54,15 @@ public class BattleDisplayManager : MonoBehaviour
         }
         statusEffect.GetComponent<TextMeshProUGUI>().text = statusEffectText;
 
-        string intentionText = "NIY";
+        string intentionText;
+        if (entity.intention == -1)
+        {
+            intentionText = "";
+        }
+        else
+        {
+            intentionText = $"{entity.skill[entity.intention].spellId.ToString()}({entity.releaseIn})";
+        }
         intention.GetComponent<TextMeshProUGUI>().text = intentionText;
 
         if(entity.playerId != "player")

@@ -44,7 +44,7 @@ public class Spell
 public class Player
 {
     public string playerId;
-    public int position; // -1: player, 0: first enemy
+    public int position; // -1: dead, no display, 0: player, 1,2,3: enemy
     private int hp;
     public int maxhp;
     public Type type;
@@ -172,6 +172,8 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
                 break;
             case SpellId.vinePull:
+                
+
                 //(players[1], players[players.Count - 1]) = (players[players.Count - 1], players[1]);
                 break;
             case SpellId.transformMud:

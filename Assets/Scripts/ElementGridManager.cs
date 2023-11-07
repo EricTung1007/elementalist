@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ElementGridManager : MonoBehaviour
 {
@@ -14,15 +15,19 @@ public class ElementGridManager : MonoBehaviour
     public GameObject elementHolder;
     public GameObject elementPrefab;
 
+    private int xGridHovering = -1, yGridHovering = -1;
+
     private int gridWidth = 9;
     private int gridHeight = 2;
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
+    GameObject[,] elementTiles = new GameObject[9, 2];
     private int debuffGoo;
 
     private void Start()
     {
         GenerateInitialElements();
+        CaptureElementTiles();
         debuffGoo = 0;
     }
 
@@ -137,11 +142,20 @@ public class ElementGridManager : MonoBehaviour
             for (int j = 0; j < yCost; j++)
             {
                 if (cost[i, j] == Type.none) continue;
-                if (elementGrid[x + i, y + j].GetComponent<Element>().type != cost[i, j])
+                else
                 {
-                    matechedSpellCost = false;
-                    return matechedSpellCost;
+                    if (elementGrid[x + i, y + j] == null)
+                    {
+                        matechedSpellCost = false;
+                        return matechedSpellCost;
+                    }
+                    if (elementGrid[x + i, y + j].GetComponent<Element>().type != cost[i, j])
+                    {
+                        matechedSpellCost = false;
+                        return matechedSpellCost;
+                    }
                 }
+                
             }
         }
 
@@ -159,6 +173,60 @@ public class ElementGridManager : MonoBehaviour
                 if (cost[i, j] != Type.none)
                 {
                     RemoveElement(elementGrid[x + i, y + j]);
+                }
+            }
+        }
+    }
+
+    public void PointerEnterElementTile(int xGrid, int yGrid)
+    {
+        xGridHovering = xGrid;
+        yGridHovering = yGrid;
+    }
+    private void CaptureElementTiles()
+    {
+        for(int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                elementTiles[i, j] = GameObject.Find($"Tile {i} {j}");
+                //Debug.Log($"{elementTiles[i, j].name}");
+            }
+        }
+    }
+
+    private void Update()
+    {
+        SpellCostHighLight();
+    }
+    private void SpellCostHighLight()
+    {
+
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                Image image = elementTiles[i, j].GetComponent<Image>();
+                image.color = Color.clear;
+            }
+        }
+        if ((xGridHovering == -1) || (yGridHovering == -1)) { return; }
+
+        Type[,] cost = GetComponent<SpellGridManager>().spellTile[GetComponent<SpellGridManager>().selectedSpellTileNumber].GetComponent<SpellCost>().cost;
+
+        bool matchedSpellCost = MatchSpellCost(cost, xGridHovering, yGridHovering);
+
+        int xCost = cost.GetUpperBound(0) + 1;
+        int yCost = cost.GetUpperBound(1) + 1;
+        if (matchedSpellCost)
+        {
+            for (int i = 0; i < xCost; i++)
+            {
+                for (int j = 0; j < yCost; j++)
+                {
+                    if (cost[i, j] == Type.none) continue;
+                    Image image = elementTiles[i + xGridHovering, j + yGridHovering].GetComponent<Image>();
+                    image.color = Color.yellow;
                 }
             }
         }

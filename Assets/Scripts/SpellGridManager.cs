@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class SpellGridManager : MonoBehaviour
 {
     private const int spellAmount = 9;
-    private int selectedSpellTileNumber;
+    public int selectedSpellTileNumber;
     private SpellId selectedSpell;
-    private GameObject[] spellTile;
+    public GameObject[] spellTile;
     [SerializeField] private ElementGridManager elementGridManager;
 
     private void Awake()
@@ -83,7 +83,7 @@ public class SpellGridManager : MonoBehaviour
         bool CanPerform = elementGridManager.MatchSpellCost(cost, x, y);
         if (CanPerform)
         {
-            Debug.Log($"Performing spell {selectedSpell.ToString()}...");
+            //Debug.Log($"Performing spell {selectedSpell.ToString()}...");
             PerformSpell?.Invoke(selectedSpell);
             elementGridManager.RemoveUsedElements(cost, x, y);
         }

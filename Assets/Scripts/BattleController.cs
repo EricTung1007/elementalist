@@ -316,6 +316,7 @@ public class BattleController : MonoBehaviour
             }
             else
             {
+                if (player.position < 0) continue;
                 if (player.intention >= 0)
                 {
                     player.releaseIn--;

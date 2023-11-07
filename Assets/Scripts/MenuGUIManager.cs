@@ -21,6 +21,7 @@ public class MenuGUIMeneger : MonoBehaviour
     public GameObject endButton;
     public GameObject pausingImage;
     public GameObject BackStartButton;
+    public GameObject resultMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -101,7 +102,7 @@ public class MenuGUIMeneger : MonoBehaviour
         previousButton.SetActive(true);    
     }
 
-     public void Previous(){
+    public void Previous(){
         tutorialImage2.SetActive(false);  
         tutorialImage1.SetActive(true);      
         nextButton.SetActive(true); 
@@ -118,5 +119,24 @@ public class MenuGUIMeneger : MonoBehaviour
         restartButton.SetActive(true);
         tutorialButton.SetActive(true);
         BackStartButton.SetActive(true);
+    }
+
+    public void GameWin()
+    {
+        Time.timeScale = 0f;
+        resultMenu.SetActive(true);
+        win.SetActive(true);
+        lose.SetActive(false);
+        againButton.SetActive(true);
+        startMenuButton.SetActive(true);
+    }
+    public void GameLose()
+    {
+        Time.timeScale = 0f;
+        resultMenu.SetActive(true);
+        win.SetActive(false);
+        lose.SetActive(true);
+        againButton.SetActive(true);
+        startMenuButton.SetActive(true);
     }
 }

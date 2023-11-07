@@ -113,7 +113,10 @@ public class BattleController : MonoBehaviour
 
     private int aliveEnemies = 0;
 
-    [Serialize] 
+    [SerializeField] private UnityEvent GameWin;
+    [SerializeField] private UnityEvent GameLose;
+
+    //[Serialize] 
 
     // Start is called before the first frame update
     private void Awake()
@@ -355,6 +358,8 @@ public class BattleController : MonoBehaviour
                 if (player == players[0])
                 {
                     // player dead
+                    Debug.Log("Game Lose!");
+                    GameLose?.Invoke();
                 }
                 else
                 {
@@ -370,6 +375,8 @@ public class BattleController : MonoBehaviour
                     if (aliveEnemies == 0)
                     {
                         // win
+                        Debug.Log("Game Win!");
+                        GameWin?.Invoke();
                     }
                 }
             }

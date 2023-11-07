@@ -78,16 +78,16 @@ public class Player
     public void Damage(int damage)
     {
         UnityEngine.Debug.Log("DAMAGE!\n");
-        //if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
-        //    return;
-        //Effect effect;
-        //while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
-        //{
-        //    int block = Math.Min(damage, effect.hp);
-        //    damage -= block; // reduce damage
-        //    effect.hp -= block;
-        //    if (effect.hp == 0) { sustainedEffect.Remove(effect); }
-        //}
+        if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
+            return;
+        Effect effect;
+        while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
+        {
+           int block = Math.Min(damage, effect.hp);
+            damage -= block; // reduce damage
+            effect.hp -= block;
+            if (effect.hp == 0) { sustainedEffect.Remove(effect); }
+        }
         hp -= damage;
     }
 
@@ -168,7 +168,7 @@ public class BattleController : MonoBehaviour
                     break;
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, spell.duration, spell.hp));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 2, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 10, 1));
                 break;
             case SpellId.acidBomb:
                 if (targetedPlayer.type == Type.grass)
@@ -178,7 +178,8 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
                 break;
             case SpellId.steamExplosion:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
+                targetedPlayer.Damage(2);
+                //targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.dizziness, 0, 3));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
@@ -196,7 +197,7 @@ public class BattleController : MonoBehaviour
                 }
                 break;
             case SpellId.transformMud:
-                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 5, 0));
                 break;
             case SpellId.burningShield:
                 releasedBy.AddSustainedEffect(new Effect(EffectId.shield, 2, 7));
@@ -222,6 +223,7 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 3, 1));
                     // can only release once
                     releasedBy.skill.RemoveAll(spell => spell.spellId == SpellId.miniHeal);
+                    return false;
                 }
                 break;
             case SpellId.jichi:
@@ -328,7 +330,9 @@ public class BattleController : MonoBehaviour
                         }
                         else
                         {
-                            player.releaseIn++;
+                            player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                            player.releaseIn = player.skill[player.intention].cooldown;
+                            //player.releaseIn++;
                         }
                     }
                 }

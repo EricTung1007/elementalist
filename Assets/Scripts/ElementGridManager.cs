@@ -36,6 +36,7 @@ public class ElementGridManager : MonoBehaviour
         if (fixedUpdateCount % elementMovingInterval == 0)
         {
             MoveElements();
+            RemoveGooOnSide();
         }
         // Generate elements if possible
         if (fixedUpdateCount % elementGenerationInterval == 0)
@@ -120,7 +121,10 @@ public class ElementGridManager : MonoBehaviour
     }
     public void ReleaseElement(int xGrid, int yGrid)
     {
-        RemoveElement(elementGrid[xGrid, yGrid]);
+        GameObject currentElement = elementGrid[xGrid, yGrid];
+
+        if (currentElement.GetComponent<Element>().type == Type.goo) { return; } // Can't release goo element
+        RemoveElement(currentElement);
     }
     private void RemoveElement(GameObject element)
     {
@@ -174,6 +178,19 @@ public class ElementGridManager : MonoBehaviour
                 {
                     RemoveElement(elementGrid[x + i, y + j]);
                 }
+            }
+        }
+    }
+
+    private void RemoveGooOnSide()
+    {
+        int i = 0;
+        for (int j = 0; j < gridHeight; j++)
+        {
+            GameObject element = elementGrid[i, j];
+            if (element.GetComponent<Element>().type == Type.goo)
+            {
+                Destroy(element);
             }
         }
     }

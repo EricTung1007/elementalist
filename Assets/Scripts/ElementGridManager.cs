@@ -188,6 +188,7 @@ public class ElementGridManager : MonoBehaviour
         for (int j = 0; j < gridHeight; j++)
         {
             GameObject element = elementGrid[i, j];
+            if (element == null) continue;
             if (element.GetComponent<Element>().type == Type.goo)
             {
                 Destroy(element);

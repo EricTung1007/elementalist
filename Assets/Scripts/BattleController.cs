@@ -15,7 +15,7 @@ public class Effect
     public int duration;
     public int hp;
 
-    public Effect(EffectId effectId, int duration, int hp)
+    public Effect(EffectId effectId, int hp, int duration)
     {
         this.effectId = effectId;
         this.duration = duration;
@@ -168,7 +168,7 @@ public class BattleController : MonoBehaviour
                     break;
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, spell.duration, spell.hp));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 10, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 10));
                 break;
             case SpellId.acidBomb:
                 if (targetedPlayer.type == Type.grass)
@@ -197,7 +197,7 @@ public class BattleController : MonoBehaviour
                 }
                 break;
             case SpellId.transformMud:
-                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 5, 0));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
                 break;
             case SpellId.burningShield:
                 releasedBy.AddSustainedEffect(new Effect(EffectId.shield, 2, 7));
@@ -220,7 +220,7 @@ public class BattleController : MonoBehaviour
             case SpellId.miniHeal:
                 if (releasedBy.GetHP() / releasedBy.maxhp <= 1.0 / 3.0)
                 {
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 3, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 1, 3));
                     // can only release once
                     releasedBy.skill.RemoveAll(spell => spell.spellId == SpellId.miniHeal);
                     return false;
@@ -316,6 +316,7 @@ public class BattleController : MonoBehaviour
             }
             else
             {
+                if (player.position < 0) continue;
                 if (player.intention >= 0)
                 {
                     player.releaseIn--;

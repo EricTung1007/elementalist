@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Effect
 {
@@ -44,8 +45,9 @@ public class Player
 {
     public string playerId;
     private int hp;
-    private int maxhp;
+    public int maxhp;
     public Type type;
+    public int chi;
 
     public List<Effect> sustainedEffect;
     public List<Spell> skill;
@@ -102,6 +104,8 @@ public class BattleController : MonoBehaviour
     private List<Player> players = new List<Player>();
     private List<Spell> queuedSpells = new List<Spell>();
 
+    private UnityEvent<SpellId> slimeEvent;
+
     private int fixedUpdateCount = 0;
 
     // Start is called before the first frame update
@@ -140,7 +144,8 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    public void PerformSpell(Spell spell, Player releasedBy, Player targetedPlayer)
+    // return true if performed successfully or false if the spell is held on until criteria meets
+    public bool PerformSpell(Spell spell, Player releasedBy, Player targetedPlayer)
     {
         UnityEngine.Debug.Log(spell.spellId + " performed by " + releasedBy.playerId + " at " + targetedPlayer.playerId);
         switch (spell.spellId)
@@ -189,11 +194,33 @@ public class BattleController : MonoBehaviour
             case SpellId.collide:
                 targetedPlayer.Damage(spell.damage);
                 break;
-
+            case SpellId.miniHeal:
+                if (releasedBy.GetHP() / releasedBy.maxhp <= 1.0 / 3.0)
+                {
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 3, 1));
+                    // can only release once
+                    releasedBy.skill.RemoveAll(spell => spell.spellId == SpellId.miniHeal);
+                }
+                break;
+            case SpellId.jichi:
+                releasedBy.chi++;
+                break;
+            case SpellId.magmaBomb:
+                if (releasedBy.chi >= 2)
+                {
+                    releasedBy.chi--;
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 6, 1));
+                    break;
+                }
+                else return false;
+            case SpellId.dodge:
+                // todo
+                break;
             default:
                 UnityEngine.Debug.Log(spell.spellId);
                 break;
         }
+        return true;
     }
 
     private void InitBattle()
@@ -264,11 +291,13 @@ public class BattleController : MonoBehaviour
                 {
                     if (player == players[0])
                     {
-                        PerformSpell(spell, players[0], players[1]);
+                        bool performed = PerformSpell(spell, players[0], players[1]);
+                        if (!performed) continue;
                     }
                     else
                     {
-                        PerformSpell(spell, player, players[0]);
+                        bool performed = PerformSpell(spell, player, players[0]);
+                        if (!performed) continue;
                     }
                     spell.cdRemain = spell.cooldown;
                 }

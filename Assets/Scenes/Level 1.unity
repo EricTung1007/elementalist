@@ -4648,7 +4648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71c3597c85fd6e846a5f986fda027b0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e2d755aa9bbc8442bb53cef02202851, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5606,7 +5606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &922761850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8311,7 +8311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1362523577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8772,7 +8772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1479653774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9748,6 +9748,9 @@ MonoBehaviour:
   endButton: {fileID: 998522460}
   pausingImage: {fileID: 415747755}
   BackStartButton: {fileID: 627738950}
+  Result:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1523738496
 GameObject:
   m_ObjectHideFlags: 0
@@ -10347,7 +10350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608511799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12115,7 +12118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1851732981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12983,7 +12986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9f160f2bb665b2746a4645474274c3b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83db1da09c4b124478bfd8052bb757cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

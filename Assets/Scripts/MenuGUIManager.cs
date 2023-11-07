@@ -19,7 +19,7 @@ public class MenuGUIMeneger : MonoBehaviour
     public GameObject nextButton;
     public GameObject previousButton;
     public GameObject endButton;
-
+    public GameObject pausingImage;
     public GameObject BackStartButton;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +39,8 @@ public class MenuGUIMeneger : MonoBehaviour
         restartButton.SetActive(true);
         tutorialButton.SetActive(true);
         BackStartButton.SetActive(true);
+        pauseButton.SetActive(false);
+        pausingImage.SetActive(true);
     }
 
     public void Continue(){
@@ -48,6 +50,8 @@ public class MenuGUIMeneger : MonoBehaviour
         restartButton.SetActive(false);
         tutorialButton.SetActive(false);
         BackStartButton.SetActive(false);
+        pausingImage.SetActive(false);
+        pauseButton.SetActive(true);
     }
 
     public void Restart(){
@@ -56,6 +60,8 @@ public class MenuGUIMeneger : MonoBehaviour
         restartButton.SetActive(false);
         tutorialButton.SetActive(false);
         BackStartButton.SetActive(false);
+        pausingImage.SetActive(false);
+        pauseButton.SetActive(true);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level 1");
     }
@@ -82,6 +88,8 @@ public class MenuGUIMeneger : MonoBehaviour
         lose.SetActive(false);
         againButton.SetActive(false);
         startMenuButton.SetActive(false);
+        pausingImage.SetActive(false);
+        pauseButton.SetActive(true);
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartMenu");
     }

@@ -18,10 +18,12 @@ public class ElementGridManager : MonoBehaviour
     private int gridHeight = 2;
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
+    private int debuffGoo;
 
     private void Start()
     {
         GenerateInitialElements();
+        debuffGoo = 0;
     }
 
     private void FixedUpdate()
@@ -83,13 +85,33 @@ public class ElementGridManager : MonoBehaviour
         Element element = newElement.GetComponent<Element>();
 
         // Assign a random element type to it
-        element.Generate();
+        var random = new System.Random();
+        Type[] defaultGenerationPool = new Type[3] { Type.fire, Type.water, Type.grass };
+
+        element.type = Type.none;
+        if (random.NextDouble() < (double)debuffGoo * 0.1d)
+        {
+            element.type = Type.goo;
+        }
+
+        // If no debuff applied, generate default elements
+        if (element.type == Type.none)
+        {
+            element.type = defaultGenerationPool[random.Next(3)];
+        }
+
+
         element.xGrid = xGrid; element.yGrid = yGrid;
 
         element.Activate();
         elementGrid[xGrid, yGrid] = newElement;
 
         return newElement;
+    }
+
+    public void ApplyDebuffGoo()
+    {
+        debuffGoo++;
     }
     public void ReleaseElement(int xGrid, int yGrid)
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Element : MonoBehaviour
     [SerializeField] public Type type;
     public int xGrid, yGrid;
 
-    public Sprite spriteFire, spriteWater, spriteGrass;
+    public Sprite spriteFire, spriteWater, spriteGrass, spriteGoo;
 
 
     public void Activate()
@@ -21,6 +22,7 @@ public class Element : MonoBehaviour
             case Type.fire:  this.GetComponent<Image>().sprite = spriteFire;  break;
             case Type.water: this.GetComponent<Image>().sprite = spriteWater; break;
             case Type.grass: this.GetComponent<Image>().sprite = spriteGrass; break;
+            case Type.goo: this.GetComponent<Image>().sprite = spriteGoo; break;
         }
     }
 
@@ -30,15 +32,5 @@ public class Element : MonoBehaviour
         float x = 60.0f + xGrid * 120.0f;
         float y = 60.0f + yGrid * 120.0f;
         this.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y, 0);
-    }
-
-    // Default selection of element generation
-    Type[] generationPool = new Type[3] {Type.fire, Type.water, Type.grass};
-
-    // Constructor; Generate a new random element
-    public void Generate()
-    {
-        var random = new System.Random();
-        this.type = generationPool[random.Next(3)];
     }
 }

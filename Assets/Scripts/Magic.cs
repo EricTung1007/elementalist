@@ -21,8 +21,8 @@ public class Magic : MonoBehaviour
             case SpellId.acidBomb:
                 cost = new Type[2, 2]
                 {
-                    {Type.none, Type.grass},
-                    {Type.grass, Type.water}
+                    {Type.none, Type.water},
+                    {Type.water, Type.grass}
                 }; break;
             case SpellId.steamExplosion:
                 cost = new Type[2, 2]

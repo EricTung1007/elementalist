@@ -8,7 +8,8 @@ public enum Type
     none,
     fire,
     water,
-    grass
+    grass,
+    goo
 }
 
 // Spell ID

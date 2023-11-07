@@ -48,8 +48,8 @@ public class Player
     public int maxhp;
     public Type type;
     public int chi;
-    public int intention; // intentionId = skill[intention].spellId
-    public int releaseIn; // cooldown remaining seconds, total cooldown is skill[intention].cooldown
+    public int intention = -1; // intentionId = skill[intention].spellId
+    public int releaseIn = 999; // cooldown remaining seconds, total cooldown is skill[intention].cooldown
 
     public List<Effect> sustainedEffect;
     public List<Spell> skill;
@@ -249,7 +249,7 @@ public class BattleController : MonoBehaviour
     {
         UnityEngine.Debug.Log("INIT");
 
-        players.Add(new Player("player", 15, Type.none, 0));
+        players.Add(new Player("player", 50, Type.none, 0));
         players.Last().skill.Add(new Spell(SpellId.fireArrow, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.acidBomb, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.steamExplosion, 2, 3, 0));
@@ -308,28 +308,41 @@ public class BattleController : MonoBehaviour
 
         foreach (Player player in players)
         {
-            foreach (Spell spell in player.skill)
+            if (player == players[0])
             {
-                if (spell.cooldown > 0 && spell.cdRemain == 0)
+
+            }
+            else
+            {
+                if (player.intention >= 0)
                 {
-                    if (player == players[0])
+                    player.releaseIn--;
+
+                    if (player.releaseIn <= 0)
                     {
-                        bool performed = PerformSpell(spell, players[0], players[1]);
-                        if (!performed) continue;
+                        bool performed = PerformSpell(player.skill[player.intention], player, players[0]);
+                        if (performed)
+                        {
+                            player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                            player.releaseIn = player.skill[player.intention].cooldown;
+                        }
+                        else
+                        {
+                            player.releaseIn++;
+                        }
                     }
-                    else
-                    {
-                        bool performed = PerformSpell(spell, player, players[0]);
-                        if (!performed) continue;
-                    }
-                    spell.cdRemain = spell.cooldown;
+                }
+                else
+                {
+                    player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                    player.releaseIn = player.skill[player.intention].cooldown;
                 }
 
-                spell.cdRemain--;
             }
+        }
 
-
-
+        foreach (Player player in players)
+        {
             if (player.GetHP() <= 0 && player.position >= 0)
             {
                 if (player == players[0])

@@ -53,12 +53,13 @@ public class Player
     public List<Effect> sustainedEffect;
     public List<Spell> skill;
 
-    public Player(string playerId, int maxhp, Type type)
+    public Player(string playerId, int maxhp, Type type, int position)
     {
         this.playerId = playerId;
         this.hp = maxhp;
         this.maxhp = maxhp;
         this.type = type;
+        this.position = position;
 
         sustainedEffect = new List<Effect>();
         skill = new List<Spell>();
@@ -108,6 +109,8 @@ public class BattleController : MonoBehaviour
     private UnityEvent<SpellId> slimeEvent;
 
     private int fixedUpdateCount = 0;
+
+    private int aliveEnemies = 0;
 
     // Start is called before the first frame update
     private void Awake()
@@ -172,9 +175,16 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
                 break;
             case SpellId.vinePull:
-                
-
-                //(players[1], players[players.Count - 1]) = (players[players.Count - 1], players[1]);
+                for (int i = 1; i < players.Count; i++)
+                {
+                    if (players[i].position > 0)
+                    {
+                        if (players[i].position == aliveEnemies)
+                            players[i].position = 1; // pull to the front;
+                        else
+                            players[i].position++;
+                    }
+                }
                 break;
             case SpellId.transformMud:
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
@@ -230,7 +240,7 @@ public class BattleController : MonoBehaviour
     {
         UnityEngine.Debug.Log("INIT");
 
-        players.Add(new Player("player", 15, Type.none));
+        players.Add(new Player("player", 15, Type.none, 0));
         players.Last().skill.Add(new Spell(SpellId.fireArrow, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.acidBomb, 1, 4, 0));
         players.Last().skill.Add(new Spell(SpellId.steamExplosion, 2, 3, 0));
@@ -240,19 +250,20 @@ public class BattleController : MonoBehaviour
         players.Last().skill.Add(new Spell(SpellId.heal, 1, 5, 0));
         players.Last().skill.Add(new Spell(SpellId.elementSurge, 0, 20, 0));
 
-        players.Add(new Player("green_slime", 12, Type.grass));
+        players.Add(new Player("green_slime", 12, Type.grass, 1));
         players.Last().skill.Add(new Spell(SpellId.collide, 2, 0, 10));
         players.Last().skill.Add(new Spell(SpellId.miniHeal, 0, 3, 12));
 
-        players.Add(new Player("blue_slime", 10, Type.water));
+        players.Add(new Player("blue_slime", 10, Type.water, 2));
         players.Last().skill.Add(new Spell(SpellId.collide, 2, 0, 10));
         players.Last().skill.Add(new Spell(SpellId.slime, 1, 0, 10));
 
-        players.Add(new Player("red_slime", 8, Type.fire));
+        players.Add(new Player("red_slime", 8, Type.fire, 3));
         players.Last().skill.Add(new Spell(SpellId.collide, 1, 0, 6));
         players.Last().skill.Add(new Spell(SpellId.magmaBomb, 1, 6, 20));
         players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 3));
 
+        aliveEnemies = 3;
     }
 
     void ProcessSustainedEffects()
@@ -318,15 +329,27 @@ public class BattleController : MonoBehaviour
                 }
                 else
                 {
-                    // enemy dead
+                    int deadEnemyPosition = player.position;
+                    player.position = -1;
+                    for (int i = 1; i < players.Count; i++)
+                    {
+                        if (players[i].position > deadEnemyPosition)
+                            players[i].position--;
+                    }
+                    aliveEnemies--;
                 }
             }
         }
-        //players.RemoveAll(player => player.GetHP() <= 0);
+        //players.RemoveAll(player => player.playerId != "player" && player.GetHP() <= 0);
 
-        string s = "";
+
+        string s = "Brief: HP: ";
         foreach (Player player in players)
             s += player.GetHP() + " / ";
+        s += " POS: ";
+        foreach (Player player in players)
+            s += player.position + " / ";
+        
         s += '\n';
         foreach (Player player in players)
         {

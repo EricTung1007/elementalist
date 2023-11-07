@@ -101,7 +101,7 @@ public class Player
 
 public class BattleController : MonoBehaviour
 {
-    private List<Player> players = new List<Player>();
+    public List<Player> players = new List<Player>();
     private List<Spell> queuedSpells = new List<Spell>();
 
     private UnityEvent<SpellId> slimeEvent;

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class SpellGridManager : MonoBehaviour
 {
@@ -56,9 +58,16 @@ public class SpellGridManager : MonoBehaviour
     }
     public void SelectSpellTile(int tilenumber)
     {
-        Debug.Log($"Selecting spell tile {tilenumber}.");
+        //Debug.Log($"Selecting spell tile {tilenumber}.");
         selectedSpellTileNumber = tilenumber;
         selectedSpell = spellTile[tilenumber].GetComponent<SpellCost>().spellId;
+
+        // Highlight
+        for(int i = 1; i < spellAmount + 1; i++)
+        {
+            spellTile[i].GetComponent<Image>().color = Color.gray;
+        }
+        spellTile[selectedSpellTileNumber].GetComponent<Image>().color = Color.white;
     }
 
     [SerializeField] private UnityEvent<SpellId> PerformSpell;

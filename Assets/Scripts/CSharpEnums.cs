@@ -22,7 +22,13 @@ public enum SpellId
     transformMud,
     burningShield,
     heal,
-    elementSurge
+    elementSurge,
+    collide,
+    miniHeal,
+    slime,
+    jichi,
+    magmaBomb,
+    dodge
 }
 
 // Sustained Effect ID

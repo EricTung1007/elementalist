@@ -113,13 +113,8 @@ public class BattleController : MonoBehaviour
 
     private int aliveEnemies = 0;
 
-<<<<<<< HEAD
     [SerializeField] private UnityEvent GameWin;
     [SerializeField] private UnityEvent GameLose;
-
-    //[Serialize] 
-=======
->>>>>>> 3b27a853abab689bf0d0eb26a3c1d11eef364cbc
 
     // Start is called before the first frame update
     private void Awake()
@@ -377,13 +372,9 @@ public class BattleController : MonoBehaviour
 
                     if (aliveEnemies == 0)
                     {
-<<<<<<< HEAD
                         // win
                         Debug.Log("Game Win!");
                         GameWin?.Invoke();
-=======
-
->>>>>>> 3b27a853abab689bf0d0eb26a3c1d11eef364cbc
                     }
                 }
             }

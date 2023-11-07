@@ -23,11 +23,7 @@ public class MenuGUIMeneger : MonoBehaviour
     public GameObject endButton;
     public GameObject pausingImage;
     public GameObject BackStartButton;
-<<<<<<< HEAD
     public GameObject resultMenu;
-=======
-    public UnityEvent Result;
->>>>>>> 3b27a853abab689bf0d0eb26a3c1d11eef364cbc
     // Start is called before the first frame update
     void Start()
     {

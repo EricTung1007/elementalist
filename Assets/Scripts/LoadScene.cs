@@ -18,6 +18,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadGame(){
         SceneManager.LoadScene("Level 1");
+        Time.timeScale = 1.0f; 
     }
     public void LoadTutorial(){
         SceneManager.LoadScene("Tutorial");

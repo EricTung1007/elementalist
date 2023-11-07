@@ -4717,6 +4717,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b8a19f11200d348ad540321ad3db3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1513203511}
+        m_TargetAssemblyTypeName: MenuGUIMeneger, Assembly-CSharp
+        m_MethodName: GameWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GameLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1513203511}
+        m_TargetAssemblyTypeName: MenuGUIMeneger, Assembly-CSharp
+        m_MethodName: GameLose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641276441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5670,7 +5700,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 922761852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1513203511}
+        m_TargetAssemblyTypeName: MenuGUIMeneger, Assembly-CSharp
+        m_MethodName: StartMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &922761852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8836,7 +8878,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1479653776}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1513203511}
+        m_TargetAssemblyTypeName: MenuGUIMeneger, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1479653776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9748,9 +9802,7 @@ MonoBehaviour:
   endButton: {fileID: 998522460}
   pausingImage: {fileID: 415747755}
   BackStartButton: {fileID: 627738950}
-  Result:
-    m_PersistentCalls:
-      m_Calls: []
+  resultMenu: {fileID: 1362523576}
 --- !u!1 &1523738496
 GameObject:
   m_ObjectHideFlags: 0

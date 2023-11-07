@@ -196,7 +196,7 @@ public class BattleController : MonoBehaviour
                 }
                 break;
             case SpellId.transformMud:
-                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 5, 0));
                 break;
             case SpellId.burningShield:
                 releasedBy.AddSustainedEffect(new Effect(EffectId.shield, 2, 7));
@@ -222,6 +222,7 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, 3, 1));
                     // can only release once
                     releasedBy.skill.RemoveAll(spell => spell.spellId == SpellId.miniHeal);
+                    return false;
                 }
                 break;
             case SpellId.jichi:
@@ -328,7 +329,9 @@ public class BattleController : MonoBehaviour
                         }
                         else
                         {
-                            player.releaseIn++;
+                            player.intention = UnityEngine.Random.Range(0, player.skill.Count - 1);
+                            player.releaseIn = player.skill[player.intention].cooldown;
+                            //player.releaseIn++;
                         }
                     }
                 }

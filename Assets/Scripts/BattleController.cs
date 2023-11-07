@@ -15,29 +15,28 @@ public class Effect
     public int duration;
     public int hp;
 
-    public Effect(EffectId effectId, int duration, int damage)
+    public Effect(EffectId effectId, int duration, int hp)
     {
         this.effectId = effectId;
         this.duration = duration;
-        this.hp = damage;
+        this.hp = hp;
     }
 }
 
 public class Spell
 {
     public SpellId spellId;
-    public int damage;
+    public int hp;
     public int duration;
     public int cooldown;
     public int cdRemain;
 
-    public Spell(SpellId spellId, int damage, int duration, int cooldown)
+    public Spell(SpellId spellId, int hp, int duration, int cooldown)
     {
         this.spellId = spellId;
-        this.damage = damage;
+        this.hp = hp;
         this.duration = duration;
         this.cooldown = cooldown;
-        this.cdRemain = cooldown;
     }
 }
 
@@ -49,6 +48,8 @@ public class Player
     public int maxhp;
     public Type type;
     public int chi;
+    public int intention; // intentionId = skill[intention].spellId
+    public int releaseIn; // cooldown remaining seconds, total cooldown is skill[intention].cooldown
 
     public List<Effect> sustainedEffect;
     public List<Spell> skill;
@@ -142,7 +143,15 @@ public class BattleController : MonoBehaviour
         {
             if (mySpell.spellId == spell)
             {
-                PerformSpell(mySpell, players[0], players[1]);
+                foreach (Player player in players)
+                {
+                    if (player.position == 1)
+                    {
+                        PerformSpell(mySpell, players[0], player);
+                        break;
+                    }
+                }
+
                 break;
             }
         }
@@ -157,9 +166,9 @@ public class BattleController : MonoBehaviour
             case SpellId.fireArrow:
                 if (targetedPlayer.type == Type.fire || targetedPlayer.type == Type.water)
                     break;
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, 1, 3));
+                targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, spell.duration, spell.hp));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 2, 1));
                 break;
             case SpellId.acidBomb:
                 if (targetedPlayer.type == Type.grass)
@@ -187,25 +196,25 @@ public class BattleController : MonoBehaviour
                 }
                 break;
             case SpellId.transformMud:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.physicalAttackImmunity, 0, 5));
                 break;
             case SpellId.burningShield:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.shield, 2, 7));
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.burnThorns, 0, 2));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.shield, 2, 7));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.burnThorns, 0, 2));
                 break;
             case SpellId.heal:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.regenerate, 1, 4));
+                releasedBy.AddSustainedEffect(new Effect(EffectId.regenerate, spell.duration, spell.hp));
                 break;
             case SpellId.elementSurge:
                 for (int i = 1; i < players.Count; i++)
                 {
-                    players[i].Damage(spell.damage);
+                    players[i].Damage(spell.hp);
                     players[i].AddSustainedEffect(new Effect(EffectId.burn, 1, 3));
                     players[i].AddSustainedEffect(new Effect(EffectId.poison, 1, 3));
                 }
                 break;
             case SpellId.collide:
-                targetedPlayer.Damage(spell.damage);
+                targetedPlayer.Damage(spell.hp);
                 break;
             case SpellId.miniHeal:
                 if (releasedBy.GetHP() / releasedBy.maxhp <= 1.0 / 3.0)
@@ -321,7 +330,7 @@ public class BattleController : MonoBehaviour
 
 
 
-            if (player.GetHP() <= 0)
+            if (player.GetHP() <= 0 && player.position >= 0)
             {
                 if (player == players[0])
                 {
@@ -349,7 +358,7 @@ public class BattleController : MonoBehaviour
         s += " POS: ";
         foreach (Player player in players)
             s += player.position + " / ";
-        
+
         s += '\n';
         foreach (Player player in players)
         {

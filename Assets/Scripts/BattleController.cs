@@ -113,7 +113,6 @@ public class BattleController : MonoBehaviour
 
     private int aliveEnemies = 0;
 
-    [Serialize] 
 
     // Start is called before the first frame update
     private void Awake()
@@ -369,7 +368,7 @@ public class BattleController : MonoBehaviour
 
                     if (aliveEnemies == 0)
                     {
-                        // win
+
                     }
                 }
             }

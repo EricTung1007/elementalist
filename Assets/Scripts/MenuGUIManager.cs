@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
 
 public class MenuGUIMeneger : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class MenuGUIMeneger : MonoBehaviour
     public GameObject endButton;
     public GameObject pausingImage;
     public GameObject BackStartButton;
+    public UnityEvent Result;
     // Start is called before the first frame update
     void Start()
     {

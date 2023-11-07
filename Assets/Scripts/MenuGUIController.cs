@@ -19,6 +19,7 @@ public class MenuGUIManager : MonoBehaviour
     public GameObject nextButton;
     public GameObject previousButton;
     public GameObject endButton;
+    public GameObject BackStartButton;
     // Start is called before the first frame update
     void Start()
     {

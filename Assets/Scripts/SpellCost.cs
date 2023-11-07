@@ -28,7 +28,7 @@ public class SpellCost : MonoBehaviour
                 cost = new Type[2, 2]
                 {
                     {Type.none, Type.water},
-                    {Type.water, Type.water}
+                    {Type.water, Type.grass}
                 }; 
                 break;
             case SpellId.steamExplosion:

@@ -78,16 +78,16 @@ public class Player
     public void Damage(int damage)
     {
         UnityEngine.Debug.Log("DAMAGE!\n");
-        //if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
-        //    return;
-        //Effect effect;
-        //while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
-        //{
-        //    int block = Math.Min(damage, effect.hp);
-        //    damage -= block; // reduce damage
-        //    effect.hp -= block;
-        //    if (effect.hp == 0) { sustainedEffect.Remove(effect); }
-        //}
+        if (IsUnderEffect(EffectId.physicalAttackImmunity) != null)
+            return;
+        Effect effect;
+        while (damage > 0 && (effect = IsUnderEffect(EffectId.shield)) != null) // use up shield effect
+        {
+           int block = Math.Min(damage, effect.hp);
+            damage -= block; // reduce damage
+            effect.hp -= block;
+            if (effect.hp == 0) { sustainedEffect.Remove(effect); }
+        }
         hp -= damage;
     }
 
@@ -168,7 +168,7 @@ public class BattleController : MonoBehaviour
                     break;
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.burn, spell.duration, spell.hp));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
-                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 2, 1));
+                    releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 10, 1));
                 break;
             case SpellId.acidBomb:
                 if (targetedPlayer.type == Type.grass)
@@ -178,7 +178,8 @@ public class BattleController : MonoBehaviour
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));
                 break;
             case SpellId.steamExplosion:
-                targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
+                targetedPlayer.Damage(2);
+                //targetedPlayer.AddSustainedEffect(new Effect(EffectId.basicDamage, 2, 0));
                 targetedPlayer.AddSustainedEffect(new Effect(EffectId.dizziness, 0, 3));
                 if (targetedPlayer.IsUnderEffect(EffectId.burnThorns) != null)
                     releasedBy.AddSustainedEffect(new Effect(EffectId.burn, 1, 2));

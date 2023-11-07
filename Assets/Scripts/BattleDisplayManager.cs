@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BattleDisplayManager : MonoBehaviour
@@ -24,5 +25,42 @@ public class BattleDisplayManager : MonoBehaviour
         Player greenSlime = players[1];
         Player blueSlime = players[2];
         Player redSlime = players[3];
+
+        SetCurrentState(playerObject, player);
+        SetCurrentState(greenSlimeObject, greenSlime);
+        SetCurrentState(blueSlimeObject, blueSlime);
+        SetCurrentState(redSlimeObject, redSlime);
+    }
+
+    private void SetCurrentState(GameObject entityObject, Player entity)
+    {
+        if (entity.GetHP() <= 0) // DEAD
+        {
+            entityObject.SetActive(false);
+            return;
+        }
+
+        GameObject hpBar = entityObject.transform.GetChild(0).gameObject;
+        GameObject statusEffect = entityObject.transform.GetChild(1).gameObject;
+        GameObject intention = entityObject.transform.GetChild(2).gameObject;
+
+        string hpBarText = $"HP({entity.GetHP()}/{entity.maxhp})";
+        hpBar.GetComponent<TextMeshProUGUI>().text = hpBarText;
+
+        string statusEffectText = "";
+        foreach (Effect effect in entity.sustainedEffect)
+        {
+            statusEffectText += $"{effect.effectId} {effect.hp}({effect.duration})\n";
+        }
+        statusEffect.GetComponent<TextMeshProUGUI>().text = statusEffectText;
+
+        string intentionText = "NIY";
+        intention.GetComponent<TextMeshProUGUI>().text = intentionText;
+
+        if(entity.playerId != "player")
+        {
+            float pos = entity.position;
+            entityObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos * 240f - 120f, 0, 0);
+        }
     }
 }

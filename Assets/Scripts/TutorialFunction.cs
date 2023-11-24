@@ -8,9 +8,9 @@ public class TutorialFunction : MonoBehaviour
 {
     public GameObject[] setThemActive;
     public GameObject[] setThemUnactive;
-
     public string sceneName;
     public float num;
+
     // Start is called before the first frame update
     void Start()
     {

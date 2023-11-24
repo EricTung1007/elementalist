@@ -6,13 +6,13 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
 
-public class SpellGridManager : MonoBehaviour
+public class TutorialSpellGridManager : MonoBehaviour
 {
     private const int spellAmount = 9;
     public int selectedSpellTileNumber;
     private SpellId selectedSpell;
     public GameObject[] spellTile;
-    [SerializeField] private ElementGridManager elementGridManager;
+    [SerializeField] private TutorialElementGridManager elementGridManager;
 
     private void Awake()
     {
@@ -73,7 +73,7 @@ public class SpellGridManager : MonoBehaviour
     [SerializeField] private UnityEvent<SpellId> PerformSpell;
 
     public void TryPerformSpell(int x, int y)
-    {        
+    {
         // Don't perform spell null
         if (spellTile[selectedSpellTileNumber].GetComponent<SpellCost>().spellId == SpellId.none) return;
 

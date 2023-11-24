@@ -45,7 +45,7 @@ public class TutorialManager : MonoBehaviour
 
 
     public void HandleFirstEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)== 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             Time.timeScale = 0f;
             coverWhole.SetActive(true);
             textBack1.SetActive(true);
@@ -56,7 +56,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleSecondEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)== 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             Time.timeScale = 0f;
             coverWhole.SetActive(true);
             textBack1.SetActive(true);
@@ -82,11 +82,11 @@ public class TutorialManager : MonoBehaviour
     }
 
     public void CloseInteractable(){
-        if(whichFunction == 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)== 1){
+        if(whichFunction == 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 2){
            Destroy(elementTile1.GetComponent<ElementTile>()); 
            arrowSign1.SetActive(false);
         }
-        else if(whichFunction == 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)== 0){
+        else if(whichFunction == 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0) != 1){
             Destroy(elementTile2.GetComponent<ElementTile>());
             arrowSign2.SetActive(false);
         }    

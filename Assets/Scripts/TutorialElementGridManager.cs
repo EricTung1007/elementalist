@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public class TutorialElementGridManager : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class TutorialElementGridManager : MonoBehaviour
     GameObject[,] elementGrid = new GameObject[9, 2];
     GameObject[,] elementTiles = new GameObject[9, 2];
     private int debuffGoo;
+
+    [SerializeField] private UnityEvent<int, int> pointerEnter;
 
     private void Start()
     {
@@ -274,17 +278,26 @@ public class TutorialElementGridManager : MonoBehaviour
     public int GetElementType(int i, int j){
         // 0:fire 1:water 2:grass 3:none
         if(elementGrid[i, j] != null){
-            if(elementGrid[i, j].GetComponent<Element>().type == Type.fire)
+            if(elementGrid[i, j].GetComponent<Element>().type == Type.fire){
+                //Debug.Log("fire");
                 return 0;
-            else if(elementGrid[i, j].GetComponent<Element>().type == Type.water)
+            }
+            else if(elementGrid[i, j].GetComponent<Element>().type == Type.water){
+                //Debug.Log("water");
                 return 1;
-            else
+            }   
+            else{
+                //Debug.Log("grass");
                 return 2;
+            }
+                
         }
-        else
+        else{
+            //Debug.Log("null");
             return 3;
+        }
+            
     }
-    
     public bool CheckAllElementsExist(){
         for(int i = 0; i <gridWidth; i++){
             for(int j = 0; j < gridHeight; j++){
@@ -293,5 +306,17 @@ public class TutorialElementGridManager : MonoBehaviour
             } 
         }
         return true;
+    }
+    public void PutClickableBack(){
+        CaptureElementTiles();
+        TutorialElementGridManager elementGridManagerScript = new TutorialElementGridManager();
+        for(int i = 0; i <gridWidth; i++){
+            for(int j = 0; j < gridHeight; j++){
+                TutorialElementTile elementTileScript = elementTiles[i, j].AddComponent<TutorialElementTile>();
+                elementTileScript.xGrid = i;
+                elementTileScript.yGrid = j;
+                elementTileScript._entered = pointerEnter;
+            } 
+        }  
     }
 }

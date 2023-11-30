@@ -10,13 +10,14 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject battleGUIManager;
     [SerializeField] private GameObject textBack1;
     [SerializeField] private GameObject textBack2;
-    [SerializeField] private GameObject text3;
     [SerializeField] private GameObject okButton;
     [SerializeField] private GameObject coverWhole;
     [SerializeField] private GameObject coverGrass;
     [SerializeField] private GameObject coverSpell;
+    [SerializeField] private GameObject text3;
     [SerializeField] private GameObject text4;
     [SerializeField] private GameObject text9;
+    [SerializeField] private GameObject text13;
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject[] nextFunctions;
     [SerializeField] private int nextCount = 0;
@@ -25,6 +26,8 @@ public class TutorialManager : MonoBehaviour
     private int whichFunction = 0;
     [SerializeField] private GameObject arrowSign1;
     [SerializeField] private GameObject arrowSign2;
+    [SerializeField] private GameObject arrowSign3;
+    [SerializeField] private GameObject arrowSign4;
     [SerializeField] private GameObject squareSign1;
     [SerializeField] private GameObject squareSign2;
     public GameObject spellTile6;
@@ -54,7 +57,14 @@ public class TutorialManager : MonoBehaviour
         }
             
         else if(whichFunction == 2)
-            HandleCastingSpell();   
+            HandleChoosingSpell(); 
+        else if(whichFunction == 3){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 2){
+                arrowSign3.SetActive(false);
+            }
+            HandleCastingSpell();  
+        }
+
     } 
 
 
@@ -83,15 +93,26 @@ public class TutorialManager : MonoBehaviour
             whichFunction++;
         }
     }
-    public void HandleCastingSpell(){
+    public void HandleChoosingSpell(){
         if(battleGUIManager.GetComponent<TutorialSpellGridManager>().selectedSpellTileNumber == 6){
-            //arrowSign2.SetActive(false);            
+            arrowSign4.SetActive(false);            
             coverWhole.SetActive(true);
             coverSpell.SetActive(true);
             Time.timeScale = 0f;
             textBack1.SetActive(true);
             textBack2.SetActive(true);
             text9.SetActive(true);
+            nextButton.SetActive(true);
+            whichFunction++;
+        }
+    }
+    public void HandleCastingSpell(){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+            coverWhole.SetActive(true);
+            Time.timeScale = 0f;
+            textBack1.SetActive(true);
+            textBack2.SetActive(true);
+            text13.SetActive(true);
             nextButton.SetActive(true);
             whichFunction++;
         }

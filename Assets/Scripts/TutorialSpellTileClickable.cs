@@ -11,7 +11,7 @@ public class TutorialSpellTileClickable : MonoBehaviour, IPointerDownHandler
     public int tileNumber;
     // Keys for tile selection
     private KeyCode keypad, key;
-    [SerializeField] private bool active = false;
+    public bool active = false;
 
     [SerializeField] private UnityEvent<int> Select;
 

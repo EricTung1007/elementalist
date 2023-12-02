@@ -22,6 +22,7 @@ public class LoadScene : MonoBehaviour
     }
     public void LoadTutorial(){
         SceneManager.LoadScene("Tutorial");
+         Time.timeScale = 0f; 
     }
     public void LoadStartMenu(){
         SceneManager.LoadScene("StartMenu");

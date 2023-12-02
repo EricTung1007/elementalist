@@ -73,7 +73,7 @@ public class SpellGridManager : MonoBehaviour
     [SerializeField] private UnityEvent<SpellId> PerformSpell;
 
     public void TryPerformSpell(int x, int y)
-    {
+    {        
         // Don't perform spell null
         if (spellTile[selectedSpellTileNumber].GetComponent<SpellCost>().spellId == SpellId.none) return;
 

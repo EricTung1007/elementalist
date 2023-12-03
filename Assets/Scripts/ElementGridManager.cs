@@ -22,7 +22,7 @@ public class ElementGridManager : MonoBehaviour
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
     GameObject[,] elementTiles = new GameObject[9, 2];
-    private int debuffGoo;
+    public int debuffGoo;
 
     private void Start()
     {
@@ -95,9 +95,10 @@ public class ElementGridManager : MonoBehaviour
         Type[] defaultGenerationPool = new Type[3] { Type.fire, Type.water, Type.grass };
 
         element.type = Type.none;
-        if (random.NextDouble() < (double)debuffGoo * 0.1d)
+        if (debuffGoo > 0)
         {
             element.type = Type.goo;
+            debuffGoo--;
         }
 
         // If no debuff applied, generate default elements
@@ -122,7 +123,7 @@ public class ElementGridManager : MonoBehaviour
     public void ReleaseElement(int xGrid, int yGrid)
     {
         GameObject currentElement = elementGrid[xGrid, yGrid];
-
+        if (currentElement == null) { return; }
         if (currentElement.GetComponent<Element>().type == Type.goo) { return; } // Can't release goo element
         RemoveElement(currentElement);
     }

@@ -17,6 +17,9 @@ public enum SpellId
 {
     none,
     fireArrow,
+    waterBall,
+    woodenArrow,
+    firePillar,
     acidBomb,
     steamExplosion,
     vinePull,

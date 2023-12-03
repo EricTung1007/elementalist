@@ -7,9 +7,9 @@ public class SpellCost : MonoBehaviour
 {
     public SpellId spellId;
     public Type[,] cost;
-    [SerializeField] private Sprite fireArrowIcon, acidBombIcon, steamExplosionIcon, vinePullIcon, transformMudIcon, burningShieldIcon, healIcon, elementSurgeIcon;
-    [SerializeField] private Sprite fireArrowCostSprite, acidBombCostSprite, steamExplosionCostSprite, vinePullCostSprite,
-        transformMudCostSprite, burningShieldCostSprite, healCostSprite, elementSurgeCostSprite;
+    //[SerializeField] private Sprite fireArrowIcon, acidBombIcon, steamExplosionIcon, vinePullIcon, transformMudIcon, burningShieldIcon, healIcon, elementSurgeIcon;
+    //[SerializeField] private Sprite fireArrowCostSprite, acidBombCostSprite, steamExplosionCostSprite, vinePullCostSprite,
+    //    transformMudCostSprite, burningShieldCostSprite, healCostSprite, elementSurgeCostSprite;
 
     private void Start()
     {
@@ -22,12 +22,38 @@ public class SpellCost : MonoBehaviour
                     {Type.fire},
                     {Type.fire, }
                 };
+                break;
 
+            case SpellId.waterBall:
+                cost = new Type[2, 1]
+                {
+                    {Type.water},
+                    {Type.water, }
+                };
+
+                break;
+            case SpellId.woodenArrow:
+                cost = new Type[2, 1]
+                {
+                    {Type.grass},
+                    {Type.grass, }
+                };
+
+                break;
+            case SpellId.firePillar:
+                cost = new Type[5, 1]
+                {
+                    {Type.fire},
+                    {Type.none},
+                    {Type.fire},
+                    {Type.none},
+                    {Type.fire}
+                };
                 break;
             case SpellId.acidBomb:
                 cost = new Type[2, 2]
                 {
-                    {Type.none, Type.water},
+                    {Type.grass, Type.none},
                     {Type.water, Type.grass}
                 }; 
                 break;
@@ -39,16 +65,18 @@ public class SpellCost : MonoBehaviour
                 }; 
                 break;
             case SpellId.vinePull:
-                cost = new Type[3, 2]
+                cost = new Type[4, 2]
                 {
-                    {Type.none, Type.grass},
                     {Type.grass, Type.none},
                     {Type.none, Type.grass},
+                    {Type.grass, Type.none},
+                    {Type.none, Type.grass}
                 }; 
                 break;
             case SpellId.transformMud:
-                cost = new Type[3, 1]
+                cost = new Type[4, 1]
                 {
+                    {Type.water},
                     {Type.water},
                     {Type.water},
                     {Type.water}
@@ -62,13 +90,11 @@ public class SpellCost : MonoBehaviour
                 }; 
                 break;
             case SpellId.heal:
-                cost = new Type[4, 1]
+                cost = new Type[2, 2]
                 {
-                    {Type.water},
-                    {Type.grass},
-                    {Type.grass},
-                    {Type.water}
-                }; 
+                    {Type.water, Type.water},
+                    {Type.none, Type.water}
+                };
                 break;
             case SpellId.elementSurge:
                 cost = new Type[5, 1]

@@ -427,8 +427,6 @@ public class BattleController : MonoBehaviour
 
                 player.preparedFor = 0;
             }
-
-            player.isHurt = false; // also clear the hurt animation flag
         }
     }
 
@@ -469,6 +467,9 @@ public class BattleController : MonoBehaviour
 
     void BattleRound()
     {
+        foreach (Player player in players)
+            player.isHurt = false; // also clear the hurt animation flag
+
         ProcessSustainedEffects();
 
         ProcessEnemyBehaviour();

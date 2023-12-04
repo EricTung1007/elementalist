@@ -72,9 +72,9 @@ public class BattleDisplayManager : MonoBehaviour
             entityObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos * 240f - 120f, 0, 0);
         }
 
-        /*if (entity.isHurt)
+        if (entity.isHurt)
         {
             model.GetComponent<Animation>().Play("PlayerHurt");
-        }*/
+        }
     }
 }

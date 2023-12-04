@@ -86,8 +86,8 @@ public class Player
     public void Regenerate(int hp)
     {
         this.hp += hp;
-        if (this.hp > this.maxhp)
-            hp = this.maxhp;
+        if (this.hp > maxhp)
+            this.hp = maxhp;
     }
     public void AddSustainedEffect(Effect effect)
     {
@@ -165,17 +165,17 @@ public class BattleController : MonoBehaviour
     {
         if (byType == Type.none || toType == Type.none)
             return 1.0F;
-        if (byType == Type.fire || toType == Type.grass)
+        if (byType == Type.fire && toType == Type.grass)
             return 1.5F;
-        if (byType == Type.grass || toType == Type.water)
+        if (byType == Type.grass && toType == Type.water)
             return 1.5F;
-        if (byType == Type.water || toType == Type.fire)
+        if (byType == Type.water && toType == Type.fire)
             return 1.5F;
-        if (byType == Type.grass || toType == Type.fire)
+        if (byType == Type.grass && toType == Type.fire)
             return 0.5F;
-        if (byType == Type.water || toType == Type.grass)
+        if (byType == Type.water && toType == Type.grass)
             return 0.5F;
-        if (byType == Type.fire || toType == Type.water)
+        if (byType == Type.fire && toType == Type.water)
             return 0.5F;
         return 1.0F;
     }
@@ -326,7 +326,7 @@ public class BattleController : MonoBehaviour
     {
         UnityEngine.Debug.Log("INIT");
 
-        players.Add(new Player("player", 50, Type.none, 0));
+        players.Add(new Player("player", 120, Type.none, 0));
         players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
@@ -337,16 +337,16 @@ public class BattleController : MonoBehaviour
         players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
         players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
 
-        players.Add(new Player("green_slime", 12, Type.grass, 1));
+        players.Add(new Player("green_slime", 60, Type.grass, 1));
         players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
         players.Last().skill.Add(new Spell(SpellId.naturalHeal, 1, 0, 0));
 
-        players.Add(new Player("blue_slime", 10, Type.water, 2));
+        players.Add(new Player("blue_slime", 50, Type.water, 2));
         players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
         players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
         players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
 
-        players.Add(new Player("red_slime", 8, Type.fire, 3));
+        players.Add(new Player("red_slime", 40, Type.fire, 3));
         players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
         players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
         players.Last().skill.Add(new Spell(SpellId.magmaCollect, 1, 0, 0));

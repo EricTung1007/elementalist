@@ -45,7 +45,7 @@ public class BattleDisplayManager : MonoBehaviour
         GameObject intention = entityObject.transform.GetChild(2).gameObject;
         GameObject model = entityObject.transform.GetChild(3).gameObject;
 
-        string hpBarText = $"HP({entity.GetHP()}/{entity.maxhp})";
+        string hpBarText = $"{entity.GetHP()} / {entity.maxhp}";
         hpBar.GetComponent<TextMeshProUGUI>().text = hpBarText;
 
         string statusEffectText = "";

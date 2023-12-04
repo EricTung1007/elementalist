@@ -74,7 +74,7 @@ public class BattleDisplayManager : MonoBehaviour
 
         if (entity.isHurt)
         {
-            model.GetComponent<Animation>().Play("PlayerHurt");
+            model.GetComponent<Animation>().Play();
         }
     }
 }

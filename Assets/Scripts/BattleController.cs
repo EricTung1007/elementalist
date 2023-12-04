@@ -136,6 +136,8 @@ public class BattleController : MonoBehaviour
             BattleRound();
         }
 
+        PlayersManagement();
+        
         fixedUpdateCount++;
     }
 
@@ -431,13 +433,8 @@ public class BattleController : MonoBehaviour
     }
 
 
-    void BattleRound()
+    void PlayersManagement()
     {
-        ProcessSustainedEffects();
-
-        ProcessEnemyBehaviour();
-
-
         foreach (Player player in players)
         {
             if (player.GetHP() <= 0 && player.position >= 0)
@@ -468,32 +465,37 @@ public class BattleController : MonoBehaviour
                 }
             }
         }
-
-        string s = "Brief: HP: ";
-        foreach (Player player in players)
-            s += player.GetHP() + " / ";
-        s += " POS: ";
-        foreach (Player player in players)
-            s += player.position + " / ";
-
-        s += '\n';
-        foreach (Player player in players)
-        {
-            s += "Player " + player.playerId + "  health: " + player.GetHP() + "\n";
-            s += "Effects:\n";
-            foreach (Effect effect in player.sustainedEffect)
-            {
-                s += "  " + effect.effectId + "  hp: " + effect.hp + "  duration: " + effect.duration + "\n";
-            }
-            s += "Skills:\n";
-            foreach (Spell spell in player.skill)
-            {
-                s += "  " + spell.spellId + "  CD: " + spell.cdRemain + "/" + spell.cooldown + "\n";
-            }
-        }
-        UnityEngine.Debug.Log(s);
-
     }
 
+    void BattleRound()
+    {
+        ProcessSustainedEffects();
+
+        ProcessEnemyBehaviour();
+        
+        //string s = "Brief: HP: ";
+        //foreach (Player player in players)
+        //    s += player.GetHP() + " / ";
+        //s += " POS: ";
+        //foreach (Player player in players)
+        //    s += player.position + " / ";
+
+        //s += '\n';
+        //foreach (Player player in players)
+        //{
+        //    s += "Player " + player.playerId + "  health: " + player.GetHP() + "\n";
+        //    s += "Effects:\n";
+        //    foreach (Effect effect in player.sustainedEffect)
+        //    {
+        //        s += "  " + effect.effectId + "  hp: " + effect.hp + "  duration: " + effect.duration + "\n";
+        //    }
+        //    s += "Skills:\n";
+        //    foreach (Spell spell in player.skill)
+        //    {
+        //        s += "  " + spell.spellId + "  CD: " + spell.cdRemain + "/" + spell.cooldown + "\n";
+        //    }
+        //}
+        //UnityEngine.Debug.Log(s);
+    }
 
 }

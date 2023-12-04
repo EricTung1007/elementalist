@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject arrowSign4;
     [SerializeField] private GameObject squareSign1;
     [SerializeField] private GameObject squareSign2;
-    public GameObject spellTile6;
+    public GameObject spellTile7;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +41,7 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         if(whichFunction == 0){
-            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 2){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 1){
                 Destroy(elementTile1.GetComponent<TutorialElementTile>()); 
                 coverGrass.SetActive(true);
                 arrowSign1.SetActive(false);
@@ -49,7 +49,7 @@ public class TutorialManager : MonoBehaviour
             HandleFirstEliminate();
         }      
         else if(whichFunction == 1){
-            if( battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0) != 1){
+            if( battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0) != 2){
                 Destroy(elementTile2.GetComponent<TutorialElementTile>());
                 arrowSign2.SetActive(false);
             }
@@ -59,7 +59,7 @@ public class TutorialManager : MonoBehaviour
         else if(whichFunction == 2)
             HandleChoosingSpell(); 
         else if(whichFunction == 3){
-            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 2){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 0){
                 arrowSign3.SetActive(false);
             }
             HandleCastingSpell();  
@@ -69,7 +69,7 @@ public class TutorialManager : MonoBehaviour
 
 
     public void HandleFirstEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             arrowSign1.SetActive(false);
             Time.timeScale = 0f;
             textBack1.SetActive(true);
@@ -80,7 +80,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleSecondEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             arrowSign2.SetActive(false);            
             coverWhole.SetActive(true);
             Time.timeScale = 0f;
@@ -94,7 +94,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleChoosingSpell(){
-        if(battleGUIManager.GetComponent<TutorialSpellGridManager>().selectedSpellTileNumber == 6){
+        if(battleGUIManager.GetComponent<TutorialSpellGridManager>().selectedSpellTileNumber == 7){
             arrowSign4.SetActive(false);            
             coverWhole.SetActive(true);
             coverSpell.SetActive(true);
@@ -107,7 +107,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleCastingSpell(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             coverWhole.SetActive(true);
             Time.timeScale = 0f;
             textBack1.SetActive(true);
@@ -124,6 +124,6 @@ public class TutorialManager : MonoBehaviour
         //Debug.Log(nextCount);
     }
     public void ModifySpellClick(){
-        spellTile6.GetComponent<TutorialSpellTileClickable>().active = !spellTile6.GetComponent<TutorialSpellTileClickable>().active;            
+        spellTile7.GetComponent<TutorialSpellTileClickable>().active = !spellTile7.GetComponent<TutorialSpellTileClickable>().active;            
     }
 }

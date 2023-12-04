@@ -21,6 +21,7 @@ public class MenuGUIMeneger : MonoBehaviour
     public GameObject nextButton;
     public GameObject previousButton;
     public GameObject endButton;
+    public GameObject tutorialBackground;
     public GameObject pausingImage;
     public GameObject BackStartButton;
     public GameObject resultMenu;
@@ -73,6 +74,7 @@ public class MenuGUIMeneger : MonoBehaviour
         continueButton.SetActive(false);
         restartButton.SetActive(false);
         BackStartButton.SetActive(false);
+        tutorialBackground.SetActive(true);
         tutorialImage1.SetActive(true);
         nextButton.SetActive(true);
         endButton.SetActive(true);
@@ -115,6 +117,7 @@ public class MenuGUIMeneger : MonoBehaviour
         tutorialImage2.SetActive(false);      
         nextButton.SetActive(false); 
         previousButton.SetActive(false); 
+        tutorialBackground.SetActive(false);
         endButton.SetActive(false);
         pauseBackground.SetActive(true);
         continueButton.SetActive(true);

@@ -17,20 +17,20 @@ public class TutorialElementTile : MonoBehaviour, IPointerDownHandler, IPointerE
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            _leftClicked.Invoke(xGrid, yGrid);
+            _leftClicked?.Invoke(xGrid, yGrid);
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            _rightClicked.Invoke(xGrid, yGrid);
+            _rightClicked?.Invoke(xGrid, yGrid);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _entered.Invoke(xGrid, yGrid);
+        _entered?.Invoke(xGrid, yGrid);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        _exited.Invoke(xGrid, yGrid);
+        _exited?.Invoke(xGrid, yGrid);
     }
 }

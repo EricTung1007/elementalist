@@ -62,7 +62,7 @@ public class BattleDisplayManager : MonoBehaviour
         }
         else
         {
-            intentionText = $"{entity.skill[entity.intention].spellId.ToString()}({entity.releaseIn})";
+            intentionText = $"{entity.skill[entity.intention].spellId.ToString()}({entity.skill[entity.intention].cooldown - entity.preparedFor})";
         }
         intention.GetComponent<TextMeshProUGUI>().text = intentionText;
 

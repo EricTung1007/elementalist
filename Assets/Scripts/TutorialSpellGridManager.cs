@@ -22,13 +22,13 @@ public class TutorialSpellGridManager : MonoBehaviour
         SpellId[] defaultSpell = new SpellId[spellAmount + 1]{
             SpellId.none,
             SpellId.fireArrow,
-            SpellId.acidBomb,
+            SpellId.poisonBomb,
             SpellId.steamExplosion,
             SpellId.vinePull,
             SpellId.transformMud,
-            SpellId.burningShield,
+            SpellId.waterBall,
             SpellId.heal,
-            SpellId.elementSurge,
+            SpellId.woodenArrow,
             SpellId.none
         };
         AssignSpellTiles(spellTile, defaultSpell);

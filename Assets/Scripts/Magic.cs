@@ -18,7 +18,7 @@ public class Magic : MonoBehaviour
                     {Type.none},
                     {Type.fire}
                 }; break;
-            case SpellId.acidBomb:
+            case SpellId.poisonBomb:
                 cost = new Type[2, 2]
                 {
                     {Type.none, Type.water},
@@ -44,7 +44,7 @@ public class Magic : MonoBehaviour
                     {Type.water},
                     {Type.water}
                 }; break;
-            case SpellId.burningShield:
+            case SpellId.waterBall:
                 cost = new Type[2, 2]
                 {
                     {Type.grass, Type.grass},
@@ -58,7 +58,7 @@ public class Magic : MonoBehaviour
                     {Type.grass},
                     {Type.water}
                 }; break;
-            case SpellId.elementSurge:
+            case SpellId.woodenArrow:
                 cost = new Type[5, 1]
                 {
                     {Type.fire},

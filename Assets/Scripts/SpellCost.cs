@@ -50,7 +50,7 @@ public class SpellCost : MonoBehaviour
                     {Type.fire}
                 };
                 break;
-            case SpellId.acidBomb:
+            case SpellId.poisonBomb:
                 cost = new Type[2, 2]
                 {
                     {Type.grass, Type.none},
@@ -82,29 +82,12 @@ public class SpellCost : MonoBehaviour
                     {Type.water}
                 }; 
                 break;
-            case SpellId.burningShield:
-                cost = new Type[2, 2]
-                {
-                    {Type.grass, Type.grass},
-                    {Type.fire, Type.fire}
-                }; 
-                break;
             case SpellId.heal:
                 cost = new Type[2, 2]
                 {
                     {Type.water, Type.water},
                     {Type.none, Type.water}
                 };
-                break;
-            case SpellId.elementSurge:
-                cost = new Type[5, 1]
-                {
-                    {Type.grass},
-                    {Type.water},
-                    {Type.grass},
-                    {Type.water},
-                    {Type.fire}
-                }; 
                 break;
         }
     }

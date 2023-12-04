@@ -20,30 +20,25 @@ public enum SpellId
     waterBall,
     woodenArrow,
     firePillar,
-    acidBomb,
+    poisonBomb,
     steamExplosion,
     vinePull,
     transformMud,
-    burningShield,
     heal,
-    elementSurge,
-    collide,
-    miniHeal,
+    grassCollide,
+    waterCollide,
+    fireCollide, // a.k.a. magma eject
     slime,
-    jichi,
-    magmaBomb,
-    dodge
+    slimeCollect, // a.k.a. water collect
+    naturalHeal, // a.k.a. grass collect
+    magmaCollect, // a.k.a. fire collect
+    dodge,
 }
 
 // Sustained Effect ID
 public enum EffectId
 {
-    burn,
     poison,
-    basicDamage,
     dizziness,
-    physicalAttackImmunity,
-    shield,
-    burnThorns,
-    regenerate,
+    mud,
 }

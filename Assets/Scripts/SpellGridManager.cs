@@ -26,7 +26,7 @@ public class SpellGridManager : MonoBehaviour
             SpellId.woodenArrow,
             SpellId.firePillar,
             SpellId.heal,
-            SpellId.acidBomb,
+            SpellId.poisonBomb,
             SpellId.steamExplosion,
             SpellId.transformMud,
             SpellId.vinePull

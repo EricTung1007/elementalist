@@ -137,7 +137,7 @@ public class BattleController : MonoBehaviour
         }
 
         PlayersManagement();
-        
+
         fixedUpdateCount++;
     }
 
@@ -394,7 +394,13 @@ public class BattleController : MonoBehaviour
                 {
                     if (PerformSpell(player.skill[player.intention], player, players[0], false))
                     {
-                        PerformSpell(player.skill[player.intention], player, players[0], true);
+                        if (player.IsUnderEffect(EffectId.mud) != null)
+                        {
+                            // oh no, blocked
+                            UnityEngine.Debug.Log("Oh no, attack blocked");
+                        }
+                        else
+                            PerformSpell(player.skill[player.intention], player, players[0], true);
                         player.intention = -1;
                     }
                     else
@@ -473,7 +479,7 @@ public class BattleController : MonoBehaviour
         ProcessSustainedEffects();
 
         ProcessEnemyBehaviour();
-        
+
         //string s = "Brief: HP: ";
         //foreach (Player player in players)
         //    s += player.GetHP() + " / ";

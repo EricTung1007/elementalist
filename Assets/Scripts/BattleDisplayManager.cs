@@ -51,7 +51,21 @@ public class BattleDisplayManager : MonoBehaviour
         string statusEffectText = "";
         foreach (Effect effect in entity.sustainedEffect)
         {
-            statusEffectText += $"{effect.effectId} {effect.hp}({effect.duration})\n";
+            //statusEffectText += $"{effect.effectId} {effect.hp}({effect.duration})\n";
+
+            switch(effect.effectId)
+            {
+                case EffectId.poison:
+                    statusEffectText += $"¤¤¬r";
+                    break;
+                case EffectId.dizziness:
+                    statusEffectText += $"·w¯t";
+                    break;
+                case EffectId.mud:
+                    statusEffectText += $"ªdÀ×";
+                    break;
+            }
+            statusEffectText += $" ({effect.duration})\n";
         }
         statusEffect.GetComponent<TextMeshProUGUI>().text = statusEffectText;
 
@@ -62,7 +76,26 @@ public class BattleDisplayManager : MonoBehaviour
         }
         else
         {
-            intentionText = $"{entity.skill[entity.intention].spellId.ToString()}({entity.skill[entity.intention].cooldown - entity.preparedFor})";
+            //intentionText = $"{entity.skill[entity.intention].spellId.ToString()}({entity.skill[entity.intention].cooldown - entity.preparedFor})";
+            intentionText = "";
+            Spell spell = entity.skill[entity.intention];
+            switch(spell.spellId)
+            {
+                case SpellId.dodge:
+                    intentionText += "¸úÁ×";
+                    break;
+                case SpellId.grassCollide:
+                case SpellId.waterCollide:
+                    intentionText += "¼²À»";
+                    break;
+                case SpellId.fireCollide:
+                    intentionText += "º²©¥¼Q¦R";
+                    break;
+                case SpellId.slime:
+                    intentionText += "ÂH²G";
+                    break;
+            }
+            intentionText += $" ({entity.skill[entity.intention].cooldown - entity.preparedFor})\n";
         }
         intention.GetComponent<TextMeshProUGUI>().text = intentionText;
 

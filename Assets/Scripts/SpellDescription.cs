@@ -33,13 +33,13 @@ public class SpellDescription : MonoBehaviour
                 description.text = "回復：回復 7 點生命";
                 break;
             case 6:
-                description.text = "毒液：施加 10 秒 [ 中毒 ] ";
+                description.text = "毒液：施加 10 秒 [ 中毒 ] \n [ 中毒 ] ：每秒失去 1 點生命";
                 break;
             case 7:
-                description.text = "蒸氣震爆：施加 6 秒 [ 暈眩 ] ";
+                description.text = "蒸氣震爆：施加 6 秒 [ 暈眩 ]  \n [ 暈眩 ] ：失去當前意圖且無法行動";
                 break;
             case 8:
-                description.text = "泥沼轉化：施加 10 秒 [ 泥濘 ] ";
+                description.text = "泥沼轉化：施加 10 秒 [ 泥濘 ]  \n [ 泥濘 ] ：無法進行進戰攻擊和位移";
                 break;
             case 9:
                 description.text = "藤蔓拉扯：將最後方的敵人移至最前方";

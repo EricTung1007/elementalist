@@ -43,6 +43,7 @@ public class BattleDisplayManager : MonoBehaviour
         GameObject hpBar = entityObject.transform.GetChild(0).gameObject;
         GameObject statusEffect = entityObject.transform.GetChild(1).gameObject;
         GameObject intention = entityObject.transform.GetChild(2).gameObject;
+        GameObject model = entityObject.transform.GetChild(3).gameObject;
 
         string hpBarText = $"HP({entity.GetHP()}/{entity.maxhp})";
         hpBar.GetComponent<TextMeshProUGUI>().text = hpBarText;
@@ -70,5 +71,10 @@ public class BattleDisplayManager : MonoBehaviour
             float pos = entity.position;
             entityObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos * 240f - 120f, 0, 0);
         }
+
+        /*if (entity.isHurt)
+        {
+            model.GetComponent<Animation>().Play("PlayerHurt");
+        }*/
     }
 }

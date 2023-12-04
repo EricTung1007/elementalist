@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ElementGridManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class ElementGridManager : MonoBehaviour
     GameObject[,] elementGrid = new GameObject[9, 2];
     GameObject[,] elementTiles = new GameObject[9, 2];
     public int debuffGoo;
+
+    [SerializeField] private UnityEvent<Type> ReleasedElementEffect;
 
     private void Start()
     {
@@ -124,7 +127,9 @@ public class ElementGridManager : MonoBehaviour
     {
         GameObject currentElement = elementGrid[xGrid, yGrid];
         if (currentElement == null) { return; }
+
         if (currentElement.GetComponent<Element>().type == Type.goo) { return; } // Can't release goo element
+        ReleasedElementEffect?.Invoke(currentElement.GetComponent<Element>().type);
         RemoveElement(currentElement);
     }
     private void RemoveElement(GameObject element)

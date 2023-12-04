@@ -14,6 +14,7 @@ public class TutorialSpellGridManager : MonoBehaviour
     public GameObject[] spellTile;
     [SerializeField] private TutorialElementGridManager elementGridManager;
 
+
     private void Awake()
     {
         spellTile = new GameObject[spellAmount + 1];
@@ -22,14 +23,14 @@ public class TutorialSpellGridManager : MonoBehaviour
         SpellId[] defaultSpell = new SpellId[spellAmount + 1]{
             SpellId.none,
             SpellId.fireArrow,
+            SpellId.waterBall,
+            SpellId.woodenArrow,
+            SpellId.firePillar,
+            SpellId.heal,
             SpellId.poisonBomb,
             SpellId.steamExplosion,
-            SpellId.vinePull,
             SpellId.transformMud,
-            SpellId.waterBall,
-            SpellId.heal,
-            SpellId.woodenArrow,
-            SpellId.none
+            SpellId.vinePull
         };
         AssignSpellTiles(spellTile, defaultSpell);
     }
@@ -73,7 +74,7 @@ public class TutorialSpellGridManager : MonoBehaviour
     [SerializeField] private UnityEvent<SpellId> PerformSpell;
 
     public void TryPerformSpell(int x, int y)
-    {
+    {        
         // Don't perform spell null
         if (spellTile[selectedSpellTileNumber].GetComponent<SpellCost>().spellId == SpellId.none) return;
 

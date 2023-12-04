@@ -24,8 +24,8 @@ public class TutorialElementGridManager : MonoBehaviour
     // Storing the grid information containing elements
     GameObject[,] elementGrid = new GameObject[9, 2];
     GameObject[,] elementTiles = new GameObject[9, 2];
-    private int debuffGoo;
-
+    public int debuffGoo;
+    [SerializeField] private UnityEvent<Type> ReleasedElementEffect;
     [SerializeField] private UnityEvent<int, int> pointerEnter;
 
     private void Start()
@@ -57,12 +57,12 @@ public class TutorialElementGridManager : MonoBehaviour
         {
             for(int j = 0; j < gridHeight; j++) 
             {
-                // grass: (1,0), (3, 0), (8,0), (3,1), (5,1), (7,1)
-                if((j == 0 && (i == 1 || i == 3 || i == 8)) || ((i == 3 || i == 5 || i == 7) && j == 1)){
+                // grass: (1,0), (4,0), (6,0), (2,1), (6,1), (7,1)
+                if((j == 0 && (i == 1 || i == 4 || i == 6)) || ((i == 2 || i == 6 || i == 7) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.grass);
                 }
-                // water: (0,0), (4,0), (6,0), (6,1), (7,0), (1,1), (2,1)
-                else if(((i == 0 || i == 4 || i == 6 || i == 7) && j == 0) || ((i == 1 || i == 2 || i == 6) && j == 1)){
+                // water: (0,0), (5,0), (8,0), (1,1), (3,1), (5,1), (7,1)
+                else if(((i == 0 || i == 5 || i == 8) && j == 0) || ((i == 1 || i == 3 || i == 5 || i == 7) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.water);
                 }
                 else{
@@ -109,9 +109,10 @@ public class TutorialElementGridManager : MonoBehaviour
         Type[] defaultGenerationPool = new Type[3] { Type.fire, Type.water, Type.grass };
 
         element.type = Type.none;
-        if (random.NextDouble() < (double)debuffGoo * 0.1d)
+        if (debuffGoo > 0)
         {
             element.type = Type.goo;
+            debuffGoo--;
         }
 
         // If no debuff applied, generate default elements
@@ -147,8 +148,10 @@ public class TutorialElementGridManager : MonoBehaviour
     public void ReleaseElement(int xGrid, int yGrid)
     {
         GameObject currentElement = elementGrid[xGrid, yGrid];
+        if (currentElement == null) { return; }
 
         if (currentElement.GetComponent<Element>().type == Type.goo) { return; } // Can't release goo element
+        ReleasedElementEffect?.Invoke(currentElement.GetComponent<Element>().type);
         RemoveElement(currentElement);
     }
     private void RemoveElement(GameObject element)
@@ -312,10 +315,13 @@ public class TutorialElementGridManager : MonoBehaviour
         TutorialElementGridManager elementGridManagerScript = new TutorialElementGridManager();
         for(int i = 0; i <gridWidth; i++){
             for(int j = 0; j < gridHeight; j++){
-                TutorialElementTile elementTileScript = elementTiles[i, j].AddComponent<TutorialElementTile>();
-                elementTileScript.xGrid = i;
-                elementTileScript.yGrid = j;
-                elementTileScript._entered = pointerEnter;
+                if(!(i == 3 && j == 0)){
+                    TutorialElementTile elementTileScript = elementTiles[i, j].AddComponent<TutorialElementTile>();
+                    elementTileScript.xGrid = i;
+                    elementTileScript.yGrid = j;
+                    elementTileScript._entered = pointerEnter;
+                }
+                
             } 
         }  
     }

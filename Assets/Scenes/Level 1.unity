@@ -2792,11 +2792,11 @@ Animation:
   m_GameObject: {fileID: 346830781}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 20f8004602ff2d247a47591566f5e435, type: 2}
+  - {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &348057986
@@ -4978,6 +4978,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DropSlime:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2028096596}
+        m_TargetAssemblyTypeName: ElementGridManager, Assembly-CSharp
+        m_MethodName: ApplyDebuffGoo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641276441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6138,11 +6153,11 @@ Animation:
   m_GameObject: {fileID: 939051374}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 20f8004602ff2d247a47591566f5e435, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 20f8004602ff2d247a47591566f5e435, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &972225856
@@ -8282,11 +8297,11 @@ Animation:
   m_GameObject: {fileID: 1268035399}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 20f8004602ff2d247a47591566f5e435, type: 2}
+  - {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1272180260
@@ -12712,11 +12727,11 @@ Animation:
   m_GameObject: {fileID: 1890431925}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 20f8004602ff2d247a47591566f5e435, type: 2}
+  - {fileID: 7400000, guid: 83fd3641df2a8ac4687f16a8e9dc9ac5, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1896934266
@@ -13734,7 +13749,19 @@ MonoBehaviour:
   debuffGoo: 0
   ReleasedElementEffect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641276440}
+        m_TargetAssemblyTypeName: BattleController, Assembly-CSharp
+        m_MethodName: ElementCollect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2028096597
 MonoBehaviour:
   m_ObjectHideFlags: 0

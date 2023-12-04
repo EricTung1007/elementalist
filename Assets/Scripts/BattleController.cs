@@ -249,7 +249,8 @@ public class BattleController : MonoBehaviour
             case SpellId.transformMud:
                 if (perform)
                     foreach (Player player in players)
-                        player.AddSustainedEffect(new Effect(EffectId.mud, spell.hp, spell.duration));
+                        if (player != byPlayer)
+                            player.AddSustainedEffect(new Effect(EffectId.mud, spell.hp, spell.duration));
                 break;
             case SpellId.vinePull:
                 if (players.Where(p => p.position > 0).Count() <= 1)

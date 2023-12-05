@@ -199,7 +199,7 @@ public class BattleController : MonoBehaviour
         {
             foreach (Player player in players)
                 if (player.type == elementType)
-                    PerformSpell(new Spell(collectionSpell, player.skill.Where(s => s.spellId == collectionSpell).First().hp, 0, 0), player, players[0], true);
+                    PerformSpell(player.skill.Where(s => s.spellId == collectionSpell).First(), player, players[0], true);
         }
     }
 

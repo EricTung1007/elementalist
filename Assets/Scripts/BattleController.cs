@@ -330,9 +330,9 @@ public class BattleController : MonoBehaviour
         players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.firePillar, 4, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.heal, 7, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.poisonBomb, 1, 10, 0));
+        players.Last().skill.Add(new Spell(SpellId.poisonBomb, 3, 5, 0));
         players.Last().skill.Add(new Spell(SpellId.steamExplosion, 0, 6, 0));
         players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
         players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));

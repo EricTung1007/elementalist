@@ -27,13 +27,13 @@ public class SpellDescription : MonoBehaviour
                 description.text = "木刺：造成 4 點木屬性傷害";
                 break;
             case 4:
-                description.text = "火柱：對敵方全體造成 4 點火屬性傷害";
+                description.text = "火柱：對敵方全體造成 6 點火屬性傷害";
                 break;
             case 5:
                 description.text = "回復：回復 7 點生命";
                 break;
             case 6:
-                description.text = "毒液：施加 10 秒 [ 中毒 ] \n [ 中毒 ] ：每秒失去 1 點生命";
+                description.text = "毒液：施加 5 秒 [ 中毒 ] \n [ 中毒 ] ：每秒失去 3 點生命";
                 break;
             case 7:
                 description.text = "蒸氣震爆：施加 6 秒 [ 暈眩 ]  \n [ 暈眩 ] ：失去當前意圖且無法行動";

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,13 +27,13 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
         switch (player.playerId)
         {
             case "green_slime":
-                info += " < ºñ¥vµÜ©i > ";
+                info += " < ç¶ å²èŠå§† > ";
                 break;
             case "blue_slime":
-                info += " < ÂÅ¥vµÜ©i > ";
+                info += " < è—å²èŠå§† > ";
                 break;
             case "red_slime":
-                info += " < ¬õ¥vµÜ©i > ";
+                info += " < ç´…å²èŠå§† > ";
                 break;
         }
         info += "";
@@ -42,19 +42,19 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
         switch (spell.spellId)
         {
             case SpellId.dodge:
-                info += "¸úÁ×¡G¸ú¨ì¤Í­x³Ì«á¤è";
+                info += "èº²é¿ï¼šèº²åˆ°å‹è»æœ€å¾Œæ–¹";
                 break;
             case SpellId.grassCollide:
-                info += "¼²À»¡G³y¦¨ 6 ÂI¶Ë®`";
+                info += "æ’æ“Šï¼šé€ æˆ 6 é»å‚·å®³";
                 break;
             case SpellId.waterCollide:
-                info += "¼²À»¡G³y¦¨ 4 ÂI¶Ë®`";
+                info += "æ’æ“Šï¼šé€ æˆ 4 é»å‚·å®³";
                 break;
             case SpellId.fireCollide:
-                info += "º²©¥¼Q¦R¡G³y¦¨ 20 ÂI¶Ë®`";
+                info += "ç†”å²©å™´åï¼šé€ æˆ 20 é»å‚·å®³";
                 break;
             case SpellId.slime:
-                info += "ÂH²G¡G®ø¯Ó 1 ÂH²G¡A¦bª±®aªº¤¸¯À¼Ñ¤¤¥Í¦¨ÂH²G\n¡IÂH²GµLªk¥D°ÊÄÀ©ñ¡FÂH²G¸IÄ²¨ì¥ª¤è®É¦ÛµM®ø°£";
+                info += "é»æ¶²ï¼šæ¶ˆè€— 1 é»æ¶²ï¼Œåœ¨ç©å®¶çš„å…ƒç´ æ§½ä¸­ç”Ÿæˆé»æ¶²\nï¼é»æ¶²ç„¡æ³•ä¸»å‹•é‡‹æ”¾ï¼›é»æ¶²ç¢°è§¸åˆ°å·¦æ–¹æ™‚è‡ªç„¶æ¶ˆé™¤";
                 break;
         }
 
@@ -64,13 +64,13 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
         switch (player.playerId)
         {
             case "green_slime":
-                info += "¦ÛµM¦^´_¡G¤ì¤¸¯À³QÄÀ©ñ®É¡A¦^´_ 3 ÂI¥Í©R";
+                info += "è‡ªç„¶å›å¾©ï¼šæœ¨å…ƒç´ è¢«é‡‹æ”¾æ™‚ï¼Œå›å¾© 3 é»ç”Ÿå‘½";
                 break;
             case "blue_slime":
-                info += "ÂH²G»`¶°¡G¤ô¤¸¯À³QÄÀ©ñ®É¡A¼W¥[ 1 ÂH²G";
+                info += "é»æ¶²è’é›†ï¼šæ°´å…ƒç´ è¢«é‡‹æ”¾æ™‚ï¼Œå¢åŠ  1 é»æ¶²";
                 break;
             case "red_slime":
-                info += "º²©¥»E¶°¡G¤õ¤¸¯À³QÄÀ©ñ®É¡A¥ß§Y¥Ã¤[­°§Cº²©¥¼Q¦R 2 ¬í·Ç³Æ®É¶¡";
+                info += "ç†”å²©èšé›†ï¼šç«å…ƒç´ è¢«é‡‹æ”¾æ™‚ï¼Œç«‹å³æ°¸ä¹…é™ä½ç†”å²©å™´å 2 ç§’æº–å‚™æ™‚é–“";
                 break;
         }
 

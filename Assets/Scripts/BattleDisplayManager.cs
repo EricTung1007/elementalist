@@ -56,13 +56,13 @@ public class BattleDisplayManager : MonoBehaviour
             switch(effect.effectId)
             {
                 case EffectId.poison:
-                    statusEffectText += "中毒";
+                    statusEffectText += $"中毒";
                     break;
                 case EffectId.dizziness:
-                    statusEffectText += "暈眩";
+                    statusEffectText += $"暈眩";
                     break;
                 case EffectId.mud:
-                    statusEffectText += "泥濘";
+                    statusEffectText += $"泥濘";
                     break;
             }
             statusEffectText += $" ({effect.duration})\n";

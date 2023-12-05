@@ -2719,6 +2719,7 @@ GameObject:
   - component: {fileID: 346830785}
   - component: {fileID: 346830784}
   - component: {fileID: 346830786}
+  - component: {fileID: 346830787}
   m_Layer: 5
   m_Name: Model
   m_TagString: Untagged
@@ -2799,6 +2800,20 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &346830787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346830781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8618f2e2bacb44cb45336e0864e77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPos: 3
+  BattleController: {fileID: 641276438}
 --- !u!1 &348057986
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,6 +8367,7 @@ GameObject:
   - component: {fileID: 1268035402}
   - component: {fileID: 1268035401}
   - component: {fileID: 1268035403}
+  - component: {fileID: 1268035404}
   m_Layer: 5
   m_Name: Model
   m_TagString: Untagged
@@ -8432,6 +8448,20 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1268035404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268035399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8618f2e2bacb44cb45336e0864e77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPos: 1
+  BattleController: {fileID: 641276438}
 --- !u!1 &1272180260
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,6 +12812,7 @@ GameObject:
   - component: {fileID: 1890431928}
   - component: {fileID: 1890431927}
   - component: {fileID: 1890431929}
+  - component: {fileID: 1890431930}
   m_Layer: 5
   m_Name: Model
   m_TagString: Untagged
@@ -12862,6 +12893,20 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1890431930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890431925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8618f2e2bacb44cb45336e0864e77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPos: 2
+  BattleController: {fileID: 641276438}
 --- !u!1 &1896934266
 GameObject:
   m_ObjectHideFlags: 0

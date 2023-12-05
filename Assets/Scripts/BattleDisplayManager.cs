@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -56,13 +56,13 @@ public class BattleDisplayManager : MonoBehaviour
             switch(effect.effectId)
             {
                 case EffectId.poison:
-                    statusEffectText += $"¤¤¬r";
+                    statusEffectText += "ä¸­æ¯’";
                     break;
                 case EffectId.dizziness:
-                    statusEffectText += $"·w¯t";
+                    statusEffectText += "æšˆçœ©";
                     break;
                 case EffectId.mud:
-                    statusEffectText += $"ªdÀ×";
+                    statusEffectText += "æ³¥æ¿˜";
                     break;
             }
             statusEffectText += $" ({effect.duration})\n";
@@ -82,17 +82,17 @@ public class BattleDisplayManager : MonoBehaviour
             switch(spell.spellId)
             {
                 case SpellId.dodge:
-                    intentionText += "¸úÁ×";
+                    intentionText += "èº²é¿";
                     break;
                 case SpellId.grassCollide:
                 case SpellId.waterCollide:
-                    intentionText += "¼²À»";
+                    intentionText += "æ’æ“Š";
                     break;
                 case SpellId.fireCollide:
-                    intentionText += "º²©¥¼Q¦R";
+                    intentionText += "ç†”å²©å™´å";
                     break;
                 case SpellId.slime:
-                    intentionText += "ÂH²G";
+                    intentionText += "é»æ¶²";
                     break;
             }
             intentionText += $" ({entity.skill[entity.intention].cooldown - entity.preparedFor})\n";

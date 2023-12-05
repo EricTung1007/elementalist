@@ -199,7 +199,7 @@ public class BattleController : MonoBehaviour
         {
             foreach (Player player in players)
                 if (player.type == elementType)
-                    PerformSpell(new Spell(collectionSpell, 1, 0, 0), player, players[0], true);
+                    PerformSpell(new Spell(collectionSpell, player.skill.Where(s => s.spellId == collectionSpell).First().hp, 0, 0), player, players[0], true);
         }
     }
 
@@ -312,10 +312,10 @@ public class BattleController : MonoBehaviour
             case SpellId.magmaCollect:
                 if (!byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).Any())
                     return false;
-                if (byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown <= 1)
+                if (byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown - spell.hp < 1)
                     return false;
                 if (perform)
-                    byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown--;
+                    byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown-= spell.hp;
                 break;
         }
 
@@ -339,7 +339,7 @@ public class BattleController : MonoBehaviour
 
         players.Add(new Player("green_slime", 60, Type.grass, 1));
         players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-        players.Last().skill.Add(new Spell(SpellId.naturalHeal, 1, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
 
         players.Add(new Player("blue_slime", 50, Type.water, 2));
         players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
@@ -349,7 +349,7 @@ public class BattleController : MonoBehaviour
         players.Add(new Player("red_slime", 40, Type.fire, 3));
         players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
         players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
-        players.Last().skill.Add(new Spell(SpellId.magmaCollect, 1, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.magmaCollect, 2, 0, 0));
 
         aliveEnemies = 3;
     }
@@ -418,7 +418,7 @@ public class BattleController : MonoBehaviour
                         player.intention = player.skill.IndexOf(player.skill.Where(s => s.spellId == SpellId.grassCollide).First());
                         break;
                     case "blue_slime":
-                        if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.slime)], player, players[0], false) && random < 25)
+                        if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.slime)], player, players[0], false) && random < 100)
                             player.intention = player.GetSpellIndex(SpellId.slime);
                         else
                             player.intention = player.GetSpellIndex(SpellId.waterCollide);

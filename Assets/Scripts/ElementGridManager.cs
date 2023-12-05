@@ -98,7 +98,7 @@ public class ElementGridManager : MonoBehaviour
         Type[] defaultGenerationPool = new Type[3] { Type.fire, Type.water, Type.grass };
 
         element.type = Type.none;
-        if (debuffGoo > 0)
+        if ((debuffGoo > 0) && (random.Next(100) < 50))
         {
             element.type = Type.goo;
             debuffGoo--;

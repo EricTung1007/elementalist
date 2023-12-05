@@ -21,6 +21,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject[] nextFunctions;
     [SerializeField] private int nextCount = 0;
+    [SerializeField] private GameObject previousButton;
+    [SerializeField] private GameObject[] previousFunctions;
+    [SerializeField] private int previousCount;
     [SerializeField] private GameObject elementTile1;
     [SerializeField] private GameObject elementTile2;
     private int whichFunction = 0;
@@ -34,7 +37,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        previousCount = previousFunctions.GetLength(0);
     }
 
     // Update is called once per frame
@@ -121,7 +124,13 @@ public class TutorialManager : MonoBehaviour
         TutorialFunction modifyActive = nextFunctions[nextCount].GetComponent<TutorialFunction>();
         modifyActive.ModifyActive();
         nextCount++;
-        //Debug.Log(nextCount);
+        previousCount--;
+    }
+    public void GoBack(){
+        TutorialFunction modifyActive = previousFunctions[(-1)*(previousCount+1-previousFunctions.GetLength(0))].GetComponent<TutorialFunction>();
+        modifyActive.ModifyActive();
+        previousCount++;
+        nextCount--;
     }
     public void ModifySpellClick(){
         spellTile7.GetComponent<TutorialSpellTileClickable>().active = !spellTile7.GetComponent<TutorialSpellTileClickable>().active;            

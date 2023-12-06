@@ -95,7 +95,7 @@ public class BattleDisplayManager : MonoBehaviour
                     intentionText += "黏液";
                     break;
             }
-            intentionText += $" ({entity.skill[entity.intention].cooldown - entity.preparedFor})\n";
+            intentionText += $" ({Mathf.Max(entity.skill[entity.intention].cooldown - entity.preparedFor, 1)})\n";
         }
         intention.GetComponent<TextMeshProUGUI>().text = intentionText;
 

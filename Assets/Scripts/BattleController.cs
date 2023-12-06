@@ -315,7 +315,7 @@ public class BattleController : MonoBehaviour
                 if (byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown - spell.hp < 1)
                     return false;
                 if (perform)
-                    byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown-= spell.hp;
+                    byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown -= spell.hp;
                 break;
         }
 
@@ -424,7 +424,7 @@ public class BattleController : MonoBehaviour
                             player.intention = player.GetSpellIndex(SpellId.waterCollide);
                         break;
                     case "red_slime":
-                        if (player.position == 1)
+                        if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.dodge)], player, players[0], false))
                             player.intention = player.GetSpellIndex(SpellId.dodge);
                         else
                             player.intention = player.GetSpellIndex(SpellId.fireCollide);

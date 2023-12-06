@@ -39,7 +39,7 @@ public class ElementGridManager : MonoBehaviour
         if (fixedUpdateCount % elementMovingInterval == 0)
         {
             MoveElements();
-            RemoveGooOnSide();
+            //RemoveGooOnSide();
         }
         // Generate elements if possible
         if (fixedUpdateCount % elementGenerationInterval == 0)

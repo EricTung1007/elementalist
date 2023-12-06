@@ -54,7 +54,7 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
                 info += "熔岩噴吐：造成 20 點傷害";
                 break;
             case SpellId.slime:
-                info += "黏液：消耗 1 黏液，在玩家的元素槽中生成黏液\n！黏液無法主動釋放；黏液碰觸到左方時自然消除";
+                info += "黏液：消耗 3 黏液，在玩家的元素槽中生成黏液\n！黏液無法主動釋放；黏液碰觸到左方時自然消除";
                 break;
         }
 

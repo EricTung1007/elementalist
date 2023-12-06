@@ -331,7 +331,7 @@ public class BattleController : MonoBehaviour
         players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.heal, 7, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
         players.Last().skill.Add(new Spell(SpellId.poisonBomb, 3, 5, 0));
         players.Last().skill.Add(new Spell(SpellId.steamExplosion, 0, 6, 0));
         players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
@@ -349,7 +349,7 @@ public class BattleController : MonoBehaviour
         players.Add(new Player("red_slime", 40, Type.fire, 3));
         players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
         players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
-        players.Last().skill.Add(new Spell(SpellId.magmaCollect, 2, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.magmaCollect, 3, 0, 0));
 
         aliveEnemies = 3;
     }

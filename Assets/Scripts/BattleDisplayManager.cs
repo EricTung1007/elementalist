@@ -2,18 +2,40 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BattleDisplayManager : MonoBehaviour
 {
-    GameObject playerObject, greenSlimeObject, blueSlimeObject, redSlimeObject;
+    GameObject playerObject;
+    List<GameObject> enemyObject = new List<GameObject>();
+
+    [SerializeField] GameObject enemyHolder;
+    [SerializeField] GameObject greenSlimeObject, blueSlimeObject, redSlimeObject; // Prefabs
     private void Start()
     {
-        // Capture entity game objects
-
         playerObject = GameObject.Find("Player");
-        greenSlimeObject = GameObject.Find("GreenSlime");
-        blueSlimeObject = GameObject.Find("BlueSlime");
-        redSlimeObject = GameObject.Find("RedSlime");
+    }
+
+    public void newWaveLoading()
+    {
+        enemyObject.Clear();
+
+        List<Player> players = GetComponent<BattleController>().players;
+        for (int i = 1; i < players.Count; i++)
+        {
+            Player enemy = players[i];
+
+            GameObject newEnemyObject = null;
+            switch(enemy.type)
+            {
+                case Type.grass: newEnemyObject = Instantiate(greenSlimeObject, new Vector3(0, 0, 0), Quaternion.identity, enemyHolder.transform); break;
+                case Type.water: newEnemyObject = Instantiate(blueSlimeObject, new Vector3(0, 0, 0), Quaternion.identity, enemyHolder.transform); break;
+                case Type.fire: newEnemyObject = Instantiate(redSlimeObject, new Vector3(0, 0, 0), Quaternion.identity, enemyHolder.transform); break;
+            }
+            enemyObject.Add(newEnemyObject);
+        }
+
+        Debug.Log("New Wave Loaded!");
     }
 
     private void Update()
@@ -21,15 +43,14 @@ public class BattleDisplayManager : MonoBehaviour
         // show current state
         List<Player> players = GetComponent<BattleController>().players;
 
-        Player player = players[0];
-        Player greenSlime = players[1];
-        Player blueSlime = players[2];
-        Player redSlime = players[3];
-
+        Player player  = players[0];
         SetCurrentState(playerObject, player);
-        SetCurrentState(greenSlimeObject, greenSlime);
-        SetCurrentState(blueSlimeObject, blueSlime);
-        SetCurrentState(redSlimeObject, redSlime);
+
+        for (int i = 1; i < players.Count; i++)
+        {
+            Player enemy = players[i];
+            SetCurrentState(enemyObject[i - 1], enemy);
+        }
     }
 
     private void SetCurrentState(GameObject entityObject, Player entity)

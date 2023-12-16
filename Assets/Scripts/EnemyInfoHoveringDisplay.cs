@@ -15,6 +15,7 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
     private void Awake()
     {
         description = GameObject.Find("Description").GetComponent<TextMeshProUGUI>();
+        BattleController = GameObject.Find("BattleController");
     }
     public void Start()
     {

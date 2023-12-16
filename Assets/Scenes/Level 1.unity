@@ -5008,6 +5008,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  round: 1
+  totalRounds: 3
 --- !u!114 &641276441
 MonoBehaviour:
   m_ObjectHideFlags: 0

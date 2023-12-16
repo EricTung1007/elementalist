@@ -109,37 +109,13 @@ public class BattleController : MonoBehaviour
     private UnityEvent<SpellId> slimeEvent;
 
     private int fixedUpdateCount = 0;
+    private int battleCount = 0;
 
     private int aliveEnemies = 0;
 
     [SerializeField] private UnityEvent GameWin;
     [SerializeField] private UnityEvent GameLose;
     [SerializeField] private UnityEvent DropSlime;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        UnityEngine.Debug.Log("Start");
-        InitBattle();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
-    {
-        if ((fixedUpdateCount % 50 == 0))
-        {
-            BattleRound();
-        }
-
-        PlayersManagement();
-
-        fixedUpdateCount++;
-    }
 
     public void ReleaseSpellId(SpellId spell)
     {
@@ -322,36 +298,87 @@ public class BattleController : MonoBehaviour
         return true;
     }
 
-    private void InitBattle()
+    public int round = 1;
+    public int totalRounds = 3;
+    private int nextRoundWait = 0;
+
+    private void InitBattle(int round)
     {
-        UnityEngine.Debug.Log("INIT");
+        switch (round)
+        {
+            case 0:
+                players.Add(new Player("player", 120, Type.none, 0));
+                players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.poisonBomb, 3, 5, 0));
+                players.Last().skill.Add(new Spell(SpellId.steamExplosion, 0, 6, 0));
+                players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
+                players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
+                
+                nextRoundWait = 0;
+                break;
 
-        players.Add(new Player("player", 120, Type.none, 0));
-        players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
-        players.Last().skill.Add(new Spell(SpellId.poisonBomb, 3, 5, 0));
-        players.Last().skill.Add(new Spell(SpellId.steamExplosion, 0, 6, 0));
-        players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
-        players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
+            case 1:
+                players.Add(new Player("green_slime", 10, Type.grass, 1));
+                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
+                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
 
-        players.Add(new Player("green_slime", 60, Type.grass, 1));
-        players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-        players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
+                players.Add(new Player("green_slime_2", 10, Type.grass, 2));
+                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
+                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
 
-        players.Add(new Player("blue_slime", 50, Type.water, 2));
-        players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
-        players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
-        players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+                players.Add(new Player("green_slime_3", 10, Type.grass, 3));
+                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
+                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
 
-        players.Add(new Player("red_slime", 40, Type.fire, 3));
-        players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
-        players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
-        players.Last().skill.Add(new Spell(SpellId.magmaCollect, 3, 0, 0));
+                aliveEnemies = 3;
+                nextRoundWait = 3;
+                break;
 
-        aliveEnemies = 3;
+            case 2:
+                players.Add(new Player("blue_slime", 10, Type.water, 1));
+                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+
+                players.Add(new Player("blue_slime_2", 10, Type.water, 2));
+                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+
+                players.Add(new Player("blue_slime_3", 10, Type.water, 3));
+                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+
+                aliveEnemies = 3;
+                nextRoundWait = 5;
+                break;
+
+            case 3:
+                players.Add(new Player("green_slime", 60, Type.grass, 1));
+                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
+                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
+
+                players.Add(new Player("blue_slime", 50, Type.water, 2));
+                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+
+                players.Add(new Player("red_slime", 40, Type.fire, 3));
+                players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
+                players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
+                players.Last().skill.Add(new Spell(SpellId.magmaCollect, 3, 0, 0));
+
+                aliveEnemies = 3;
+                nextRoundWait = 0;
+                break;
+        }
+
+
     }
 
     void ProcessSustainedEffects()
@@ -412,18 +439,18 @@ public class BattleController : MonoBehaviour
             {
                 int random = UnityEngine.Random.Range(0, 100);
 
-                switch (player.playerId)
+                switch (player.type)
                 {
-                    case "green_slime":
+                    case Type.grass:
                         player.intention = player.skill.IndexOf(player.skill.Where(s => s.spellId == SpellId.grassCollide).First());
                         break;
-                    case "blue_slime":
+                    case Type.water:
                         if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.slime)], player, players[0], false) && random < 100)
                             player.intention = player.GetSpellIndex(SpellId.slime);
                         else
                             player.intention = player.GetSpellIndex(SpellId.waterCollide);
                         break;
-                    case "red_slime":
+                    case Type.fire:
                         if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.dodge)], player, players[0], false))
                             player.intention = player.GetSpellIndex(SpellId.dodge);
                         else
@@ -435,6 +462,7 @@ public class BattleController : MonoBehaviour
             }
         }
     }
+
 
 
     void PlayersManagement()
@@ -462,16 +490,36 @@ public class BattleController : MonoBehaviour
 
                     if (aliveEnemies == 0)
                     {
-                        // win
-                        Debug.Log("Game Win!");
-                        GameWin?.Invoke();
+                        reservedNextRound = battleCount + nextRoundWait;
+                        return; // the player list should not be iterated through after modification
                     }
                 }
             }
         }
     }
 
-    void BattleRound()
+    private int reservedNextRound = -1;
+
+    void NextRound()
+    {
+        UnityEngine.Debug.Log("next round " + round + " / " + totalRounds);
+        if (round <= totalRounds)
+        {
+            UnityEngine.Debug.Log("next round " + round);
+            players.RemoveRange(1, players.Count - 1);
+            InitBattle(round);
+            round++;
+        }
+        else
+        {
+            // win
+            Debug.Log("Game Win!");
+            GameWin?.Invoke();
+        }
+        reservedNextRound = -1;
+    }
+
+    void BattleUpdate()
     {
         foreach (Player player in players)
             player.isHurt = false; // also clear the hurt animation flag
@@ -479,30 +527,38 @@ public class BattleController : MonoBehaviour
         ProcessSustainedEffects();
 
         ProcessEnemyBehaviour();
+    }
 
-        //string s = "Brief: HP: ";
-        //foreach (Player player in players)
-        //    s += player.GetHP() + " / ";
-        //s += " POS: ";
-        //foreach (Player player in players)
-        //    s += player.position + " / ";
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        UnityEngine.Debug.Log("Start");
+        InitBattle(0); // init player
+        NextRound();
+    }
 
-        //s += '\n';
-        //foreach (Player player in players)
-        //{
-        //    s += "Player " + player.playerId + "  health: " + player.GetHP() + "\n";
-        //    s += "Effects:\n";
-        //    foreach (Effect effect in player.sustainedEffect)
-        //    {
-        //        s += "  " + effect.effectId + "  hp: " + effect.hp + "  duration: " + effect.duration + "\n";
-        //    }
-        //    s += "Skills:\n";
-        //    foreach (Spell spell in player.skill)
-        //    {
-        //        s += "  " + spell.spellId + "  CD: " + spell.cdRemain + "/" + spell.cooldown + "\n";
-        //    }
-        //}
-        //UnityEngine.Debug.Log(s);
+    // Update is called once per frame
+    private void Update()
+    {
+
+    }
+
+    private void FixedUpdate()
+    {
+        if ((fixedUpdateCount % 50 == 0))
+        {
+            BattleUpdate();
+            battleCount++;
+
+            if (battleCount >= reservedNextRound && reservedNextRound > 0)
+            {
+                NextRound();
+            }
+        }
+
+        PlayersManagement();
+
+        fixedUpdateCount++;
     }
 
 }

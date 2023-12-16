@@ -117,6 +117,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnityEvent GameLose;
     [SerializeField] private UnityEvent DropSlime;
     [SerializeField] private UnityEvent ElementClear;
+    [SerializeField] private UnityEvent NewWave;
 
     private int greenChi = 0;
     private int blueChi = 0;
@@ -535,7 +536,7 @@ public class BattleController : MonoBehaviour
 
                     if (aliveEnemies == 0)
                     {
-                        reservedNextRound = battleCount + nextRoundWait;
+                        reservedNextWave = battleCount + nextRoundWait;
                         return; // the player list should not be iterated through after modification
                     }
                 }
@@ -543,16 +544,17 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    private int reservedNextRound = -1;
+    private int reservedNextWave = -1;
 
-    void NextRound()
+    void NextWave()
     {
-        UnityEngine.Debug.Log("next round " + round + " / " + totalRounds);
+        UnityEngine.Debug.Log("next wave " + round + " / " + totalRounds);
         if (round <= totalRounds)
         {
-            UnityEngine.Debug.Log("next round " + round);
+            UnityEngine.Debug.Log("next wave " + round);
             players.RemoveRange(1, players.Count - 1);
             InitBattle(round);
+            NewWave?.Invoke();
             round++;
         }
         else
@@ -561,7 +563,7 @@ public class BattleController : MonoBehaviour
             Debug.Log("Game Win!");
             GameWin?.Invoke();
         }
-        reservedNextRound = -1;
+        reservedNextWave = -1;
     }
 
     void BattleUpdate()
@@ -579,7 +581,7 @@ public class BattleController : MonoBehaviour
     {
         UnityEngine.Debug.Log("Start");
         InitBattle(0); // init player
-        NextRound();
+        NextWave();
     }
 
     // Update is called once per frame
@@ -595,9 +597,9 @@ public class BattleController : MonoBehaviour
             BattleUpdate();
             battleCount++;
 
-            if (battleCount >= reservedNextRound && reservedNextRound > 0)
+            if (battleCount >= reservedNextWave && reservedNextWave > 0)
             {
-                NextRound();
+                NextWave();
             }
         }
 

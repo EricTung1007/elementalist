@@ -206,6 +206,14 @@ public class ElementGridManager : MonoBehaviour
     {
         xGridHovering = xGrid;
         yGridHovering = yGrid;
+
+        
+        if(elementGrid[xGridHovering, yGridHovering] != null)
+        {
+            elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Rewind();
+            elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Play();
+        }
+        
     }
     private void CaptureElementTiles()
     {

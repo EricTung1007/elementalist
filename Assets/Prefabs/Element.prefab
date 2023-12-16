@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7755843072892210654}
   - component: {fileID: 8762749634839649076}
   - component: {fileID: 5856868822491739170}
+  - component: {fileID: 8776994612996812815}
   m_Layer: 6
   m_Name: Element
   m_TagString: Untagged
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -95,3 +96,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4977160907621450816}
   m_CullTransparentMesh: 1
+--- !u!111 &8776994612996812815
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4977160907621450816}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: efa9487c260b3fe468f3deb2fc55bd70, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: efa9487c260b3fe468f3deb2fc55bd70, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

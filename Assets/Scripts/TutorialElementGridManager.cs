@@ -312,7 +312,6 @@ public class TutorialElementGridManager : MonoBehaviour
     }
     public void PutClickableBack(){
         CaptureElementTiles();
-        TutorialElementGridManager elementGridManagerScript = new TutorialElementGridManager();
         for(int i = 0; i <gridWidth; i++){
             for(int j = 0; j < gridHeight; j++){
                 if(!(i == 3 && j == 0)){

@@ -328,7 +328,8 @@ public class BattleController : MonoBehaviour
                 if (perform)
                 {
                     foreach (Player player in players)
-                        player.Regenerate(spell.hp + greenChi);
+                        if (player.position >= 1)
+                            player.Regenerate(spell.hp + greenChi);
                     greenChi = 0;
                 }
                 break;

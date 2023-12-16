@@ -82,7 +82,7 @@ public class BattleDisplayManager : MonoBehaviour
             switch(spell.spellId)
             {
                 case SpellId.dodge:
-                    intentionText += "躲避";
+                    intentionText += "懦弱打擊";
                     break;
                 case SpellId.grassCollide:
                 case SpellId.waterCollide:
@@ -93,6 +93,9 @@ public class BattleDisplayManager : MonoBehaviour
                     break;
                 case SpellId.slime:
                     intentionText += "黏液";
+                    break;
+                case SpellId.healAllEnemy:
+                    intentionText += "全體回復";
                     break;
             }
             intentionText += $" ({System.Math.Max(1, entity.skill[entity.intention].cooldown - entity.preparedFor)})\n";

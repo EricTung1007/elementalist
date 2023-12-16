@@ -116,6 +116,12 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnityEvent GameWin;
     [SerializeField] private UnityEvent GameLose;
     [SerializeField] private UnityEvent DropSlime;
+    [SerializeField] private UnityEvent ElementClear;
+
+    private int greenChi = 0;
+    private int blueChi = 0;
+    private int redChi = 0;
+
 
     public void ReleaseSpellId(SpellId spell)
     {
@@ -137,7 +143,7 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    private float GetMultiplier(Type byType, Type toType)
+    private float GetTypeMultiplier(Type byType, Type toType)
     {
         if (byType == Type.none || toType == Type.none)
             return 1.0F;
@@ -156,27 +162,49 @@ public class BattleController : MonoBehaviour
         return 1.0F;
     }
 
+    private float GetMultiplier(Player byPlayer, Player toPlayer)
+    {
+        float x = GetTypeMultiplier(byPlayer.type, toPlayer.type);
+        if (toPlayer.IsUnderEffect(EffectId.tiedUp) != null)
+            x *= 2.0F;
+        if (byPlayer.IsUnderEffect(EffectId.mud) != null)
+            x *= 0.25F;
+        return x;
+    }
+
     public void ElementCollect(Type elementType)
     {
-        SpellId collectionSpell = SpellId.none;
         switch (elementType)
         {
-            case Type.fire:
-                collectionSpell = SpellId.magmaCollect;
+            case Type.grass:
+                greenChi++;
                 break;
             case Type.water:
-                collectionSpell = SpellId.slimeCollect;
+                blueChi++;
                 break;
-            case Type.grass:
-                collectionSpell = SpellId.naturalHeal;
+            case Type.fire:
+                redChi++;
                 break;
         }
-        if (collectionSpell != SpellId.none)
-        {
-            foreach (Player player in players)
-                if (player.type == elementType)
-                    PerformSpell(player.skill.Where(s => s.spellId == collectionSpell).First(), player, players[0], true);
-        }
+        //SpellId collectionSpell = SpellId.none;
+        //switch (elementType)
+        //{
+        //    case Type.fire:
+        //        collectionSpell = SpellId.magmaCollect;
+        //        break;
+        //    case Type.water:
+        //        collectionSpell = SpellId.slimeCollect;
+        //        break;
+        //    case Type.grass:
+        //        collectionSpell = SpellId.naturalHeal;
+        //        break;
+        //}
+        //if (collectionSpell != SpellId.none)
+        //{
+        //    foreach (Player player in players)
+        //        if (player.type == elementType)
+        //            PerformSpell(player.skill.Where(s => s.spellId == collectionSpell).First(), player, players[0], true);
+        //}
     }
 
 
@@ -189,15 +217,15 @@ public class BattleController : MonoBehaviour
         {
             case SpellId.fireArrow:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.fire, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.waterBall:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.water, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.woodenArrow:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.grass, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.firePillar:
                 if (perform)
@@ -206,10 +234,10 @@ public class BattleController : MonoBehaviour
                     {
                         for (int i = 1; i < players.Count; i++)
                             if (players[i].position > 0)
-                                players[i].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.fire, players[i].type)));
+                                players[i].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, players[i])));
                     }
                     else
-                        players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.fire, players[0].type)));
+                        players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, players[0])));
                 }
                 break;
             case SpellId.heal:
@@ -230,6 +258,12 @@ public class BattleController : MonoBehaviour
                         if (player != byPlayer)
                             player.AddSustainedEffect(new Effect(EffectId.mud, spell.hp, spell.duration));
                 break;
+            case SpellId.tieUp:
+                if (perform)
+                    foreach (Player player in players)
+                        if (player != byPlayer)
+                            player.AddSustainedEffect(new Effect(EffectId.tiedUp, spell.hp, spell.duration));
+                break;
             case SpellId.vinePull:
                 if (players.Where(p => p.position > 0).Count() <= 1)
                     return false;
@@ -244,36 +278,40 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.grassCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.grass, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.waterCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.water, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.fireCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(Type.fire, toPlayer.type)));
+                    toPlayer.DoDamage((int)Math.Ceiling((spell.hp + redChi) * GetMultiplier(byPlayer, toPlayer)));
                 break;
             case SpellId.slime:
-                if (byPlayer.chi < spell.hp)
-                    return false;
+                if (blueChi < spell.hp)
+                    return false; // can not afford
                 if (perform)
                 {
-                    byPlayer.chi -= spell.hp;
-                    UnityEngine.Debug.Log("Slime triggered");
+                    blueChi -= spell.hp;
                     DropSlime?.Invoke();
                 }
                 break;
             case SpellId.dodge:
-                if (byPlayer.position != 1)
-                    return false;
-                if (enemyCount <= 1)
-                    return false;
+                if (!perform) // dodge check
+                {
+                    if (byPlayer.position != 1)
+                        return false;
+                    if (enemyCount <= 1)
+                        return false;
+                }
                 if (perform)
                 {
                     foreach (Player player in players)
                         if (player.position > 1) player.position--;
                     byPlayer.position = enemyCount;
+
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
                 }
                 break;
             case SpellId.slimeCollect:
@@ -285,6 +323,14 @@ public class BattleController : MonoBehaviour
                 if (perform)
                     byPlayer.Regenerate(spell.hp);
                 break;
+            case SpellId.healAllEnemy:
+                if (perform)
+                {
+                    foreach (Player player in players)
+                        player.Regenerate(spell.hp + greenChi);
+                    greenChi = 0;
+                }
+                break;
             case SpellId.magmaCollect:
                 if (!byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).Any())
                     return false;
@@ -292,6 +338,15 @@ public class BattleController : MonoBehaviour
                     return false;
                 if (perform)
                     byPlayer.skill.Where(s => s.spellId == SpellId.fireCollide).First().cooldown -= spell.hp;
+                break;
+            case SpellId.elementClear:
+                if (perform)
+                {
+                    greenChi = 0;
+                    blueChi = 0;
+                    redChi = 0;
+                    ElementClear?.Invoke();
+                }
                 break;
         }
 
@@ -301,6 +356,28 @@ public class BattleController : MonoBehaviour
     public int round = 1;
     public int totalRounds = 3;
     private int nextRoundWait = 0;
+
+    private void insertGrass()
+    {
+        players.Add(new Player("green_slime", 45, Type.grass, players.Count));
+        //                                                  baseHp, duration, cooldown 
+        players.Last().skill.Add(new Spell(SpellId.grassCollide, 3, 0, 10));
+        players.Last().skill.Add(new Spell(SpellId.healAllEnemy, 5, 0, 10));
+    }
+
+    private void insertWater()
+    {
+        players.Add(new Player("blue_slime", 40, Type.water, players.Count));
+        players.Last().skill.Add(new Spell(SpellId.waterCollide, 3, 0, 5));
+        players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 10));
+    }
+
+    private void insertFire()
+    {
+        players.Add(new Player("red_slime", 35, Type.fire, players.Count));
+        players.Last().skill.Add(new Spell(SpellId.fireCollide, 10, 0, 20));
+        players.Last().skill.Add(new Spell(SpellId.dodge, 4, 0, 20));
+    }
 
     private void InitBattle(int round)
     {
@@ -313,65 +390,36 @@ public class BattleController : MonoBehaviour
                 players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
                 players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
                 players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.poisonBomb, 3, 5, 0));
-                players.Last().skill.Add(new Spell(SpellId.steamExplosion, 0, 6, 0));
-                players.Last().skill.Add(new Spell(SpellId.transformMud, 0, 10, 0));
+                players.Last().skill.Add(new Spell(SpellId.tieUp, 200, 15, 0));
+                players.Last().skill.Add(new Spell(SpellId.elementClear, 0, 0, 0));
+                players.Last().skill.Add(new Spell(SpellId.transformMud, 25, 10, 0));
                 players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
-                
+
                 nextRoundWait = 0;
                 break;
 
             case 1:
-                players.Add(new Player("green_slime", 10, Type.grass, 1));
-                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
-
-                players.Add(new Player("green_slime_2", 10, Type.grass, 2));
-                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
-
-                players.Add(new Player("green_slime_3", 10, Type.grass, 3));
-                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
+                insertGrass();
+                insertGrass();
+                insertGrass();
 
                 aliveEnemies = 3;
                 nextRoundWait = 3;
                 break;
 
             case 2:
-                players.Add(new Player("blue_slime", 10, Type.water, 1));
-                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
-
-                players.Add(new Player("blue_slime_2", 10, Type.water, 2));
-                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
-
-                players.Add(new Player("blue_slime_3", 10, Type.water, 3));
-                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
+                insertWater();
+                insertWater();
+                insertWater();
 
                 aliveEnemies = 3;
                 nextRoundWait = 5;
                 break;
 
             case 3:
-                players.Add(new Player("green_slime", 60, Type.grass, 1));
-                players.Last().skill.Add(new Spell(SpellId.grassCollide, 6, 0, 10));
-                players.Last().skill.Add(new Spell(SpellId.naturalHeal, 3, 0, 0));
-
-                players.Add(new Player("blue_slime", 50, Type.water, 2));
-                players.Last().skill.Add(new Spell(SpellId.waterCollide, 4, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slime, 3, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.slimeCollect, 1, 0, 0));
-
-                players.Add(new Player("red_slime", 40, Type.fire, 3));
-                players.Last().skill.Add(new Spell(SpellId.fireCollide, 20, 0, 30));
-                players.Last().skill.Add(new Spell(SpellId.dodge, 0, 0, 5));
-                players.Last().skill.Add(new Spell(SpellId.magmaCollect, 3, 0, 0));
+                insertGrass();
+                insertWater();
+                insertFire();
 
                 aliveEnemies = 3;
                 nextRoundWait = 0;
@@ -419,19 +467,8 @@ public class BattleController : MonoBehaviour
 
                 if (player.preparedFor >= player.skill[player.intention].cooldown)
                 {
-                    if (PerformSpell(player.skill[player.intention], player, players[0], false))
-                    {
-                        if (player.IsUnderEffect(EffectId.mud) != null)
-                        {
-                            // oh no, blocked
-                            UnityEngine.Debug.Log("Oh no, attack blocked");
-                        }
-                        else
-                            PerformSpell(player.skill[player.intention], player, players[0], true);
-                        player.intention = -1;
-                    }
-                    else
-                        player.intention = -1;
+                    PerformSpell(player.skill[player.intention], player, players[0], true);
+                    player.intention = -1;
                 }
             }
 
@@ -442,7 +479,10 @@ public class BattleController : MonoBehaviour
                 switch (player.type)
                 {
                     case Type.grass:
-                        player.intention = player.skill.IndexOf(player.skill.Where(s => s.spellId == SpellId.grassCollide).First());
+                        if (random < 50)
+                            player.intention = player.skill.IndexOf(player.skill.Where(s => s.spellId == SpellId.grassCollide).First());
+                        else
+                            player.intention = player.skill.IndexOf(player.skill.Where(s => s.spellId == SpellId.healAllEnemy).First());
                         break;
                     case Type.water:
                         if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.slime)], player, players[0], false) && random < 100)
@@ -451,14 +491,19 @@ public class BattleController : MonoBehaviour
                             player.intention = player.GetSpellIndex(SpellId.waterCollide);
                         break;
                     case Type.fire:
-                        if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.dodge)], player, players[0], false))
-                            player.intention = player.GetSpellIndex(SpellId.dodge);
-                        else
-                            player.intention = player.GetSpellIndex(SpellId.fireCollide);
+                        player.intention = player.GetSpellIndex(SpellId.fireCollide);
                         break;
                 }
 
                 player.preparedFor = 0;
+            }
+
+            if (player.type == Type.fire) // dodge
+            {
+                if (PerformSpell(player.skill[player.GetSpellIndex(SpellId.dodge)], player, players[0], false))
+                {
+                    player.intention = player.GetSpellIndex(SpellId.dodge);
+                }
             }
         }
     }

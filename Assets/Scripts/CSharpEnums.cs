@@ -25,14 +25,18 @@ public enum SpellId
     vinePull,
     transformMud,
     heal,
+    tieUp,  // 200% damage
+    elementClear,
+
     grassCollide,
     waterCollide,
     fireCollide, // a.k.a. magma eject
     slime,
     slimeCollect, // a.k.a. water collect
     naturalHeal, // a.k.a. grass collect
+    healAllEnemy, // green
     magmaCollect, // a.k.a. fire collect
-    dodge,
+    dodge,        // red
 }
 
 // Sustained Effect ID
@@ -41,4 +45,5 @@ public enum EffectId
     poison,
     dizziness,
     mud,
+    tiedUp
 }

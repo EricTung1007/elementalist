@@ -123,6 +123,7 @@ public class BattleController : MonoBehaviour
     private int blueChi = 0;
     private int redChi = 0;
 
+    [SerializeField] private GameObject fireArrowVFX;
 
     public void ReleaseSpellId(SpellId spell)
     {
@@ -217,8 +218,15 @@ public class BattleController : MonoBehaviour
         switch (spell.spellId)
         {
             case SpellId.fireArrow:
-                if (perform)
+                if (perform){
+                    Vector3 position = new Vector3(-2.88f, 2.5f, 0f); 
+                    Quaternion rotation = Quaternion.Euler(0f, 90f, -90f);
+                    GameObject newfireArrowVFX = Instantiate(fireArrowVFX, position, rotation);
+                    newfireArrowVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                    newfireArrowVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                }
+                    
                 break;
             case SpellId.waterBall:
                 if (perform)

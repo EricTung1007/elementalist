@@ -120,6 +120,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnityEvent NewWave;
     [SerializeField] private GameObject fireArrowVFX;
 
+    public int level = 0;
+
     public void ReleaseSpellId(SpellId spell)
     {
         foreach (Spell mySpell in players[0].skill)
@@ -368,6 +370,20 @@ public class BattleController : MonoBehaviour
     public int totalRounds = 3;
     private int nextRoundWait = 0;
 
+    private void insertPlayer()
+    {
+        players.Add(new Player("player", 120, Type.none, 0));
+        players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.tieUp, 200, 15, 0));
+        players.Last().skill.Add(new Spell(SpellId.elementClear, 0, 0, 0));
+        players.Last().skill.Add(new Spell(SpellId.transformMud, 25, 10, 0));
+        players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
+    }
+
     private void insertGrass()
     {
         players.Add(new Player("green_slime", 45, Type.grass, players.Count));
@@ -390,54 +406,102 @@ public class BattleController : MonoBehaviour
         players.Last().skill.Add(new Spell(SpellId.dodge, 4, 0, 20));
     }
 
-    private void InitBattle(int round)
+    private void insertRandomEnemy()
     {
-        switch (round)
+        switch (UnityEngine.Random.Range(0, 2))
         {
             case 0:
-                players.Add(new Player("player", 120, Type.none, 0));
-                players.Last().skill.Add(new Spell(SpellId.fireArrow, 4, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.waterBall, 4, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.woodenArrow, 4, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.firePillar, 6, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.heal, 15, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.tieUp, 200, 15, 0));
-                players.Last().skill.Add(new Spell(SpellId.elementClear, 0, 0, 0));
-                players.Last().skill.Add(new Spell(SpellId.transformMud, 25, 10, 0));
-                players.Last().skill.Add(new Spell(SpellId.vinePull, 0, 0, 0));
-
-                nextRoundWait = 0;
-                break;
-
+                insertGrass();
+                return;
             case 1:
-                insertGrass();
-                insertGrass();
-                insertGrass();
-
-                aliveEnemies = 3;
-                nextRoundWait = 3;
-                break;
-
+                insertWater();
+                return;
             case 2:
-                insertWater();
-                insertWater();
-                insertWater();
-
-                aliveEnemies = 3;
-                nextRoundWait = 5;
-                break;
-
-            case 3:
-                insertGrass();
-                insertWater();
                 insertFire();
-
-                aliveEnemies = 3;
-                nextRoundWait = 0;
-                break;
+                return;
         }
+    }
 
+    private void InitBattle(int round)
+    {
+        if (level == 0)
+        {
+            switch (round)
+            {
+                case 1:
+                    insertGrass();
+                    nextRoundWait = 3;
+                    break;
 
+                case 2:
+                    insertWater();
+                    insertFire();
+                    nextRoundWait = 5;
+                    break;
+
+                case 3:
+                    insertGrass();
+                    insertWater();
+                    insertFire();
+                    nextRoundWait = 0;
+                    break;
+            }
+        }
+        if (level == 1)
+        {
+            switch (round)
+            {
+                case 1:
+                    insertGrass();
+                    insertGrass();
+                    insertGrass();
+                    nextRoundWait = 3;
+                    break;
+
+                case 2:
+                    insertWater();
+                    insertWater();
+                    insertWater();
+                    nextRoundWait = 5;
+                    break;
+
+                case 3:
+                    insertFire();
+                    insertFire();
+                    insertFire();
+                    nextRoundWait = 0;
+                    break;
+            }
+        }
+        if (level == 2)
+        {
+            if (round <= 2)
+            {
+                insertRandomEnemy();
+                nextRoundWait = 3;
+            }
+            else if (round <= 5)
+            {
+                insertRandomEnemy();
+                insertRandomEnemy();
+                nextRoundWait = 3;
+            }
+            else if (round <= 9)
+            {
+                insertRandomEnemy();
+                insertRandomEnemy();
+                insertRandomEnemy();
+                nextRoundWait = 4;
+            }
+            else
+            {
+                insertRandomEnemy();
+                insertRandomEnemy();
+                insertRandomEnemy();
+                insertRandomEnemy();
+                nextRoundWait = 5;
+            }
+        }
     }
 
     void ProcessSustainedEffects()
@@ -564,6 +628,7 @@ public class BattleController : MonoBehaviour
             UnityEngine.Debug.Log("next wave " + round);
             players.RemoveRange(1, players.Count - 1);
             InitBattle(round);
+            aliveEnemies = players.Count - 1;
             NewWave?.Invoke();
             round++;
         }
@@ -590,7 +655,8 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         UnityEngine.Debug.Log("Start");
-        InitBattle(0); // init player
+        insertPlayer(); // init player
+        nextRoundWait = 0;
         NextWave();
     }
 

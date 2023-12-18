@@ -317,9 +317,12 @@ public class BattleController : MonoBehaviour
                     Vector3 position = new Vector3(-2.42f, 2f, 0f);
                     Quaternion rotation = Quaternion.Euler(90f, 0f, 0f);
                     for (int i = 1; i < players.Count; i++){
-                        GameObject newTransformMudVFX = Instantiate(transformMudVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
-                        newTransformMudVFX.transform.localScale = new Vector3(1f, 1f, 1f);
-                        newTransformMudVFX.layer = LayerMask.NameToLayer("VFX");
+                            if (players[i].position > 0)
+                            {
+                                GameObject newTransformMudVFX = Instantiate(transformMudVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                                newTransformMudVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                                newTransformMudVFX.layer = LayerMask.NameToLayer("VFX");
+                            }
                     }
                     foreach (Player player in players)
                         if (player != byPlayer)
@@ -331,9 +334,12 @@ public class BattleController : MonoBehaviour
                     Vector3 position = new Vector3(-2.42f, 2.5f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
                     for (int i = 1; i < players.Count; i++){
-                        GameObject newTieUpVFX = Instantiate(tieUpVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
-                        newTieUpVFX.transform.localScale = new Vector3(0.075f, 0.1f, 1f);
-                        newTieUpVFX.layer = LayerMask.NameToLayer("VFX");
+                        if (players[i].position > 0)
+                        {
+                            GameObject newTieUpVFX = Instantiate(tieUpVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                            newTieUpVFX.transform.localScale = new Vector3(0.075f, 0.1f, 1f);
+                            newTieUpVFX.layer = LayerMask.NameToLayer("VFX");
+                        }
                     }
                     foreach (Player player in players)
                         if (player != byPlayer)
@@ -354,9 +360,12 @@ public class BattleController : MonoBehaviour
                     Vector3 position = new Vector3(-2.42f, 2.5f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
                     for (int i = 1; i < players.Count; i++){
+                        if (players[i].position > 0)
+                        {
                         GameObject newVinePullVFX = Instantiate(vinePullVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
                         newVinePullVFX.transform.localScale = new Vector3(1f, 1f, 1f);
                         newVinePullVFX.layer = LayerMask.NameToLayer("VFX");
+                        }
                     }
                     foreach (Player player in players)
                     {
@@ -463,9 +472,12 @@ public class BattleController : MonoBehaviour
                     Vector3 position = new Vector3(-2.42f, 2.48f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
                     for (int i = 1; i < players.Count; i++){
+                        if (players[i].position > 0)
+                        {
                             GameObject newSteamExplosionVFX = Instantiate(steamExplosionVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
                             newSteamExplosionVFX.transform.localScale = new Vector3(1f, 1f, 1f);
                             newSteamExplosionVFX.layer = LayerMask.NameToLayer("VFX");
+                        }
                     }
                     ElementClear?.Invoke();
                 }

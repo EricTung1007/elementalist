@@ -17,26 +17,23 @@ public class SpellCost : MonoBehaviour
         switch (spellId)
         {
             case SpellId.fireArrow:
-                cost = new Type[2, 1]
+                cost = new Type[1, 2]
                 {
-                    {Type.fire},
-                    {Type.fire, }
+                    {Type.fire, Type.fire, }
                 };
                 break;
 
             case SpellId.waterBall:
-                cost = new Type[2, 1]
+                cost = new Type[1, 2]
                 {
-                    {Type.water},
-                    {Type.water, }
+                    {Type.water, Type.water, }
                 };
 
                 break;
             case SpellId.woodenArrow:
-                cost = new Type[2, 1]
+                cost = new Type[1, 2]
                 {
-                    {Type.grass},
-                    {Type.grass, }
+                    {Type.grass, Type.grass, }
                 };
 
                 break;
@@ -65,21 +62,21 @@ public class SpellCost : MonoBehaviour
                 }; 
                 break;
             case SpellId.vinePull:
-                cost = new Type[4, 2]
+                cost = new Type[3, 2]
                 {
                     {Type.grass, Type.none},
                     {Type.none, Type.grass},
                     {Type.grass, Type.none},
-                    {Type.none, Type.grass}
+                    //{Type.none, Type.grass}
                 }; 
                 break;
             case SpellId.transformMud:
-                cost = new Type[4, 1]
+                cost = new Type[3, 1]
                 {
                     {Type.water},
                     {Type.water},
                     {Type.water},
-                    {Type.water}
+                    //{Type.water}
                 }; 
                 break;
             case SpellId.heal:

@@ -122,6 +122,11 @@ public class BattleController : MonoBehaviour
     [SerializeField] private GameObject waterBallVFX;
     [SerializeField] private GameObject woodenArrowVFX;
     [SerializeField] private GameObject firePillarVFX;
+    [SerializeField] private GameObject healVFX;
+    [SerializeField] private GameObject steamExplosionVFX;
+    [SerializeField] private GameObject transformMudVFX;
+    [SerializeField] private GameObject tieUpVFX;
+    [SerializeField] private GameObject vinePullVFX;
 
     public int level = 0;
 
@@ -285,7 +290,15 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.heal:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-4.522f, 2f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newHealArrowVFX = Instantiate(healVFX, position, rotation);
+                    newHealArrowVFX.transform.localScale = new Vector3(0.15f, 0.2f, 1f);
+                    newHealArrowVFX.layer = LayerMask.NameToLayer("VFX");
                     byPlayer.Regenerate(spell.hp);
+                }
+                    
                 break;
             case SpellId.poisonBomb:
                 if (perform)
@@ -297,21 +310,51 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.transformMud:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-2.42f, 2f, 0f);
+                    Quaternion rotation = Quaternion.Euler(90f, 0f, 0f);
+                    for (int i = 1; i < players.Count; i++){
+                        GameObject newTransformMudVFX = Instantiate(transformMudVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                        newTransformMudVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                        newTransformMudVFX.layer = LayerMask.NameToLayer("VFX");
+                    }
                     foreach (Player player in players)
                         if (player != byPlayer)
                             player.AddSustainedEffect(new Effect(EffectId.mud, spell.hp, spell.duration));
+                }
                 break;
             case SpellId.tieUp:
-                if (perform)
+                if (perform){
+                    Vector3 position = new Vector3(-2.42f, 2.5f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    for (int i = 1; i < players.Count; i++){
+                        GameObject newTieUpVFX = Instantiate(tieUpVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                        newTieUpVFX.transform.localScale = new Vector3(0.075f, 0.1f, 1f);
+                        newTieUpVFX.layer = LayerMask.NameToLayer("VFX");
+                    }
                     foreach (Player player in players)
                         if (player != byPlayer)
                             player.AddSustainedEffect(new Effect(EffectId.tiedUp, spell.hp, spell.duration));
+                }
                 break;
             case SpellId.vinePull:
-                if (players.Where(p => p.position > 0).Count() <= 1)
+                if (players.Where(p => p.position > 0).Count() <= 1){
+                    Vector3 position = new Vector3(0f, 2.5f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newVinePullVFX = Instantiate(vinePullVFX, position, rotation);
+                    newVinePullVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                    newVinePullVFX.layer = LayerMask.NameToLayer("VFX");
                     return false;
+                }  
                 if (perform)
                 {
+                    Vector3 position = new Vector3(-2.42f, 2.5f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    for (int i = 1; i < players.Count; i++){
+                        GameObject newVinePullVFX = Instantiate(vinePullVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                        newVinePullVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                        newVinePullVFX.layer = LayerMask.NameToLayer("VFX");
+                    }
                     foreach (Player player in players)
                     {
                         if (player.position == enemyCount) player.position = 1;
@@ -388,6 +431,13 @@ public class BattleController : MonoBehaviour
                 {
                     foreach (Player player in players)
                         player.chi = 0;
+                    Vector3 position = new Vector3(-2.42f, 2.48f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    for (int i = 1; i < players.Count; i++){
+                            GameObject newSteamExplosionVFX = Instantiate(steamExplosionVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                            newSteamExplosionVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                            newSteamExplosionVFX.layer = LayerMask.NameToLayer("VFX");
+                    }
                     ElementClear?.Invoke();
                 }
                 break;

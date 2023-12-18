@@ -420,6 +420,11 @@ public class BattleController : MonoBehaviour
                     foreach (Player player in players)
                         if (player.position > 1) player.position--;
                     byPlayer.position = enemyCount;
+                    Vector3 position = new Vector3(-4.522f, 1.5f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newFireCollideVFX = Instantiate(fireCollideVFX, position, rotation);
+                    newFireCollideVFX .transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                    newFireCollideVFX.layer = LayerMask.NameToLayer("VFX");
 
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, byPlayer.type, toPlayer)));
                 }

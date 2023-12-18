@@ -501,6 +501,8 @@ public class BattleController : MonoBehaviour
                 insertRandomEnemy();
                 nextRoundWait = 5;
             }
+            for (int i = 1; i < players.Count; i++)
+                players[i].chi = round;
         }
     }
 

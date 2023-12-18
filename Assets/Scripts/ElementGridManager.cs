@@ -201,6 +201,17 @@ public class ElementGridManager : MonoBehaviour
             }
         }
     }
+    
+    public void RemoveAllElements()
+    {
+        foreach(var element in elementGrid)
+        {
+            if(element != null)
+            {
+                RemoveElement(element);
+            }
+        }
+    }
 
     public void PointerEnterElementTile(int xGrid, int yGrid)
     {

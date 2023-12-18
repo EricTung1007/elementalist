@@ -89,6 +89,22 @@ public class SpellCost : MonoBehaviour
                     {Type.none, Type.water}
                 };
                 break;
+            case SpellId.tieUp:
+                cost = new Type[3, 2]
+                {
+                    {Type.grass, Type.none},
+                    {Type.none, Type.grass},
+                    {Type.grass, Type.none}
+                };
+                break;
+            case SpellId.elementClear:
+                cost = new Type[3, 2]
+                {
+                    {Type.water, Type.fire},
+                    {Type.grass, Type.water},
+                    {Type.fire, Type.grass}
+                };
+                break;
         }
     }
 }

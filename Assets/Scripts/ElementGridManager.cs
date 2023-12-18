@@ -221,10 +221,22 @@ public class ElementGridManager : MonoBehaviour
         
         if(elementGrid[xGridHovering, yGridHovering] != null)
         {
-            elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Rewind();
             elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Play();
         }
         
+    }
+
+    public void PointerLeaveElementTile(int xGrid, int yGrid)
+    {
+        xGridHovering = xGrid;
+        yGridHovering = yGrid;
+
+
+        if (elementGrid[xGridHovering, yGridHovering] != null)
+        {
+            elementGrid[xGridHovering, yGridHovering].transform.localScale = new Vector3(1.0F, 1.0F, 1.0F);
+        }
+
     }
     private void CaptureElementTiles()
     {

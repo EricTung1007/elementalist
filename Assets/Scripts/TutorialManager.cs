@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private int previousCount;
     [SerializeField] private GameObject elementTile1;
     [SerializeField] private GameObject elementTile2;
-    public GameObject spellTile7;
+    public GameObject spellTile2;
     private int whichFunction = 0;
     [SerializeField] private GameObject arrowSign1;
     [SerializeField] private GameObject arrowSign2;
@@ -47,7 +47,7 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         if(whichFunction == 0){
-            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 1){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 0){
                 Destroy(elementTile1.GetComponent<TutorialElementTile>()); 
                 coverGrass.SetActive(true);
                 arrowSign1.SetActive(false);
@@ -74,7 +74,7 @@ public class TutorialManager : MonoBehaviour
         else if(whichFunction == 2)
             HandleChoosingSpell(); 
         else if(whichFunction == 3){
-            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 0){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 1){
                 textBack1.SetActive(false);
                 textBack2.SetActive(false);  
                 text11.SetActive(false); 
@@ -89,7 +89,7 @@ public class TutorialManager : MonoBehaviour
 
 
     public void HandleFirstEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             textBack1.SetActive(true);
             textBack2.SetActive(true);
             text3.SetActive(true);
@@ -112,7 +112,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleChoosingSpell(){
-        if(battleGUIManager.GetComponent<TutorialSpellGridManager>().selectedSpellTileNumber == 7){
+        if(battleGUIManager.GetComponent<TutorialSpellGridManager>().selectedSpellTileNumber == 2){
             arrowSign4.SetActive(false);            
             coverWhole.SetActive(true);
             Time.timeScale = 0f;
@@ -126,7 +126,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleCastingSpell(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,0)!= 1 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             Time.timeScale = 0f;
             textBack1.SetActive(true);
             textBack2.SetActive(true);
@@ -149,6 +149,6 @@ public class TutorialManager : MonoBehaviour
         nextCount--;
     }
     public void ModifySpellClick(){
-        spellTile7.GetComponent<TutorialSpellTileClickable>().active = !spellTile7.GetComponent<TutorialSpellTileClickable>().active; 
+        spellTile2.GetComponent<TutorialSpellTileClickable>().active = !spellTile2.GetComponent<TutorialSpellTileClickable>().active; 
     }
 }

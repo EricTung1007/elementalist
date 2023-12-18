@@ -40,7 +40,7 @@ public class TutorialElementGridManager : MonoBehaviour
         if (fixedUpdateCount % elementMovingInterval == 0)
         {
             MoveElements();
-            RemoveGooOnSide();
+            //RemoveGooOnSide();
         }
         // Generate elements if possible
         if (fixedUpdateCount % elementGenerationInterval == 0)
@@ -61,8 +61,8 @@ public class TutorialElementGridManager : MonoBehaviour
                 if((j == 0 && (i == 1 || i == 4 || i == 6)) || ((i == 2 || i == 6 || i == 7) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.grass);
                 }
-                // water: (0,0), (5,0), (8,0), (1,1), (3,1), (5,1), (7,1)
-                else if(((i == 0 || i == 5 || i == 8) && j == 0) || ((i == 1 || i == 3 || i == 5 || i == 7) && j == 1)){
+                // water: (0,0), (5,0), (8,0), (1,1), (3,1), (4,1), (7,1)
+                else if(((i == 0 || i == 5 || i == 8) && j == 0) || ((i == 1 || i == 3 || i == 4 || i == 7) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.water);
                 }
                 else{
@@ -109,7 +109,7 @@ public class TutorialElementGridManager : MonoBehaviour
         Type[] defaultGenerationPool = new Type[3] { Type.fire, Type.water, Type.grass };
 
         element.type = Type.none;
-        if (debuffGoo > 0)
+        if ((debuffGoo > 0) && (random.Next(100) < 50))
         {
             element.type = Type.goo;
             debuffGoo--;
@@ -223,11 +223,22 @@ public class TutorialElementGridManager : MonoBehaviour
             }
         }
     }
+    
+    public void RemoveAllElements()
+    {
+        foreach(var element in elementGrid)
+        {
+            if(element != null)
+            {
+                RemoveElement(element);
+            }
+        }
+    }
 
     public void PointerEnterElementTile(int xGrid, int yGrid)
     {
         xGridHovering = xGrid;
-        yGridHovering = yGrid;
+        yGridHovering = yGrid;  
     }
     private void CaptureElementTiles()
     {
@@ -273,6 +284,7 @@ public class TutorialElementGridManager : MonoBehaviour
                     if (cost[i, j] == Type.none) continue;
                     Image image = elementTiles[i + xGridHovering, j + yGridHovering].GetComponent<Image>();
                     image.color = Color.yellow;
+                                    //image.color -= new Color(0f, 0f, 0f, 0.5f);
                 }
             }
         }

@@ -130,6 +130,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private GameObject grassCollideVFX;
     [SerializeField] private GameObject waterCollideVFX;
     [SerializeField] private GameObject fireCollideVFX;
+    [SerializeField] private GameObject healAllEnemyVFX;
 
     public int level = 0;
 
@@ -429,10 +430,10 @@ public class BattleController : MonoBehaviour
                     foreach (Player player in players)
                         if (player.position > 1) player.position--;
                     byPlayer.position = enemyCount;
-                    Vector3 position = new Vector3(-4.522f, 1.5f, 0f);
+                    Vector3 position = new Vector3(-4.522f, 1.9f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
                     GameObject newFireCollideVFX = Instantiate(fireCollideVFX, position, rotation);
-                    newFireCollideVFX .transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                    newFireCollideVFX .transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     newFireCollideVFX.layer = LayerMask.NameToLayer("VFX");
 
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, byPlayer.type, toPlayer)));
@@ -450,9 +451,16 @@ public class BattleController : MonoBehaviour
             case SpellId.healAllEnemy:
                 if (perform)
                 {
+                    Vector3 position = new Vector3(-2.42f, 1.8f, 0f);
+                    Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
                     foreach (Player player in players)
                         if (player.position >= 1)
+                        {
+                            GameObject newHealAllEnemyVFX = Instantiate(healAllEnemyVFX, position + new Vector3(player.position*2.42f, 0f, 0f) , rotation);
+                            newHealAllEnemyVFX.transform.localScale = new Vector3(0.15f, 0.6f, 0.5f);
+                            newHealAllEnemyVFX.layer = LayerMask.NameToLayer("VFX");
                             player.Regenerate(spell.hp + byPlayer.chi);
+                        }
                     byPlayer.chi = 0;
                 }
                 break;
@@ -479,6 +487,10 @@ public class BattleController : MonoBehaviour
                             newSteamExplosionVFX.layer = LayerMask.NameToLayer("VFX");
                         }
                     }
+                    position = new Vector3(3.2f, -3.47f, 0f);
+                    GameObject newSteamExplosionVFX1 = Instantiate(steamExplosionVFX, position, rotation);
+                    newSteamExplosionVFX1.transform.localScale = new Vector3(1f, 1f, 1f);
+                    newSteamExplosionVFX1.layer = LayerMask.NameToLayer("VFX");
                     ElementClear?.Invoke();
                 }
                 break;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -86,31 +86,31 @@ public class SpellTileClickable : MonoBehaviour, IPointerDownHandler, IPointerEn
                 infoBox.GetComponent<InfoBox>().currentHovering = "";
                 break;
             case 1:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¤õ¥Ú¡G³y¦¨ 4 ÂI¤õÄİ©Ê¶Ë®`";
+                infoBox.GetComponent<InfoBox>().currentHovering = "ç«çŸ¢ï¼šé€ æˆ 4 é»ç«å±¬æ€§å‚·å®³";
                 break;
             case 2:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¤ô¼u¡G³y¦¨ 4 ÂI¤ôÄİ©Ê¶Ë®`";
+                infoBox.GetComponent<InfoBox>().currentHovering = "æ°´å½ˆï¼šé€ æˆ 4 é»æ°´å±¬æ€§å‚·å®³";
                 break;
             case 3:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¤ì¨ë¡G³y¦¨ 4 ÂI¤ìÄİ©Ê¶Ë®`";
+                infoBox.GetComponent<InfoBox>().currentHovering = "æœ¨åˆºï¼šé€ æˆ 4 é»æœ¨å±¬æ€§å‚·å®³";
                 break;
             case 4:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¤õ¬W¡G¹ï¼Ä¤è¥şÅé³y¦¨ 6 ÂI¤õÄİ©Ê¶Ë®`";
+                infoBox.GetComponent<InfoBox>().currentHovering = "ç«æŸ±ï¼šå°æ•µæ–¹å…¨é«”é€ æˆ 6 é»ç«å±¬æ€§å‚·å®³";
                 break;
             case 5:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¦^´_¡G¦^´_ 15 ÂI¥Í©R";
+                infoBox.GetComponent<InfoBox>().currentHovering = "å›å¾©ï¼šå›å¾© 15 é»ç”Ÿå‘½";
                 break;
             case 6:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¸i¸j¡G¬I¥[ 15 ¬í [ ¸i¸j ] \n [ ¸i¸j ] ¡G¨ü¨ì¶Ë®` x 200%";
+                infoBox.GetComponent<InfoBox>().currentHovering = "ç¶‘ç¶ï¼šæ–½åŠ  15 ç§’ [ ç¶‘ç¶ ] \n [ ç¶‘ç¶ ] ï¼šå—åˆ°å‚·å®³ x 200%";
                 break;
             case 7:
-                infoBox.GetComponent<InfoBox>().currentHovering = "¤¸¯À¥R©è¡G®ø°£¼Ä¤è¤¸¯À¼W¯q¡A¨Ã²MªÅ¤¸¯À¼Ñ";
+                infoBox.GetComponent<InfoBox>().currentHovering = "å…ƒç´ å……æŠµï¼šæ¶ˆé™¤æ•µæ–¹å…ƒç´ å¢ç›Šï¼Œä¸¦æ¸…ç©ºå…ƒç´ æ§½";
                 break;
             case 8:
-                infoBox.GetComponent<InfoBox>().currentHovering = "ªdªhÂà¤Æ¡G¹ï¼Ä¤è¥şÅé¬I¥[ 10 ¬í [ ªdÀ× ]  \n [ ªdÀ× ] ¡G³y¦¨¶Ë®` x 25%";
+                infoBox.GetComponent<InfoBox>().currentHovering = "æ³¥æ²¼è½‰åŒ–ï¼šå°æ•µæ–¹å…¨é«”æ–½åŠ  10 ç§’ [ æ³¥æ¿˜ ]  \n [ æ³¥æ¿˜ ] ï¼šé€ æˆå‚·å®³ x 25%";
                 break;
             case 9:
-                infoBox.GetComponent<InfoBox>().currentHovering = "ÃÃ½¯©Ô§è¡G±N³Ì«á¤èªº¼Ä¤H²¾¦Ü³Ì«e¤è";
+                infoBox.GetComponent<InfoBox>().currentHovering = "è—¤è”“æ‹‰æ‰¯ï¼šå°‡æœ€å¾Œæ–¹çš„æ•µäººç§»è‡³æœ€å‰æ–¹";
                 break;
         }
     }

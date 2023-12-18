@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,7 +11,7 @@ public class InfoBox : MonoBehaviour
 
     private void Start()
     {
-        currentSelecting = "¤õ¥Ú¡G³y¦¨ 4 ÂI¤õÄİ©Ê¶Ë®`";
+        currentSelecting = "ç«çŸ¢ï¼šé€ æˆ 4 é»ç«å±¬æ€§å‚·å®³";
     }
     void Update()
     {

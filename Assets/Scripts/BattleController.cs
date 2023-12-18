@@ -227,7 +227,7 @@ public class BattleController : MonoBehaviour
     // return true if performed/can perform successfully or false if the spell is held on until criteria meets
     public bool PerformSpell(Spell spell, Player byPlayer, Player toPlayer, bool perform = true)
     {
-        UnityEngine.Debug.Log(spell.spellId + " performed by " + byPlayer.playerId + " at " + toPlayer.playerId);
+        UnityEngine.Debug.Log(spell.spellId + (perform ? " performed by " : " tested by ") + byPlayer.playerId + " at " + toPlayer.playerId);
         int enemyCount = players.Where(p => p.position > 0).Count();
         switch (spell.spellId)
         {
@@ -650,6 +650,7 @@ public class BattleController : MonoBehaviour
     {
         foreach (Player player in players)
         {
+            UnityEngine.Debug.Log(player.playerId + ": " + player.intention);
             if (player == players[0]) continue; // not enemy
             if (player.position < 0) continue; // dead
 
@@ -669,6 +670,8 @@ public class BattleController : MonoBehaviour
                     player.intention = -1;
                 }
             }
+
+            UnityEngine.Debug.Log(player.playerId + " mid: " + player.intention);
 
             if (player.intention < 0) // intention to be determined
             {

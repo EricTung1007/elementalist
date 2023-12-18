@@ -127,6 +127,9 @@ public class BattleController : MonoBehaviour
     [SerializeField] private GameObject transformMudVFX;
     [SerializeField] private GameObject tieUpVFX;
     [SerializeField] private GameObject vinePullVFX;
+    [SerializeField] private GameObject grassCollideVFX;
+    [SerializeField] private GameObject waterCollideVFX;
+    [SerializeField] private GameObject fireCollideVFX;
 
     public int level = 0;
 
@@ -364,16 +367,37 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.grassCollide:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-4.522f, 2f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newGrassCollideVFX = Instantiate(grassCollideVFX, position, rotation);
+                    newGrassCollideVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                    newGrassCollideVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.grass, toPlayer)));
+                }
                 break;
             case SpellId.waterCollide:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-4.522f, 2f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newWaterCollideVFX = Instantiate(waterCollideVFX, position, rotation);
+                    newWaterCollideVFX .transform.localScale = new Vector3(1f, 1f, 1f);
+                    newWaterCollideVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.water, toPlayer)));
+                }
                 break;
             case SpellId.fireCollide:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-4.522f, 2f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+                    GameObject newFireCollideVFX = Instantiate(fireCollideVFX, position, rotation);
+                    newFireCollideVFX .transform.localScale = new Vector3(1f, 1f, 1f);
+                    newFireCollideVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling((spell.hp + byPlayer.chi) * GetMultiplier(byPlayer, Type.fire, toPlayer)));
-                break;
+                }
+                break;    
             case SpellId.slime:
                 if (byPlayer.chi < spell.hp)
                     return false; // can not afford

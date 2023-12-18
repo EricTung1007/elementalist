@@ -270,6 +270,7 @@ public class ElementGridManager : MonoBehaviour
                     if (cost[i, j] == Type.none) continue;
                     Image image = elementTiles[i + xGridHovering, j + yGridHovering].GetComponent<Image>();
                     image.color = Color.yellow;
+                    //image.color -= new Color(0f, 0f, 0f, 0.5f);
                 }
             }
         }

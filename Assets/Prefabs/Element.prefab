@@ -87,7 +87,7 @@ MonoBehaviour:
   spriteFire: {fileID: 21300000, guid: 52eeb23eb4b36104e96a31704cb2ffed, type: 3}
   spriteWater: {fileID: 21300000, guid: 4cdad989871e1dd43aa3c8c795bcf46f, type: 3}
   spriteGrass: {fileID: 21300000, guid: e5c69209e8a9fc144b94157bbfa00d2f, type: 3}
-  spriteGoo: {fileID: 21300000, guid: 550870b11a7590d4991b068c77b15128, type: 3}
+  spriteGoo: {fileID: 21300000, guid: 7c8a4ad1bf1e80441a1a612288595158, type: 3}
 --- !u!222 &5856868822491739170
 CanvasRenderer:
   m_ObjectHideFlags: 0

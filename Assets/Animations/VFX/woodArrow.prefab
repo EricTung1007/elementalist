@@ -9530,6 +9530,7 @@ GameObject:
   - component: {fileID: 3198125141242694118}
   - component: {fileID: 3354215182318397600}
   - component: {fileID: 7403850491094498435}
+  - component: {fileID: 6681564681770873943}
   m_Layer: 0
   m_Name: woodArrow
   m_TagString: Untagged
@@ -9570,7 +9571,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14312,6 +14313,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &6681564681770873943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832952112364405817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70af4b9da72cb448884660381143fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2.5
 --- !u!1 &6856423574269318020
 GameObject:
   m_ObjectHideFlags: 0

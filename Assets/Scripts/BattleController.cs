@@ -121,6 +121,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private GameObject fireArrowVFX;
     [SerializeField] private GameObject waterBallVFX;
     [SerializeField] private GameObject woodenArrowVFX;
+    [SerializeField] private GameObject firePillarVFX;
 
     public int level = 0;
 
@@ -252,7 +253,7 @@ public class BattleController : MonoBehaviour
                     Vector3 position = new Vector3(-3.12f, 2.53f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 90f, -90f);
                     GameObject newWoodenArrowVFX = Instantiate(woodenArrowVFX, position, rotation);
-                    newWoodenArrowVFX.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    newWoodenArrowVFX.transform.localScale = new Vector3(1f, 1f, 1f);
                     newWoodenArrowVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.grass, toPlayer)));
                 }
@@ -260,14 +261,26 @@ public class BattleController : MonoBehaviour
             case SpellId.firePillar:
                 if (perform)
                 {
+                    Vector3 position = new Vector3(-2.42f, 2.000149f, 0f);
+                    Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f);
                     if (byPlayer == players[0])
                     {
                         for (int i = 1; i < players.Count; i++)
                             if (players[i].position > 0)
+                            {
+                                GameObject newFirePillarVFX = Instantiate(firePillarVFX, position + new Vector3(players[i].position*2.42f, 0f, 0f) , rotation);
+                                newFirePillarVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                                newFirePillarVFX.layer = LayerMask.NameToLayer("VFX");
                                 players[i].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, players[i])));
+                            }
                     }
                     else
-                        players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, players[0])));
+                    {
+                            GameObject newFirePillarVFX = Instantiate(firePillarVFX, transform.position, rotation);
+                            newFirePillarVFX.transform.localScale = new Vector3(1f, 1f, 1f);
+                            newFirePillarVFX.layer = LayerMask.NameToLayer("VFX");
+                            players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, players[0])));
+                    }
                 }
                 break;
             case SpellId.heal:

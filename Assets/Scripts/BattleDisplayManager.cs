@@ -32,7 +32,10 @@ public class BattleDisplayManager : MonoBehaviour
                 case Type.water: newEnemyObject = Instantiate(blueSlimeObject, new Vector3(0, 0, 0), Quaternion.identity, enemyHolder.transform); break;
                 case Type.fire: newEnemyObject = Instantiate(redSlimeObject, new Vector3(0, 0, 0), Quaternion.identity, enemyHolder.transform); break;
             }
+            newEnemyObject.transform.GetChild(3).GetComponent<EnemyInfoHoveringDisplay>().enemyPos = i;
+
             enemyObject.Add(newEnemyObject);
+
         }
 
         Debug.Log("New Wave Loaded!");
@@ -126,7 +129,7 @@ public class BattleDisplayManager : MonoBehaviour
         if(entity.playerId != "player")
         {
             float pos = entity.position;
-            entityObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos * 240f - 120f, 0, 0);
+            entityObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos * 240f - 240f, 0, 0);
         }
 
         if (entity.isHurt)

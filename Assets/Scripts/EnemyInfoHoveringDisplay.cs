@@ -5,17 +5,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
+public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private int enemyPos;
+    [SerializeField] public int enemyPos;
     Player player;
     public GameObject BattleController;
 
-    TextMeshProUGUI description;
+    //TextMeshProUGUI description;
+    [SerializeField] GameObject infoBox;
     private void Awake()
     {
-        description = GameObject.Find("Description").GetComponent<TextMeshProUGUI>();
+        //description = GameObject.Find("Description").GetComponent<TextMeshProUGUI>();
         BattleController = GameObject.Find("BattleController");
+        infoBox = GameObject.Find("Description");
     }
     public void Start()
     {
@@ -75,6 +77,12 @@ public class EnemyInfoHoveringDisplay : MonoBehaviour, IPointerEnterHandler
                 break;
         }
 
-        description.text = info;
+        //description.text = info;
+        infoBox.GetComponent<InfoBox>().currentHovering = info;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        infoBox.GetComponent<InfoBox>().currentHovering = "";
     }
 }

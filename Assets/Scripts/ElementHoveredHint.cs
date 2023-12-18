@@ -33,7 +33,6 @@ public class ElementHoveredHint : MonoBehaviour, IPointerEnterHandler//, IPointe
 
         //anim.Rewind();
         anim.Play();
-        
         //transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
     /*

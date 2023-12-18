@@ -118,11 +118,6 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnityEvent DropSlime;
     [SerializeField] private UnityEvent ElementClear;
     [SerializeField] private UnityEvent NewWave;
-
-    private int greenChi = 0;
-    private int blueChi = 0;
-    private int redChi = 0;
-
     [SerializeField] private GameObject fireArrowVFX;
 
     public void ReleaseSpellId(SpellId spell)
@@ -164,9 +159,9 @@ public class BattleController : MonoBehaviour
         return 1.0F;
     }
 
-    private float GetMultiplier(Player byPlayer, Player toPlayer)
+    private float GetMultiplier(Player byPlayer, Type attackType, Player toPlayer)
     {
-        float x = GetTypeMultiplier(byPlayer.type, toPlayer.type);
+        float x = GetTypeMultiplier(attackType, toPlayer.type);
         if (toPlayer.IsUnderEffect(EffectId.tiedUp) != null)
             x *= 2.0F;
         if (byPlayer.IsUnderEffect(EffectId.mud) != null)
@@ -176,18 +171,24 @@ public class BattleController : MonoBehaviour
 
     public void ElementCollect(Type elementType)
     {
-        switch (elementType)
+        foreach (Player player in players)
         {
-            case Type.grass:
-                greenChi++;
-                break;
-            case Type.water:
-                blueChi++;
-                break;
-            case Type.fire:
-                redChi++;
-                break;
+            if (player.type == elementType)
+                player.chi++;
         }
+
+        //switch (elementType)
+        //{
+        //    case Type.grass:
+        //        greenChi++;
+        //        break;
+        //    case Type.water:
+        //        blueChi++;
+        //        break;
+        //    case Type.fire:
+        //        redChi++;
+        //        break;
+        //}
         //SpellId collectionSpell = SpellId.none;
         //switch (elementType)
         //{
@@ -218,23 +219,24 @@ public class BattleController : MonoBehaviour
         switch (spell.spellId)
         {
             case SpellId.fireArrow:
-                if (perform){
-                    Vector3 position = new Vector3(-2.88f, 2.5f, 0f); 
+                if (perform)
+                {
+                    Vector3 position = new Vector3(-2.88f, 2.5f, 0f);
                     Quaternion rotation = Quaternion.Euler(0f, 90f, -90f);
                     GameObject newfireArrowVFX = Instantiate(fireArrowVFX, position, rotation);
                     newfireArrowVFX.transform.localScale = new Vector3(1f, 1f, 1f);
                     newfireArrowVFX.layer = LayerMask.NameToLayer("VFX");
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, toPlayer)));
                 }
-                    
+
                 break;
             case SpellId.waterBall:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.water, toPlayer)));
                 break;
             case SpellId.woodenArrow:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.grass, toPlayer)));
                 break;
             case SpellId.firePillar:
                 if (perform)
@@ -243,10 +245,10 @@ public class BattleController : MonoBehaviour
                     {
                         for (int i = 1; i < players.Count; i++)
                             if (players[i].position > 0)
-                                players[i].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, players[i])));
+                                players[i].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, players[i])));
                     }
                     else
-                        players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, players[0])));
+                        players[0].DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.fire, players[0])));
                 }
                 break;
             case SpellId.heal:
@@ -287,22 +289,22 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.grassCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.grass, toPlayer)));
                 break;
             case SpellId.waterCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.water, toPlayer)));
                 break;
             case SpellId.fireCollide:
                 if (perform)
-                    toPlayer.DoDamage((int)Math.Ceiling((spell.hp + redChi) * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling((spell.hp + byPlayer.chi) * GetMultiplier(byPlayer, Type.fire, toPlayer)));
                 break;
             case SpellId.slime:
-                if (blueChi < spell.hp)
+                if (byPlayer.chi < spell.hp)
                     return false; // can not afford
                 if (perform)
                 {
-                    blueChi -= spell.hp;
+                    byPlayer.chi -= spell.hp;
                     DropSlime?.Invoke();
                 }
                 break;
@@ -320,7 +322,7 @@ public class BattleController : MonoBehaviour
                         if (player.position > 1) player.position--;
                     byPlayer.position = enemyCount;
 
-                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, toPlayer)));
+                    toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, byPlayer.type, toPlayer)));
                 }
                 break;
             case SpellId.slimeCollect:
@@ -337,8 +339,8 @@ public class BattleController : MonoBehaviour
                 {
                     foreach (Player player in players)
                         if (player.position >= 1)
-                            player.Regenerate(spell.hp + greenChi);
-                    greenChi = 0;
+                            player.Regenerate(spell.hp + byPlayer.chi);
+                    byPlayer.chi = 0;
                 }
                 break;
             case SpellId.magmaCollect:
@@ -352,9 +354,8 @@ public class BattleController : MonoBehaviour
             case SpellId.elementClear:
                 if (perform)
                 {
-                    greenChi = 0;
-                    blueChi = 0;
-                    redChi = 0;
+                    foreach (Player player in players)
+                        player.chi = 0;
                     ElementClear?.Invoke();
                 }
                 break;

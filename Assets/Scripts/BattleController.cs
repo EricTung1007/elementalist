@@ -119,6 +119,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] private UnityEvent ElementClear;
     [SerializeField] private UnityEvent NewWave;
     [SerializeField] private GameObject fireArrowVFX;
+    [SerializeField] private GameObject waterBallVFX;
+    [SerializeField] private GameObject woodenArrowVFX;
 
     public int level = 0;
 
@@ -234,11 +236,26 @@ public class BattleController : MonoBehaviour
                 break;
             case SpellId.waterBall:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-3f, 2.52f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 0f, -90f);
+                    GameObject newWaterBallVFX = Instantiate(waterBallVFX, position, rotation);
+                    newWaterBallVFX.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    newWaterBallVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.water, toPlayer)));
+                }
+                    
                 break;
             case SpellId.woodenArrow:
                 if (perform)
+                {
+                    Vector3 position = new Vector3(-3.12f, 2.53f, 0f);
+                    Quaternion rotation = Quaternion.Euler(0f, 90f, -90f);
+                    GameObject newWoodenArrowVFX = Instantiate(woodenArrowVFX, position, rotation);
+                    newWoodenArrowVFX.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    newWoodenArrowVFX.layer = LayerMask.NameToLayer("VFX");
                     toPlayer.DoDamage((int)Math.Ceiling(spell.hp * GetMultiplier(byPlayer, Type.grass, toPlayer)));
+                }
                 break;
             case SpellId.firePillar:
                 if (perform)

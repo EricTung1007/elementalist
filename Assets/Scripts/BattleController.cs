@@ -607,10 +607,11 @@ public class BattleController : MonoBehaviour
             BattleUpdate();
             battleCount++;
 
+            if (battleCount % 5 == 0 && players.Count() >= 0 && players[0].position == 0 && players[0].GetHP() < players[0].maxhp)
+                players[0].maxhp--;
+
             if (battleCount >= reservedNextWave && reservedNextWave > 0)
-            {
                 NextWave();
-            }
         }
 
         PlayersManagement();

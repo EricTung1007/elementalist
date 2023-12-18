@@ -87,11 +87,10 @@ public class SpellCost : MonoBehaviour
                 };
                 break;
             case SpellId.tieUp:
-                cost = new Type[3, 2]
+                cost = new Type[2, 2]
                 {
-                    {Type.grass, Type.none},
+                    {Type.grass, Type.grass},
                     {Type.none, Type.grass},
-                    {Type.grass, Type.none}
                 };
                 break;
             case SpellId.elementClear:

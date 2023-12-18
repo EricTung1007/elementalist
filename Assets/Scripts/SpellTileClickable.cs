@@ -101,13 +101,13 @@ public class SpellTileClickable : MonoBehaviour, IPointerDownHandler, IPointerEn
                 infoBox.GetComponent<InfoBox>().currentHovering = "回復：回復 15 點生命";
                 break;
             case 6:
-                infoBox.GetComponent<InfoBox>().currentHovering = "毒液：施加 5 秒 [ 中毒 ] \n [ 中毒 ] ：每秒失去 3 點生命";
+                infoBox.GetComponent<InfoBox>().currentHovering = "綑綁：施加 15 秒 [ 綑綁 ] \n [ 綑綁 ] ：受到傷害 x 200%";
                 break;
             case 7:
-                infoBox.GetComponent<InfoBox>().currentHovering = "蒸氣震爆：施加 6 秒 [ 暈眩 ]  \n [ 暈眩 ] ：失去當前意圖且無法行動";
+                infoBox.GetComponent<InfoBox>().currentHovering = "元素充抵：消除敵方元素增益，並清空元素槽";
                 break;
             case 8:
-                infoBox.GetComponent<InfoBox>().currentHovering = "泥沼轉化：對敵方全體施加 10 秒 [ 泥濘 ]  \n [ 泥濘 ] ：無法進行進戰攻擊和位移";
+                infoBox.GetComponent<InfoBox>().currentHovering = "泥沼轉化：對敵方全體施加 10 秒 [ 泥濘 ]  \n [ 泥濘 ] ：造成傷害 x 25%";
                 break;
             case 9:
                 infoBox.GetComponent<InfoBox>().currentHovering = "藤蔓拉扯：將最後方的敵人移至最前方";

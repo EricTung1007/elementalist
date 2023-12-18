@@ -98,11 +98,11 @@ public class SpellCost : MonoBehaviour
                 };
                 break;
             case SpellId.elementClear:
-                cost = new Type[3, 2]
+                cost = new Type[3, 1]
                 {
-                    {Type.water, Type.fire},
-                    {Type.grass, Type.water},
-                    {Type.fire, Type.grass}
+                    {Type.water},
+                    {Type.grass},
+                    {Type.fire},
                 };
                 break;
         }

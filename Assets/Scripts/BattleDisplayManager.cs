@@ -73,6 +73,20 @@ public class BattleDisplayManager : MonoBehaviour
         hpBar.GetComponent<TextMeshProUGUI>().text = hpBarText;
 
         string statusEffectText = "";
+
+        switch (entity.type)
+        {
+            case Type.fire:
+                statusEffectText += $"火元素[{entity.chi}]\n";
+                break;
+            case Type.water:
+                statusEffectText += $"水元素[{entity.chi}]\n";
+                break;
+            case Type.grass:
+                statusEffectText += $"木元素[{entity.chi}]\n";
+                break;
+        }
+
         foreach (Effect effect in entity.sustainedEffect)
         {
             //statusEffectText += $"{effect.effectId} {effect.hp}({effect.duration})\n";
@@ -87,6 +101,9 @@ public class BattleDisplayManager : MonoBehaviour
                     break;
                 case EffectId.mud:
                     statusEffectText += $"泥濘";
+                    break;
+                case EffectId.tiedUp:
+                    statusEffectText += $"綑綁";
                     break;
             }
             statusEffectText += $" ({effect.duration})\n";

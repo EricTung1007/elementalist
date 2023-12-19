@@ -252,7 +252,8 @@ public class ElementGridManager : MonoBehaviour
             for (int j = 0; j < gridHeight; j++)
             {
                 if (i != xGridHovering || j != yGridHovering)
-                    elementGrid[i, j].transform.localScale = new Vector3(1.0F, 1.0F);
+                    if (elementGrid[i, j] != null)
+                        elementGrid[i, j].transform.localScale = new Vector3(1.0F, 1.0F);
             }
     }
     private void SpellCostHighLight()

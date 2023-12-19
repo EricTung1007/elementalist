@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -559,6 +559,7 @@ public class BattleController : MonoBehaviour
     {
         if (level == 0)
         {
+            totalRounds = 3;
             switch (round)
             {
                 case 1:
@@ -582,6 +583,7 @@ public class BattleController : MonoBehaviour
         }
         if (level == 1)
         {
+            totalRounds = 3;
             switch (round)
             {
                 case 1:
@@ -608,6 +610,7 @@ public class BattleController : MonoBehaviour
         }
         if (level == 2)
         {
+            totalRounds = 9999999; // 耶
             if (round <= 2)
             {
                 insertRandomEnemy();

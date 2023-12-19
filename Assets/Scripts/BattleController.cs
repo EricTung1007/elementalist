@@ -734,6 +734,7 @@ public class BattleController : MonoBehaviour
                     // player dead
                     Debug.Log("Game Lose!");
                     GameLose?.Invoke();
+                    //if(level == 2)
                 }
                 else
                 {
@@ -775,6 +776,17 @@ public class BattleController : MonoBehaviour
             // win
             Debug.Log("Game Win!");
             GameWin?.Invoke();
+            switch(level)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("level0result", 1);
+                    break;
+                case 1:
+                    PlayerPrefs.SetInt("level1result", 1);
+                    break;
+                //case 2:
+                //    break;
+            }
         }
         reservedNextWave = -1;
     }
@@ -787,6 +799,18 @@ public class BattleController : MonoBehaviour
         ProcessSustainedEffects();
 
         ProcessEnemyBehaviour();
+
+        if(level == 2)
+        {
+            Debug.Log("level2");
+            if(PlayerPrefs.HasKey("level2result"))
+            {
+                if(PlayerPrefs.GetInt("level2result") < (round - 1)) 
+                    PlayerPrefs.SetInt("level2result", round - 1);
+            }
+            else
+                PlayerPrefs.SetInt("level2result", round - 1);
+        }
     }
 
     // Start is called before the first frame update

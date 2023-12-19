@@ -47,7 +47,7 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         if(whichFunction == 0){
-            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 0){
+            if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 2){
                 Destroy(elementTile1.GetComponent<TutorialElementTile>()); 
                 coverGrass.SetActive(true);
                 arrowSign1.SetActive(false);
@@ -59,7 +59,7 @@ public class TutorialManager : MonoBehaviour
             HandleFirstEliminate();
         }      
         else if(whichFunction == 1){
-            if( battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0) != 2){
+            if( battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,1) != 0){
                 Destroy(elementTile2.GetComponent<TutorialElementTile>());
                 coverWater.SetActive(true);
                 textBack1.SetActive(false);
@@ -78,6 +78,8 @@ public class TutorialManager : MonoBehaviour
                 textBack1.SetActive(false);
                 textBack2.SetActive(false);  
                 text11.SetActive(false); 
+                coverGrass.SetActive(true);
+                coverWater.SetActive(true);
                 arrowSign3.SetActive(false);            
                 coverWhole.SetActive(true);
                 coverSpell.SetActive(true);                
@@ -89,7 +91,7 @@ public class TutorialManager : MonoBehaviour
 
 
     public void HandleFirstEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(5,1)!= 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){
             textBack1.SetActive(true);
             textBack2.SetActive(true);
             text3.SetActive(true);
@@ -100,7 +102,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void HandleSecondEliminate(){
-        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(4,0)!= 2 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){          
+        if(battleGUIManager.GetComponent<TutorialElementGridManager>().GetElementType(3,1)!= 0 && battleGUIManager.GetComponent<TutorialElementGridManager>().CheckAllElementsExist()){          
             Time.timeScale = 0f;
             textBack1.SetActive(true);
             textBack2.SetActive(true);

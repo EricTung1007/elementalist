@@ -57,12 +57,12 @@ public class TutorialElementGridManager : MonoBehaviour
         {
             for(int j = 0; j < gridHeight; j++) 
             {
-                // grass: (1,0), (4,0), (6,0), (2,1), (6,1), (7,1)
-                if((j == 0 && (i == 1 || i == 4 || i == 6)) || ((i == 2 || i == 6 || i == 7) && j == 1)){
+                // grass: (1,0), (4,0), (2,1), (6,1), (7,1)
+                if((j == 0 && (i == 1 || i == 4)) || ((i == 2 || i == 6 || i == 7) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.grass);
                 }
-                // water: (0,0), (5,0), (8,0), (1,1), (3,1), (4,1), (7,1)
-                else if(((i == 0 || i == 5 || i == 8) && j == 0) || ((i == 1 || i == 3 || i == 4 || i == 7) && j == 1)){
+                // water: (0,0), (3,0), (6,0), (8,0), (1,1), (4,1)
+                else if(((i == 0 || i == 3 || i == 6 || i == 8) && j == 0) || ((i == 1 || i == 4) && j == 1)){
                     elementGrid[i, j] = GenerateSpecificElement(i, j, Type.water);
                 }
                 else{
@@ -239,6 +239,19 @@ public class TutorialElementGridManager : MonoBehaviour
     {
         xGridHovering = xGrid;
         yGridHovering = yGrid;  
+
+        if(elementGrid[xGridHovering, yGridHovering] != null)
+        {
+            elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>()?.Rewind();
+            elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>()?.Play();
+        }
+    }
+
+    public void PointerEnterElementTileNoAnime(int xGrid, int yGrid)
+    {
+        xGridHovering = xGrid;
+        yGridHovering = yGrid;  
+
     }
     private void CaptureElementTiles()
     {
@@ -326,7 +339,15 @@ public class TutorialElementGridManager : MonoBehaviour
         CaptureElementTiles();
         for(int i = 0; i <gridWidth; i++){
             for(int j = 0; j < gridHeight; j++){
-                if(!(i == 3 && j == 0)){
+                if((i == 4 && j == 0) || (i == 3 && j == 1)){
+                    Destroy(elementTiles[i, j].GetComponent<TutorialElementTile>());
+                    TutorialElementTile elementTileScript = elementTiles[i, j].AddComponent<TutorialElementTile>();
+                    elementTileScript.xGrid = i;
+                    elementTileScript.yGrid = j;
+                    elementTileScript._entered = pointerEnter;
+                }
+                    
+                else if(!(i == 3 && j == 0)){
                     TutorialElementTile elementTileScript = elementTiles[i, j].AddComponent<TutorialElementTile>();
                     elementTileScript.xGrid = i;
                     elementTileScript.yGrid = j;

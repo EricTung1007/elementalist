@@ -793,6 +793,7 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         UnityEngine.Debug.Log("Start");
+        level = PlayerPrefs.GetInt("level");
         insertPlayer(); // init player
         nextRoundWait = 0;
         NextWave();

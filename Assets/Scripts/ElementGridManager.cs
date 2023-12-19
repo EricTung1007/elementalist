@@ -54,7 +54,7 @@ public class ElementGridManager : MonoBehaviour
     {
         for (int i = 0; i < gridWidth; i++)
         {
-            for(int j = 0; j < gridHeight; j++) 
+            for (int j = 0; j < gridHeight; j++)
             {
                 elementGrid[i, j] = GenerateElement(i, j);
             }
@@ -165,13 +165,13 @@ public class ElementGridManager : MonoBehaviour
                         return matechedSpellCost;
                     }
                 }
-                
+
             }
         }
 
         return matechedSpellCost;
     }
-    public void RemoveUsedElements(Type[, ] cost, int x, int y)
+    public void RemoveUsedElements(Type[,] cost, int x, int y)
     {
         int xCost = cost.GetUpperBound(0) + 1;
         int yCost = cost.GetUpperBound(1) + 1;
@@ -201,12 +201,12 @@ public class ElementGridManager : MonoBehaviour
             }
         }
     }
-    
+
     public void RemoveAllElements()
     {
-        foreach(var element in elementGrid)
+        foreach (var element in elementGrid)
         {
-            if(element != null)
+            if (element != null)
             {
                 RemoveElement(element);
             }
@@ -218,17 +218,23 @@ public class ElementGridManager : MonoBehaviour
         xGridHovering = xGrid;
         yGridHovering = yGrid;
 
-        
-        if(elementGrid[xGridHovering, yGridHovering] != null)
+        if (elementGrid[xGridHovering, yGridHovering] != null)
         {
             elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Rewind();
             elementGrid[xGridHovering, yGridHovering].GetComponent<Animation>().Play();
         }
-        
+
     }
+
+    public void PointerExitElementTile(int xGrid, int yGrid)
+    {
+        xGridHovering = -1;
+        yGridHovering = -1;
+    }
+
     private void CaptureElementTiles()
     {
-        for(int i = 0; i < gridWidth; i++)
+        for (int i = 0; i < gridWidth; i++)
         {
             for (int j = 0; j < gridHeight; j++)
             {
@@ -241,6 +247,13 @@ public class ElementGridManager : MonoBehaviour
     private void Update()
     {
         SpellCostHighLight();
+
+        for (int i = 0; i < gridWidth; i++)
+            for (int j = 0; j < gridHeight; j++)
+            {
+                if (i != xGridHovering || j != yGridHovering)
+                    elementGrid[i, j].transform.localScale = new Vector3(1.0F, 1.0F);
+            }
     }
     private void SpellCostHighLight()
     {

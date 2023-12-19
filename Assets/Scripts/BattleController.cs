@@ -541,7 +541,7 @@ public class BattleController : MonoBehaviour
 
     private void insertRandomEnemy()
     {
-        switch (UnityEngine.Random.Range(0, 2))
+        switch (UnityEngine.Random.Range(0, 3))
         {
             case 0:
                 insertGrass();
